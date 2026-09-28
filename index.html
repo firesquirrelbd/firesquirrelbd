@@ -1,522 +1,780 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Fire Squirrel | Online Shopping</title>
+<title>Fire Squirrel | Online Shopping</title>
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-    }
+<style>
 
-    html {
-      scroll-behavior: smooth;
-    }
+/* =========================
+   GLOBAL
+========================= */
 
-    body {
-      background: #fffaf3;
-      color: #222;
-    }
-
-    button,
-    a {
-      cursor: pointer;
-    }
-
-    /* HEADER */
-
-    header {
-      background: #111;
-      color: white;
-      padding: 12px 6%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      position: sticky;
-      top: 0;
-      z-index: 999;
-      box-shadow: 0 4px 15px rgba(0,0,0,.2);
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .brand img {
-      width: 55px;
-      height: 55px;
-      object-fit: cover;
-      border-radius: 50%;
-      border: 3px solid #ff8c00;
-    }
-
-    .brand h1 {
-      color: #ff8c00;
-      font-size: 25px;
-    }
-
-    nav {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-    }
-
-    nav a,
-    nav button {
-      color: white;
-      background: none;
-      border: none;
-      text-decoration: none;
-      font-size: 15px;
-      font-weight: bold;
-    }
-
-    nav a:hover,
-    nav button:hover {
-      color: #ff8c00;
-    }
-
-    .profile-btn {
-      border: 1px solid #ff8c00 !important;
-      padding: 9px 15px;
-      border-radius: 20px;
-    }
-
-    /* HERO */
-
-    .hero {
-      min-height: 580px;
-      padding: 70px 7%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 40px;
-      background: linear-gradient(135deg, #fff8ee, #ffe0b2);
-    }
-
-    .hero-text {
-      max-width: 650px;
-    }
-
-    .hero-text h2 {
-      font-size: 52px;
-      line-height: 1.1;
-      margin-bottom: 20px;
-    }
-
-    .hero-text h2 span {
-      color: #f57c00;
-    }
-
-    .hero-text p {
-      font-size: 18px;
-      line-height: 1.7;
-      color: #555;
-      margin-bottom: 30px;
-    }
-
-    .btn {
-      display: inline-block;
-      background: #ff7800;
-      color: white;
-      padding: 13px 22px;
-      border: none;
-      border-radius: 30px;
-      text-decoration: none;
-      font-weight: bold;
-      margin: 5px;
-    }
-
-    .btn:hover {
-      background: #df5f00;
-    }
-
-    .btn-dark {
-      background: #111;
-    }
-
-    .hero-logo img {
-  width: 400px;
-  max-width: 100%;
-  border-radius: 50%;
-  border: none;
-  padding: 0;
-  background: transparent;
-  box-shadow: 0 15px 40px rgba(0,0,0,.2);
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial,Helvetica,sans-serif;
 }
 
-    /* SECTIONS */
+html{
+  scroll-behavior:smooth;
+}
 
-    section {
-      padding: 70px 7%;
-    }
+body{
+  background:#ffffff;
+  color:#222;
+}
 
-    .section-title {
-      text-align: center;
-      margin-bottom: 40px;
-    }
+a,
+button{
+  cursor:pointer;
+}
 
-    .section-title h2 {
-      font-size: 36px;
-      margin-bottom: 10px;
-    }
+button{
+  font-family:inherit;
+}
 
-    .section-title p {
-      color: #666;
-    }
 
-    /* CATEGORIES */
+/* =========================
+   HEADER
+========================= */
 
-    .categories {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 20px;
-    }
+header{
+  background:#111;
+  color:white;
+  padding:12px 6%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  position:sticky;
+  top:0;
+  z-index:999;
+  box-shadow:0 4px 15px rgba(0,0,0,.20);
+}
 
-    .category {
-      display: block;
-      text-decoration: none;
-      color: #111;
-      background: white;
-      padding: 30px 15px;
-      text-align: center;
-      border-radius: 15px;
-      box-shadow: 0 5px 20px rgba(0,0,0,.08);
-      transition: .3s;
-    }
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
 
-    .category:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 12px 30px rgba(0,0,0,.15);
-      border: 2px solid #ff8500;
-    }
+.brand img{
+  width:55px;
+  height:55px;
+  object-fit:cover;
+  border-radius:50%;
+  border:3px solid #ff8c00;
+}
 
-    .category .icon {
-      font-size: 45px;
-      margin-bottom: 15px;
-    }
+.brand h1{
+  color:#ff8c00;
+  font-size:25px;
+}
 
-    .category h3 {
-      font-size: 18px;
-    }
+nav{
+  display:flex;
+  align-items:center;
+  gap:22px;
+}
 
-    /* PRODUCT AREA */
+nav a,
+nav button{
+  color:white;
+  background:none;
+  border:none;
+  text-decoration:none;
+  font-size:15px;
+  font-weight:bold;
+}
 
-    .product-section {
-      background: #fff;
-      border-top: 1px solid #eee;
-    }
+nav a:hover,
+nav button:hover{
+  color:#ff8c00;
+}
 
-    .product-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 25px;
-    }
+.profile-btn{
+  border:1px solid #ff8c00 !important;
+  padding:9px 16px;
+  border-radius:20px;
+}
 
-    .product-card {
-      background: white;
-      border-radius: 18px;
-      padding: 25px;
-      text-align: center;
-      box-shadow: 0 5px 20px rgba(0,0,0,.08);
-      border: 1px solid #eee;
-    }
 
-    .product-icon {
-      font-size: 65px;
-      margin-bottom: 15px;
-    }
+/* =========================
+   HERO
+========================= */
 
-    .product-card h3 {
-      margin-bottom: 8px;
-    }
+.hero{
+  min-height:580px;
+  padding:70px 7%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:50px;
+  background:#ffffff;
+}
 
-    .price {
-      color: #f57c00;
-      font-size: 22px;
-      font-weight: bold;
-      margin: 12px 0;
-    }
+.hero-text{
+  max-width:650px;
+}
 
-    .order-btn {
-      background: #25d366;
-      color: white;
-      border: none;
-      padding: 11px 20px;
-      border-radius: 25px;
-      font-weight: bold;
-    }
+.hero-text h2{
+  font-size:56px;
+  line-height:1.1;
+  margin-bottom:20px;
+  letter-spacing:-1px;
+}
 
-    /* HOW IT WORKS */
+.hero-text h2 span{
+  color:#f57c00;
+}
 
-    .steps {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 25px;
-    }
+.hero-text p{
+  font-size:18px;
+  line-height:1.7;
+  color:#555;
+  margin-bottom:30px;
+  max-width:620px;
+}
 
-    .step {
-      background: white;
-      padding: 30px;
-      text-align: center;
-      border-radius: 15px;
-      box-shadow: 0 5px 20px rgba(0,0,0,.08);
-    }
+.btn{
+  display:inline-block;
+  background:#ff7800;
+  color:white;
+  padding:13px 22px;
+  border:none;
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:bold;
+  margin:5px;
+  transition:.3s;
+}
 
-    .step-number {
-      width: 50px;
-      height: 50px;
-      line-height: 50px;
-      background: #ff7800;
-      color: white;
-      border-radius: 50%;
-      margin: 0 auto 15px;
-      font-weight: bold;
-      font-size: 20px;
-    }
+.btn:hover{
+  background:#df5f00;
+  transform:translateY(-2px);
+}
 
-    .step p {
-      color: #666;
-      line-height: 1.6;
-      margin-top: 10px;
-    }
+.btn-dark{
+  background:#111;
+}
 
-    /* DELIVERY */
+.btn-dark:hover{
+  background:#333;
+}
 
-    .delivery-box {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
 
-    .delivery-card {
-      background: white;
-      padding: 30px;
-      text-align: center;
-      border-radius: 15px;
-      box-shadow: 0 5px 20px rgba(0,0,0,.08);
-    }
+/* HERO LOGO */
 
-    .delivery-card h3 {
-      color: #f57c00;
-      margin-bottom: 12px;
-    }
+.hero-logo{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#fff;
+  flex:0 0 auto;
+}
 
-    .delivery-card p {
-      color: #555;
-      line-height: 1.7;
-    }
+.hero-logo img{
+  width:420px;
+  height:420px;
+  max-width:100%;
+  object-fit:contain;
+  border-radius:50%;
+  border:none;
+  padding:0;
+  background:#fff;
+  box-shadow:none;
+}
 
-    /* PROFILE */
 
-    .profile-section {
-      background: #fff1dd;
-      display: none;
-    }
+/* =========================
+   SECTIONS
+========================= */
 
-    .profile-card {
-      max-width: 600px;
-      margin: auto;
-      background: white;
-      padding: 35px;
-      border-radius: 20px;
-      box-shadow: 0 8px 25px rgba(0,0,0,.1);
-      text-align: center;
-    }
+section{
+  padding:75px 7%;
+  background:#fff;
+}
 
-    .profile-avatar {
-      font-size: 65px;
-      margin-bottom: 15px;
-    }
+.section-title{
+  text-align:center;
+  margin-bottom:40px;
+}
 
-    .profile-info {
-      margin: 15px 0;
-      line-height: 2;
-      color: #555;
-    }
+.section-title h2{
+  font-size:36px;
+  margin-bottom:10px;
+}
 
-    /* CONTACT */
+.section-title p{
+  color:#666;
+  font-size:16px;
+}
 
-    .contact {
-      text-align: center;
-      background: #fff0dc;
-    }
 
-    .contact p {
-      margin: 10px 0;
-      font-size: 18px;
-    }
+/* =========================
+   CATEGORIES
+========================= */
 
-    /* MODAL */
+.categories{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:20px;
+}
 
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 2000;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,.65);
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-    }
+.category{
+  display:block;
+  text-decoration:none;
+  color:#111;
+  background:white;
+  padding:30px 15px;
+  text-align:center;
+  border-radius:15px;
+  box-shadow:0 5px 20px rgba(0,0,0,.08);
+  border:1px solid #eee;
+  transition:.3s;
+}
 
-    .modal-box {
-      width: 100%;
-      max-width: 430px;
-      background: white;
-      padding: 30px;
-      border-radius: 20px;
-      position: relative;
-    }
+.category:hover{
+  transform:translateY(-8px);
+  box-shadow:0 12px 30px rgba(0,0,0,.15);
+  border:2px solid #ff8500;
+}
 
-    .modal-box h2 {
-      text-align: center;
-      margin-bottom: 20px;
-    }
+.category .icon{
+  font-size:45px;
+  margin-bottom:15px;
+}
 
-    .close {
-      position: absolute;
-      right: 18px;
-      top: 12px;
-      font-size: 28px;
-      cursor: pointer;
-    }
+.category h3{
+  font-size:18px;
+}
 
-    .input {
-      width: 100%;
-      padding: 13px;
-      margin: 8px 0;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      font-size: 15px;
-    }
 
-    .full-btn {
-      width: 100%;
-      margin-top: 12px;
-    }
+/* =========================
+   PRODUCT AREA
+========================= */
 
-    .switch {
-      text-align: center;
-      margin-top: 18px;
-      color: #666;
-    }
+.product-section{
+  background:#fafafa;
+  border-top:1px solid #eee;
+}
 
-    .switch span {
-      color: #f57c00;
-      font-weight: bold;
-      cursor: pointer;
-    }
+.product-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:25px;
+}
 
-    /* FOOTER */
+.product-card{
+  background:white;
+  border-radius:18px;
+  padding:25px;
+  text-align:center;
+  box-shadow:0 5px 20px rgba(0,0,0,.08);
+  border:1px solid #eee;
+  transition:.3s;
+}
 
-    footer {
-      background: #111;
-      color: white;
-      text-align: center;
-      padding: 25px;
-      line-height: 1.8;
-    }
+.product-card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 12px 30px rgba(0,0,0,.12);
+}
 
-    footer span {
-      color: #ff8c00;
-    }
+.product-icon{
+  font-size:65px;
+  margin-bottom:15px;
+}
 
-    /* MOBILE */
+.product-card h3{
+  margin-bottom:8px;
+}
 
-    @media(max-width: 900px) {
+.product-card p{
+  color:#666;
+  line-height:1.6;
+}
 
-      nav {
-        gap: 10px;
-      }
+.price{
+  color:#f57c00;
+  font-size:22px;
+  font-weight:bold;
+  margin:12px 0;
+}
 
-      nav a:nth-child(2),
-      nav a:nth-child(3) {
-        display: none;
-      }
+.order-btn{
+  background:#25d366;
+  color:white;
+  border:none;
+  padding:11px 20px;
+  border-radius:25px;
+  font-weight:bold;
+  transition:.3s;
+}
 
-      .hero {
-        flex-direction: column;
-        text-align: center;
-      }
+.order-btn:hover{
+  background:#1ebc59;
+  transform:translateY(-2px);
+}
 
-      .hero-text h2 {
-        font-size: 40px;
-      }
 
-      .categories {
-        grid-template-columns: repeat(2, 1fr);
-      }
+/* =========================
+   HOW IT WORKS
+========================= */
 
-      .product-grid,
-      .steps,
-      .delivery-box {
-        grid-template-columns: 1fr;
-      }
-    }
+.steps{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:25px;
+}
 
-    @media(max-width: 500px) {
+.step{
+  background:white;
+  padding:30px;
+  text-align:center;
+  border-radius:15px;
+  box-shadow:0 5px 20px rgba(0,0,0,.08);
+  border:1px solid #eee;
+}
 
-      header {
-        padding: 10px 4%;
-      }
+.step-number{
+  width:50px;
+  height:50px;
+  line-height:50px;
+  background:#ff7800;
+  color:white;
+  border-radius:50%;
+  margin:0 auto 15px;
+  font-weight:bold;
+  font-size:20px;
+}
 
-      .brand h1 {
-        font-size: 20px;
-      }
+.step p{
+  color:#666;
+  line-height:1.6;
+  margin-top:10px;
+}
 
-      .brand img {
-        width: 45px;
-        height: 45px;
-      }
 
-      .categories {
-        grid-template-columns: 1fr;
-      }
+/* =========================
+   DELIVERY
+========================= */
 
-      section {
-        padding: 50px 5%;
-      }
-    }
-  </style>
+.delivery-box{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+.delivery-card{
+  background:white;
+  padding:30px;
+  text-align:center;
+  border-radius:15px;
+  box-shadow:0 5px 20px rgba(0,0,0,.08);
+  border:1px solid #eee;
+}
+
+.delivery-card h3{
+  color:#f57c00;
+  margin-bottom:12px;
+}
+
+.delivery-card p{
+  color:#555;
+  line-height:1.7;
+}
+
+
+/* =========================
+   PROFILE
+========================= */
+
+.profile-section{
+  background:#fff;
+  display:none;
+}
+
+.profile-card{
+  max-width:600px;
+  margin:auto;
+  background:white;
+  padding:35px;
+  border-radius:20px;
+  box-shadow:0 8px 25px rgba(0,0,0,.1);
+  text-align:center;
+  border:1px solid #eee;
+}
+
+.profile-avatar{
+  font-size:65px;
+  margin-bottom:15px;
+}
+
+.profile-info{
+  margin:15px 0;
+  line-height:2;
+  color:#555;
+}
+
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact{
+  text-align:center;
+  background:#fafafa;
+  border-top:1px solid #eee;
+}
+
+.contact p{
+  margin:10px 0;
+  font-size:18px;
+}
+
+
+/* =========================
+   SOCIAL MEDIA
+========================= */
+
+.social-links{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:15px;
+  flex-wrap:wrap;
+  margin-top:25px;
+}
+
+.social-links a{
+  text-decoration:none;
+  color:white;
+  padding:10px 18px;
+  border-radius:25px;
+  font-weight:bold;
+  transition:.3s;
+}
+
+.facebook{
+  background:#1877f2;
+}
+
+.instagram{
+  background:#e4405f;
+}
+
+.tiktok{
+  background:#111;
+  border:1px solid #555;
+}
+
+.social-links a:hover{
+  transform:translateY(-3px);
+  opacity:.9;
+}
+
+
+/* =========================
+   MODAL
+========================= */
+
+.modal{
+  display:none;
+  position:fixed;
+  z-index:2000;
+  left:0;
+  top:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,.65);
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
+
+.modal-box{
+  width:100%;
+  max-width:430px;
+  background:white;
+  padding:30px;
+  border-radius:20px;
+  position:relative;
+  box-shadow:0 20px 50px rgba(0,0,0,.25);
+}
+
+.modal-box h2{
+  text-align:center;
+  margin-bottom:20px;
+}
+
+.close{
+  position:absolute;
+  right:18px;
+  top:12px;
+  font-size:28px;
+  cursor:pointer;
+  color:#555;
+}
+
+.close:hover{
+  color:#f57c00;
+}
+
+.input{
+  width:100%;
+  padding:13px;
+  margin:8px 0;
+  border:1px solid #ccc;
+  border-radius:8px;
+  font-size:15px;
+  outline:none;
+}
+
+.input:focus{
+  border-color:#ff7800;
+}
+
+.full-btn{
+  width:100%;
+  margin-top:12px;
+}
+
+.switch{
+  text-align:center;
+  margin-top:18px;
+  color:#666;
+}
+
+.switch span{
+  color:#f57c00;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+  background:#111;
+  color:white;
+  text-align:center;
+  padding:30px 20px;
+  line-height:1.8;
+}
+
+footer span{
+  color:#ff8c00;
+}
+
+.footer-social{
+  display:flex;
+  justify-content:center;
+  gap:15px;
+  margin:15px 0;
+  flex-wrap:wrap;
+}
+
+.footer-social a{
+  color:white;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+.footer-social a:hover{
+  color:#ff8c00;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:1000px){
+
+  .categories{
+    grid-template-columns:repeat(3,1fr);
+  }
+
+  .hero-logo img{
+    width:360px;
+    height:360px;
+  }
+}
+
+
+@media(max-width:900px){
+
+  nav{
+    gap:10px;
+  }
+
+  nav a:nth-child(2),
+  nav a:nth-child(3){
+    display:none;
+  }
+
+  .hero{
+    flex-direction:column;
+    text-align:center;
+    padding-top:50px;
+  }
+
+  .hero-text{
+    max-width:700px;
+  }
+
+  .hero-text h2{
+    font-size:44px;
+  }
+
+  .hero-logo{
+    margin-top:10px;
+  }
+
+  .hero-logo img{
+    width:350px;
+    height:350px;
+  }
+
+  .categories{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .product-grid,
+  .steps,
+  .delivery-box{
+    grid-template-columns:1fr;
+  }
+}
+
+
+@media(max-width:600px){
+
+  header{
+    padding:10px 4%;
+  }
+
+  .brand h1{
+    font-size:20px;
+  }
+
+  .brand img{
+    width:45px;
+    height:45px;
+  }
+
+  nav{
+    gap:7px;
+  }
+
+  .profile-btn{
+    padding:8px 12px;
+    font-size:13px;
+  }
+
+  .hero{
+    min-height:auto;
+    padding:55px 5%;
+  }
+
+  .hero-text h2{
+    font-size:38px;
+  }
+
+  .hero-text p{
+    font-size:16px;
+  }
+
+  .hero-logo img{
+    width:300px;
+    height:300px;
+  }
+
+  .categories{
+    grid-template-columns:1fr;
+  }
+
+  section{
+    padding:55px 5%;
+  }
+
+  .section-title h2{
+    font-size:30px;
+  }
+
+  .modal-box{
+    padding:25px 20px;
+  }
+}
+
+
+@media(max-width:400px){
+
+  .hero-logo img{
+    width:260px;
+    height:260px;
+  }
+
+  .hero-text h2{
+    font-size:34px;
+  }
+
+  .btn{
+    width:100%;
+    margin:5px 0;
+  }
+}
+
+</style>
 </head>
+
 
 <body>
 
-<!-- HEADER -->
+
+<!-- =========================
+     HEADER
+========================= -->
 
 <header>
 
   <div class="brand">
+
     <img src="logo.png" alt="Fire Squirrel Logo">
+
     <h1>Fire Squirrel</h1>
+
   </div>
 
+
   <nav>
+
     <a href="#home">Home</a>
+
     <a href="#products">Products</a>
+
     <a href="#how">How It Works</a>
+
     <a href="#contact">Contact</a>
 
     <button class="profile-btn" onclick="openLogin()">
       👤 Login
     </button>
+
   </nav>
 
 </header>
 
 
-<!-- HOME -->
+
+<!-- =========================
+     HOME
+========================= -->
 
 <section class="hero" id="home">
 
@@ -533,26 +791,42 @@
       local area.
     </p>
 
-    <a class="btn"
-       href="https://wa.me/8801516602562"
-       target="_blank">
+
+    <a
+      class="btn"
+      href="https://wa.me/8801516602562"
+      target="_blank"
+    >
       📲 Order on WhatsApp
     </a>
 
-    <a class="btn btn-dark" href="#products">
+
+    <a
+      class="btn btn-dark"
+      href="#products"
+    >
       🛍️ Explore Products
     </a>
 
   </div>
 
+
   <div class="hero-logo">
-    <img src="logo.png" alt="Fire Squirrel">
+
+    <img
+      src="logo.png"
+      alt="Fire Squirrel"
+    >
+
   </div>
 
 </section>
 
 
-<!-- CATEGORIES -->
+
+<!-- =========================
+     CATEGORIES
+========================= -->
 
 <section id="products">
 
@@ -561,7 +835,7 @@
     <h2>What We Provide</h2>
 
     <p>
-      Click a category to see available products.
+      Choose a category or tell us what you need.
     </p>
 
   </div>
@@ -603,7 +877,10 @@
 </section>
 
 
-<!-- BOOKS -->
+
+<!-- =========================
+     BOOKS
+========================= -->
 
 <section class="product-section" id="books">
 
@@ -616,6 +893,7 @@
     </p>
 
   </div>
+
 
   <div class="product-grid">
 
@@ -633,8 +911,10 @@
         Contact for Price
       </div>
 
-      <button class="order-btn"
-              onclick="orderProduct('Academic Books')">
+      <button
+        class="order-btn"
+        onclick="orderProduct('Academic Books')"
+      >
         Order Now
       </button>
 
@@ -655,8 +935,10 @@
         Contact for Price
       </div>
 
-      <button class="order-btn"
-              onclick="orderProduct('Novel')">
+      <button
+        class="order-btn"
+        onclick="orderProduct('Novel')"
+      >
         Order Now
       </button>
 
@@ -667,7 +949,10 @@
 </section>
 
 
-<!-- SPORTS -->
+
+<!-- =========================
+     SPORTS
+========================= -->
 
 <section class="product-section" id="sports">
 
@@ -680,6 +965,7 @@
     </p>
 
   </div>
+
 
   <div class="product-grid">
 
@@ -697,8 +983,10 @@
         Contact for Price
       </div>
 
-      <button class="order-btn"
-              onclick="orderProduct('Cricket Products')">
+      <button
+        class="order-btn"
+        onclick="orderProduct('Cricket Products')"
+      >
         Order Now
       </button>
 
@@ -719,8 +1007,10 @@
         Contact for Price
       </div>
 
-      <button class="order-btn"
-              onclick="orderProduct('Football Products')">
+      <button
+        class="order-btn"
+        onclick="orderProduct('Football Products')"
+      >
         Order Now
       </button>
 
@@ -731,7 +1021,10 @@
 </section>
 
 
-<!-- COSMETICS -->
+
+<!-- =========================
+     COSMETICS
+========================= -->
 
 <section class="product-section" id="cosmetics">
 
@@ -744,6 +1037,7 @@
     </p>
 
   </div>
+
 
   <div class="product-grid">
 
@@ -761,8 +1055,10 @@
         Contact for Price
       </div>
 
-      <button class="order-btn"
-              onclick="orderProduct('Cosmetics Product')">
+      <button
+        class="order-btn"
+        onclick="orderProduct('Cosmetics Product')"
+      >
         Order Now
       </button>
 
@@ -773,7 +1069,10 @@
 </section>
 
 
-<!-- MEDICINE -->
+
+<!-- =========================
+     MEDICINE
+========================= -->
 
 <section class="product-section" id="medicine">
 
@@ -786,6 +1085,7 @@
     </p>
 
   </div>
+
 
   <div class="product-grid">
 
@@ -803,8 +1103,10 @@
         Contact for Price
       </div>
 
-      <button class="order-btn"
-              onclick="orderProduct('Medicine')">
+      <button
+        class="order-btn"
+        onclick="orderProduct('Medicine')"
+      >
         Request Medicine
       </button>
 
@@ -815,7 +1117,10 @@
 </section>
 
 
-<!-- OTHER PRODUCTS -->
+
+<!-- =========================
+     OTHER PRODUCTS
+========================= -->
 
 <section class="product-section" id="other">
 
@@ -829,6 +1134,7 @@
 
   </div>
 
+
   <div class="product-grid">
 
     <div class="product-card">
@@ -841,8 +1147,10 @@
         Send us a product picture and we will try to find it.
       </p>
 
-      <button class="order-btn"
-              onclick="orderProduct('Product Request')">
+      <button
+        class="order-btn"
+        onclick="orderProduct('Product Request')"
+      >
         Send Request
       </button>
 
@@ -853,7 +1161,10 @@
 </section>
 
 
-<!-- HOW IT WORKS -->
+
+<!-- =========================
+     HOW IT WORKS
+========================= -->
 
 <section id="how">
 
@@ -913,7 +1224,10 @@
 </section>
 
 
-<!-- DELIVERY -->
+
+<!-- =========================
+     DELIVERY
+========================= -->
 
 <section>
 
@@ -930,12 +1244,14 @@
 
   <div class="delivery-box">
 
+
     <div class="delivery-card">
 
       <h3>🇧🇩 Nationwide</h3>
 
       <p>
-        Up to 1 kg: <strong>৳140</strong>
+        Up to 1 kg:
+        <strong>৳140</strong>
       </p>
 
     </div>
@@ -946,7 +1262,8 @@
       <h3>🏙️ Inside Dhaka</h3>
 
       <p>
-        Delivery charge: <strong>৳70</strong>
+        Delivery charge:
+        <strong>৳70</strong>
       </p>
 
     </div>
@@ -957,11 +1274,16 @@
       <h3>📦 Additional Weight</h3>
 
       <p>
+
         For every additional 1 kg,
         <strong>৳20</strong> will be added.
+
         <br><br>
-        Example: 2kg = ৳160,
+
+        Example:
+        2kg = ৳160,
         3kg = ৳180.
+
       </p>
 
     </div>
@@ -971,9 +1293,15 @@
 </section>
 
 
-<!-- PROFILE -->
 
-<section class="profile-section" id="profile">
+<!-- =========================
+     PROFILE
+========================= -->
+
+<section
+  class="profile-section"
+  id="profile"
+>
 
   <div class="profile-card">
 
@@ -981,26 +1309,34 @@
       👤
     </div>
 
+
     <h2 id="profileName">
       Customer
     </h2>
 
+
     <div class="profile-info">
 
       <div>
-        📱 <strong>Mobile:</strong>
+        📱
+        <strong>Mobile:</strong>
         <span id="profilePhone"></span>
       </div>
 
+
       <div>
-        📍 <strong>Address:</strong>
+        📍
+        <strong>Address:</strong>
         <span id="profileAddress"></span>
       </div>
 
     </div>
 
-    <button class="btn"
-            onclick="logout()">
+
+    <button
+      class="btn"
+      onclick="logout()"
+    >
       Logout
     </button>
 
@@ -1009,9 +1345,15 @@
 </section>
 
 
-<!-- CONTACT -->
 
-<section class="contact" id="contact">
+<!-- =========================
+     CONTACT
+========================= -->
+
+<section
+  class="contact"
+  id="contact"
+>
 
   <div class="section-title">
 
@@ -1023,33 +1365,80 @@
 
   </div>
 
+
   <p>
     📱 WhatsApp:
     <strong>01516-602562</strong>
   </p>
+
 
   <p>
     📧 Email:
     <strong>firesquirrelbd@gmail.com</strong>
   </p>
 
-  <a class="btn"
-     href="https://wa.me/8801516602562"
-     target="_blank">
+
+  <a
+    class="btn"
+    href="https://wa.me/8801516602562"
+    target="_blank"
+  >
     Chat on WhatsApp
   </a>
+
+
+  <!-- SOCIAL MEDIA -->
+
+  <div class="social-links">
+
+    <!-- Facebook URL পরে এখানে বসাবে -->
+    <a
+      href="#"
+      class="facebook"
+      onclick="socialNotice('Facebook')"
+    >
+      Facebook
+    </a>
+
+
+    <a
+      href="https://www.instagram.com/fire_squirrelbd/"
+      target="_blank"
+      class="instagram"
+    >
+      Instagram
+    </a>
+
+
+    <a
+      href="https://www.tiktok.com/@fire_squirrelbd"
+      target="_blank"
+      class="tiktok"
+    >
+      TikTok
+    </a>
+
+  </div>
 
 </section>
 
 
-<!-- LOGIN / REGISTER MODAL -->
 
-<div class="modal" id="authModal">
+<!-- =========================
+     LOGIN / REGISTER MODAL
+========================= -->
+
+<div
+  class="modal"
+  id="authModal"
+>
 
   <div class="modal-box">
 
-    <span class="close"
-          onclick="closeLogin()">
+    <span
+      class="close"
+      onclick="closeLogin()"
+    >
       ×
     </span>
 
@@ -1060,6 +1449,7 @@
 
       <h2>👤 Login</h2>
 
+
       <input
         class="input"
         id="loginPhone"
@@ -1067,27 +1457,40 @@
         placeholder="Mobile Number"
       >
 
-      <button class="btn full-btn"
-              onclick="loginUser()">
+
+      <button
+        class="btn full-btn"
+        onclick="loginUser()"
+      >
         Login
       </button>
 
+
       <div class="switch">
+
         Don't have an account?
+
         <span onclick="showRegister()">
           Register
         </span>
+
       </div>
 
     </div>
 
 
+
     <!-- REGISTER -->
 
-    <div id="registerBox"
-         style="display:none;">
+    <div
+      id="registerBox"
+      style="display:none;"
+    >
 
-      <h2>📝 Create Account</h2>
+      <h2>
+        📝 Create Account
+      </h2>
+
 
       <input
         class="input"
@@ -1096,12 +1499,14 @@
         placeholder="Your Name"
       >
 
+
       <input
         class="input"
         id="regPhone"
         type="tel"
         placeholder="Mobile Number"
       >
+
 
       <input
         class="input"
@@ -1110,16 +1515,23 @@
         placeholder="Your Address"
       >
 
-      <button class="btn full-btn"
-              onclick="registerUser()">
+
+      <button
+        class="btn full-btn"
+        onclick="registerUser()"
+      >
         Create Profile
       </button>
 
+
       <div class="switch">
+
         Already have an account?
+
         <span onclick="showLogin()">
           Login
         </span>
+
       </div>
 
     </div>
@@ -1129,7 +1541,10 @@
 </div>
 
 
-<!-- FOOTER -->
+
+<!-- =========================
+     FOOTER
+========================= -->
 
 <footer>
 
@@ -1139,251 +1554,371 @@
     — All Rights Reserved.
   </p>
 
+
   <p>
     Your Trusted Online Shopping Partner
   </p>
 
+
+  <div class="footer-social">
+
+    <a
+      href="#"
+      onclick="socialNotice('Facebook')"
+    >
+      Facebook
+    </a>
+
+
+    <a
+      href="https://www.instagram.com/fire_squirrelbd/"
+      target="_blank"
+    >
+      Instagram
+    </a>
+
+
+    <a
+      href="https://www.tiktok.com/@fire_squirrelbd"
+      target="_blank"
+    >
+      TikTok
+    </a>
+
+  </div>
+
 </footer>
 
 
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
 <script>
 
-  /* AUTH MODAL */
 
-  function openLogin() {
+/* =========================
+   AUTH MODAL
+========================= */
 
-    document.getElementById("authModal").style.display = "flex";
+function openLogin(){
 
-    showLogin();
-  }
+  document.getElementById("authModal").style.display="flex";
 
+  showLogin();
 
-  function closeLogin() {
-
-    document.getElementById("authModal").style.display = "none";
-
-  }
+}
 
 
-  function showLogin() {
+function closeLogin(){
 
-    document.getElementById("loginBox").style.display = "block";
+  document.getElementById("authModal").style.display="none";
 
-    document.getElementById("registerBox").style.display = "none";
-
-  }
+}
 
 
-  function showRegister() {
+function showLogin(){
 
-    document.getElementById("loginBox").style.display = "none";
+  document.getElementById("loginBox").style.display="block";
 
-    document.getElementById("registerBox").style.display = "block";
+  document.getElementById("registerBox").style.display="none";
 
-  }
-
-
-  /* REGISTER */
-
-  function registerUser() {
-
-    const name =
-      document.getElementById("regName").value.trim();
-
-    const phone =
-      document.getElementById("regPhone").value.trim();
-
-    const address =
-      document.getElementById("regAddress").value.trim();
+}
 
 
-    if (!name || !phone || !address) {
+function showRegister(){
 
-      alert("Please fill in all information.");
+  document.getElementById("loginBox").style.display="none";
 
-      return;
+  document.getElementById("registerBox").style.display="block";
 
-    }
-
-
-    const user = {
-
-      name: name,
-
-      phone: phone,
-
-      address: address
-
-    };
+}
 
 
-    localStorage.setItem(
-      "fireSquirrelUser",
-      JSON.stringify(user)
-    );
 
+/* =========================
+   REGISTER
+========================= */
+
+function registerUser(){
+
+  const name =
+    document.getElementById("regName").value.trim();
+
+
+  const phone =
+    document.getElementById("regPhone").value.trim();
+
+
+  const address =
+    document.getElementById("regAddress").value.trim();
+
+
+  if(!name || !phone || !address){
 
     alert(
-      "Profile created successfully!"
+      "Please fill in all information."
     );
 
-
-    closeLogin();
-
-    showProfile();
+    return;
 
   }
 
 
-  /* LOGIN */
+  const user = {
 
-  function loginUser() {
+    name:name,
 
-    const phone =
-      document.getElementById("loginPhone").value.trim();
+    phone:phone,
 
-
-    const savedUser =
-      localStorage.getItem("fireSquirrelUser");
-
-
-    if (!savedUser) {
-
-      alert(
-        "No account found. Please register first."
-      );
-
-      showRegister();
-
-      return;
-
-    }
-
-
-    const user =
-      JSON.parse(savedUser);
-
-
-    if (phone !== user.phone) {
-
-      alert(
-        "Mobile number does not match."
-      );
-
-      return;
-
-    }
-
-
-    closeLogin();
-
-    showProfile();
-
-  }
-
-
-  /* PROFILE */
-
-  function showProfile() {
-
-    const savedUser =
-      localStorage.getItem("fireSquirrelUser");
-
-
-    if (!savedUser) {
-
-      openLogin();
-
-      return;
-
-    }
-
-
-    const user =
-      JSON.parse(savedUser);
-
-
-    document.getElementById("profileName").innerText =
-      user.name;
-
-
-    document.getElementById("profilePhone").innerText =
-      user.phone;
-
-
-    document.getElementById("profileAddress").innerText =
-      user.address;
-
-
-    const profile =
-      document.getElementById("profile");
-
-
-    profile.style.display = "block";
-
-
-    profile.scrollIntoView({
-      behavior: "smooth"
-    });
-
-  }
-
-
-  /* LOGOUT */
-
-  function logout() {
-
-    localStorage.removeItem(
-      "fireSquirrelUser"
-    );
-
-
-    document.getElementById("profile").style.display =
-      "none";
-
-
-    alert("Logged out successfully.");
-
-  }
-
-
-  /* WHATSAPP ORDER */
-
-  function orderProduct(product) {
-
-    const message =
-      "Hello Fire Squirrel, I want to order/request: "
-      + product;
-
-
-    const whatsapp =
-      "https://wa.me/8801516602562?text="
-      + encodeURIComponent(message);
-
-
-    window.open(
-      whatsapp,
-      "_blank"
-    );
-
-  }
-
-
-  /* CLOSE MODAL WHEN CLICKING OUTSIDE */
-
-  window.onclick = function(event) {
-
-    const modal =
-      document.getElementById("authModal");
-
-
-    if (event.target === modal) {
-
-      closeLogin();
-
-    }
+    address:address
 
   };
+
+
+  localStorage.setItem(
+    "fireSquirrelUser",
+    JSON.stringify(user)
+  );
+
+
+  alert(
+    "Profile created successfully!"
+  );
+
+
+  closeLogin();
+
+  showProfile();
+
+}
+
+
+
+/* =========================
+   LOGIN
+========================= */
+
+function loginUser(){
+
+  const phone =
+    document.getElementById("loginPhone").value.trim();
+
+
+  const savedUser =
+    localStorage.getItem("fireSquirrelUser");
+
+
+  if(!savedUser){
+
+    alert(
+      "No account found. Please register first."
+    );
+
+    showRegister();
+
+    return;
+
+  }
+
+
+  const user =
+    JSON.parse(savedUser);
+
+
+  if(phone !== user.phone){
+
+    alert(
+      "Mobile number does not match."
+    );
+
+    return;
+
+  }
+
+
+  closeLogin();
+
+  showProfile();
+
+}
+
+
+
+/* =========================
+   PROFILE
+========================= */
+
+function showProfile(){
+
+  const savedUser =
+    localStorage.getItem("fireSquirrelUser");
+
+
+  if(!savedUser){
+
+    openLogin();
+
+    return;
+
+  }
+
+
+  const user =
+    JSON.parse(savedUser);
+
+
+  document.getElementById(
+    "profileName"
+  ).innerText = user.name;
+
+
+  document.getElementById(
+    "profilePhone"
+  ).innerText = user.phone;
+
+
+  document.getElementById(
+    "profileAddress"
+  ).innerText = user.address;
+
+
+  const profile =
+    document.getElementById("profile");
+
+
+  profile.style.display="block";
+
+
+  profile.scrollIntoView({
+    behavior:"smooth"
+  });
+
+}
+
+
+
+/* =========================
+   LOGOUT
+========================= */
+
+function logout(){
+
+  localStorage.removeItem(
+    "fireSquirrelUser"
+  );
+
+
+  document.getElementById(
+    "profile"
+  ).style.display="none";
+
+
+  alert(
+    "Logged out successfully."
+  );
+
+}
+
+
+
+/* =========================
+   WHATSAPP ORDER
+========================= */
+
+function orderProduct(product){
+
+  const message =
+    "Hello Fire Squirrel, I want to order/request: "
+    + product;
+
+
+  const whatsapp =
+    "https://wa.me/8801516602562?text="
+    + encodeURIComponent(message);
+
+
+  window.open(
+    whatsapp,
+    "_blank"
+  );
+
+}
+
+
+
+/* =========================
+   SOCIAL NOTICE
+========================= */
+
+function socialNotice(platform){
+
+  alert(
+    platform +
+    " link will be added soon."
+  );
+
+}
+
+
+
+/* =========================
+   CLOSE MODAL OUTSIDE
+========================= */
+
+window.onclick=function(event){
+
+  const modal =
+    document.getElementById("authModal");
+
+
+  if(event.target === modal){
+
+    closeLogin();
+
+  }
+
+};
+
+
+
+/* =========================
+   AUTO SHOW PROFILE
+========================= */
+
+window.addEventListener(
+  "load",
+  function(){
+
+    const savedUser =
+      localStorage.getItem("fireSquirrelUser");
+
+
+    if(savedUser){
+
+      const user =
+        JSON.parse(savedUser);
+
+
+      document.getElementById(
+        "profileName"
+      ).innerText=user.name;
+
+
+      document.getElementById(
+        "profilePhone"
+      ).innerText=user.phone;
+
+
+      document.getElementById(
+        "profileAddress"
+      ).innerText=user.address;
+
+    }
+
+  }
+);
 
 </script>
 
