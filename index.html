@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Fire Squirrel | Your Trusted Online Shopping Partner</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #fffaf3;
+      color: #222;
+    }
+
+    /* HEADER */
+    header {
+      background: #111;
+      padding: 15px 6%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 3px 15px rgba(0,0,0,0.2);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand img {
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #ff8c00;
+    }
+
+    .brand h1 {
+      color: #ff8c00;
+      font-size: 25px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 22px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #ff8c00;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 600px;
+      padding: 70px 7%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      background: linear-gradient(135deg, #fff7ed, #ffe0b2);
+    }
+
+    .hero-text {
+      max-width: 650px;
+    }
+
+    .hero-text h2 {
+      font-size: 52px;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .hero-text h2 span {
+      color: #f57c00;
+    }
+
+    .hero-text p {
+      font-size: 19px;
+      line-height: 1.7;
+      color: #555;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #ff7a00;
+      color: white;
+      padding: 14px 25px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      margin-right: 10px;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #e65f00;
+      transform: translateY(-2px);
+    }
+
+    .btn-dark {
+      background: #111;
+    }
+
+    .hero-logo img {
+      width: 350px;
+      max-width: 100%;
+      border-radius: 50%;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+    }
+
+    /* SECTION */
+    section {
+      padding: 70px 7%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .section-title h2 {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    .section-title p {
+      color: #666;
+    }
+
+    /* CATEGORIES */
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 20px;
+    }
+
+    .category {
+      background: white;
+      padding: 30px 15px;
+      text-align: center;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+      transition: 0.3s;
+    }
+
+    .category:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    }
+
+    .category .icon {
+      font-size: 42px;
+      margin-bottom: 15px;
+    }
+
+    .category h3 {
+      font-size: 18px;
+    }
+
+    /* HOW IT WORKS */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .step {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    }
+
+    .step-number {
+      width: 50px;
+      height: 50px;
+      line-height: 50px;
+      margin: 0 auto 15px;
+      background: #ff7a00;
+      color: white;
+      border-radius: 50%;
+      font-weight: bold;
+      font-size: 20px;
+    }
+
+    .step p {
+      color: #666;
+      margin-top: 10px;
+      line-height: 1.6;
+    }
+
+    /* REQUEST */
+    .request {
+      background: #111;
+      color: white;
+      text-align: center;
+      border-radius: 25px;
+      padding: 55px 25px;
+    }
+
+    .request h2 {
+      font-size: 35px;
+      margin-bottom: 15px;
+    }
+
+    .request p {
+      color: #ddd;
+      max-width: 700px;
+      margin: 0 auto 25px;
+      line-height: 1.7;
+    }
+
+    /* DELIVERY */
+    .delivery-box {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .delivery-card {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+      text-align: center;
+    }
+
+    .delivery-card h3 {
+      color: #f57c00;
+      margin-bottom: 10px;
+    }
+
+    .delivery-card p {
+      color: #666;
+      line-height: 1.6;
+    }
+
+    /* CONTACT */
+    .contact {
+      text-align: center;
+      background: #fff0dc;
+    }
+
+    .contact p {
+      margin: 10px 0;
+      font-size: 18px;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #111;
+      color: white;
+      text-align: center;
+      padding: 25px 15px;
+    }
+
+    footer span {
+      color: #ff8c00;
+      font-weight: bold;
+    }
+
+    /* MOBILE */
+    @media (max-width: 900px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .hero-text h2 {
+        font-size: 40px;
+      }
+
+      .categories {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .steps,
+      .delivery-box {
+        grid-template-columns: 1fr;
+      }
+
+      nav {
+        display: none;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .categories {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-text h2 {
+        font-size: 34px;
+      }
+
+      section {
+        padding: 50px 5%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="brand">
+      <img src="logo.png" alt="Fire Squirrel Logo">
+      <h1>Fire Squirrel</h1>
+    </div>
+
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#categories">Products</a>
+      <a href="#how">How It Works</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+
+    <div class="hero-text">
+      <h2>
+        Your Need,<br>
+        <span>We Find It.</span>
+      </h2>
+
+      <p>
+        Fire Squirrel helps customers across Bangladesh find products
+        that may be unavailable or expensive in their local area.
+        We search, collect and deliver your desired products to your hand.
+      </p>
+
+      <a class="btn"
+         href="https://wa.me/8801516602562?text=Hello%20Fire%20Squirrel%2C%20I%20want%20to%20order%20a%20product."
+         target="_blank">
+        Order on WhatsApp
+      </a>
+
+      <a class="btn btn-dark" href="#categories">
+        Explore Products
+      </a>
+    </div>
+
+    <div class="hero-logo">
+      <img src="logo.png" alt="Fire Squirrel">
+    </div>
+
+  </section>
+
+
+  <!-- CATEGORIES -->
+  <section id="categories">
+
+    <div class="section-title">
+      <h2>What We Provide</h2>
+      <p>Tell us what you need — we will try to find it for you.</p>
+    </div>
+
+    <div class="categories">
+
+      <div class="category">
+        <div class="icon">📚</div>
+        <h3>Books</h3>
+      </div>
+
+      <div class="category">
+        <div class="icon">🏏</div>
+        <h3>Sports Goods</h3>
+      </div>
+
+      <div class="category">
+        <div class="icon">💄</div>
+        <h3>Cosmetics</h3>
+      </div>
+
+      <div class="category">
+        <div class="icon">💊</div>
+        <h3>Medicine</h3>
+      </div>
+
+      <div class="category">
+        <div class="icon">🛍️</div>
+        <h3>Other Products</h3>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- HOW IT WORKS -->
+  <section id="how">
+
+    <div class="section-title">
+      <h2>How It Works</h2>
+      <p>Shopping with Fire Squirrel is simple.</p>
+    </div>
+
+    <div class="steps">
+
+      <div class="step">
+        <div class="step-number">1</div>
+        <h3>Tell Us What You Need</h3>
+        <p>
+          Send us the product name, size, quality and other details.
+        </p>
+      </div>
+
+      <div class="step">
+        <div class="step-number">2</div>
+        <h3>We Find It</h3>
+        <p>
+          Our team searches for the product and informs you about availability and price.
+        </p>
+      </div>
+
+      <div class="step">
+        <div class="step-number">3</div>
+        <h3>Get It Delivered</h3>
+        <p>
+          Once confirmed, we arrange delivery to your location.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- PRODUCT REQUEST -->
+  <section>
+
+    <div class="request">
+
+      <h2>Can't Find Your Product?</h2>
+
+      <p>
+        No problem! If you have a picture of the product you want,
+        send it to us. Our team will try to find the same or a similar product.
+      </p>
+
+      <a class="btn"
+         href="https://wa.me/8801516602562?text=Hello%20Fire%20Squirrel%2C%20I%20am%20sending%20a%20product%20picture."
+         target="_blank">
+        📸 Send Product Picture
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- DELIVERY -->
+  <section>
+
+    <div class="section-title">
+      <h2>Delivery Information</h2>
+      <p>We deliver products across Bangladesh.</p>
+    </div>
+
+    <div class="delivery-box">
+
+      <div class="delivery-card">
+        <h3>🇧🇩 Nationwide</h3>
+        <p>
+          Delivery charge: ৳140
+        </p>
+      </div>
+
+      <div class="delivery-card">
+        <h3>🏙️ Dhaka</h3>
+        <p>
+          Inside Dhaka delivery charge: ৳70
+        </p>
+      </div>
+
+      <div class="delivery-card">
+        <h3>📦 Weight</h3>
+        <p>
+          Additional courier charge may apply for products over 1kg.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+
+    <div class="section-title">
+      <h2>Contact Fire Squirrel</h2>
+      <p>Have a question? Contact us directly.</p>
+    </div>
+
+    <p>📱 WhatsApp: <strong>01516-602562</strong></p>
+
+    <p>
+      📧 Email:
+      <strong>firesquirrelbd@gmail.com</strong>
+    </p>
+
+    <br>
+
+    <a class="btn"
+       href="https://wa.me/8801516602562"
+       target="_blank">
+      Chat on WhatsApp
+    </a>
+
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer>
+    <p>
+      © 2026 <span>Fire Squirrel</span> — All Rights Reserved.
+    </p>
+
+    <p>
+      Your Trusted Online Shopping Partner
+    </p>
+  </footer>
+
+</body>
+</html>
