@@ -9,586 +9,623 @@
 <style>
 
 /* =========================
-   GLOBAL
+   BASIC
 ========================= */
 
 *{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:Arial,Helvetica,sans-serif;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
 }
 
 html{
-  scroll-behavior:smooth;
+    scroll-behavior:smooth;
 }
 
 body{
-  background:#ffffff;
-  color:#222;
+    background:#ffffff;
+    color:#222;
 }
 
 a,
 button{
-  cursor:pointer;
+    cursor:pointer;
 }
 
 button{
-  font-family:inherit;
+    font-family:inherit;
 }
-
 
 /* =========================
    HEADER
 ========================= */
 
 header{
-  background:#111;
-  color:white;
-  padding:12px 6%;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  position:sticky;
-  top:0;
-  z-index:999;
-  box-shadow:0 4px 15px rgba(0,0,0,.20);
+    background:#111;
+    color:white;
+    padding:10px 6%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    box-shadow:0 4px 18px rgba(0,0,0,.18);
 }
 
 .brand{
-  display:flex;
-  align-items:center;
-  gap:12px;
+    display:flex;
+    align-items:center;
+    gap:12px;
 }
 
 .brand img{
-  width:55px;
-  height:55px;
-  object-fit:cover;
-  border-radius:50%;
-  border:3px solid #ff8c00;
+    width:55px;
+    height:55px;
+    object-fit:cover;
+    border-radius:50%;
+    border:none;
 }
 
 .brand h1{
-  color:#ff8c00;
-  font-size:25px;
+    color:#ff8c00;
+    font-size:25px;
 }
 
 nav{
-  display:flex;
-  align-items:center;
-  gap:22px;
+    display:flex;
+    align-items:center;
+    gap:22px;
 }
 
 nav a,
 nav button{
-  color:white;
-  background:none;
-  border:none;
-  text-decoration:none;
-  font-size:15px;
-  font-weight:bold;
+    color:white;
+    background:none;
+    border:none;
+    text-decoration:none;
+    font-size:15px;
+    font-weight:bold;
 }
 
 nav a:hover,
 nav button:hover{
-  color:#ff8c00;
+    color:#ff8c00;
 }
 
 .profile-btn{
-  border:1px solid #ff8c00 !important;
-  padding:9px 16px;
-  border-radius:20px;
+    border:1px solid #ff8c00 !important;
+    padding:9px 17px;
+    border-radius:25px;
 }
 
+.profile-btn:hover{
+    background:#ff8c00;
+    color:white !important;
+}
 
 /* =========================
    HERO
 ========================= */
 
 .hero{
-  min-height:580px;
-  padding:70px 7%;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:50px;
-  background:#ffffff;
+    min-height:600px;
+    padding:70px 7%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:60px;
+
+    /* Cream completely removed */
+    background:#ffffff;
 }
 
 .hero-text{
-  max-width:650px;
+    max-width:650px;
 }
 
 .hero-text h2{
-  font-size:56px;
-  line-height:1.1;
-  margin-bottom:20px;
-  letter-spacing:-1px;
+    font-size:56px;
+    line-height:1.08;
+    margin-bottom:22px;
+    font-weight:800;
+    letter-spacing:-1px;
 }
 
 .hero-text h2 span{
-  color:#f57c00;
+    color:#f57c00;
 }
 
 .hero-text p{
-  font-size:18px;
-  line-height:1.7;
-  color:#555;
-  margin-bottom:30px;
-  max-width:620px;
+    font-size:18px;
+    line-height:1.8;
+    color:#555;
+    margin-bottom:30px;
 }
 
 .btn{
-  display:inline-block;
-  background:#ff7800;
-  color:white;
-  padding:13px 22px;
-  border:none;
-  border-radius:30px;
-  text-decoration:none;
-  font-weight:bold;
-  margin:5px;
-  transition:.3s;
+    display:inline-block;
+    background:#ff7800;
+    color:white;
+    padding:14px 24px;
+    border:none;
+    border-radius:30px;
+    text-decoration:none;
+    font-weight:bold;
+    margin:5px;
+    transition:.3s;
 }
 
 .btn:hover{
-  background:#df5f00;
-  transform:translateY(-2px);
+    background:#df5f00;
+    transform:translateY(-2px);
 }
 
 .btn-dark{
-  background:#111;
+    background:#111;
 }
 
 .btn-dark:hover{
-  background:#333;
+    background:#333;
 }
-
 
 /* HERO LOGO */
 
 .hero-logo{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:#fff;
-  flex:0 0 auto;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    min-width:420px;
 }
 
 .hero-logo img{
-  width:420px;
-  height:420px;
-  max-width:100%;
-  object-fit:contain;
-  border-radius:50%;
-  border:none;
-  padding:0;
-  background:#fff;
-  box-shadow:none;
+    width:430px;
+    height:430px;
+    max-width:100%;
+    object-fit:contain;
+    border-radius:50%;
+    border:none;
+    padding:0;
+    background:transparent;
+    box-shadow:none;
 }
 
-
 /* =========================
-   SECTIONS
+   GENERAL SECTIONS
 ========================= */
 
 section{
-  padding:75px 7%;
-  background:#fff;
+    padding:75px 7%;
 }
 
 .section-title{
-  text-align:center;
-  margin-bottom:40px;
+    text-align:center;
+    margin-bottom:45px;
 }
 
 .section-title h2{
-  font-size:36px;
-  margin-bottom:10px;
+    font-size:36px;
+    margin-bottom:12px;
 }
 
 .section-title p{
-  color:#666;
-  font-size:16px;
+    color:#666;
+    font-size:16px;
 }
 
-
 /* =========================
-   CATEGORIES
+   CATEGORY AREA
 ========================= */
 
 .categories{
-  display:grid;
-  grid-template-columns:repeat(5,1fr);
-  gap:20px;
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:20px;
 }
 
 .category{
-  display:block;
-  text-decoration:none;
-  color:#111;
-  background:white;
-  padding:30px 15px;
-  text-align:center;
-  border-radius:15px;
-  box-shadow:0 5px 20px rgba(0,0,0,.08);
-  border:1px solid #eee;
-  transition:.3s;
+    display:block;
+    text-decoration:none;
+    color:#111;
+    background:white;
+    padding:32px 15px;
+    text-align:center;
+    border-radius:18px;
+    box-shadow:0 7px 25px rgba(0,0,0,.08);
+    border:1px solid #eee;
+    transition:.3s;
 }
 
 .category:hover{
-  transform:translateY(-8px);
-  box-shadow:0 12px 30px rgba(0,0,0,.15);
-  border:2px solid #ff8500;
+    transform:translateY(-8px);
+    border-color:#ff8500;
+    box-shadow:0 12px 30px rgba(0,0,0,.13);
+}
+
+.category.active{
+    border:2px solid #ff8500;
+    box-shadow:0 10px 30px rgba(255,120,0,.18);
 }
 
 .category .icon{
-  font-size:45px;
-  margin-bottom:15px;
+    font-size:48px;
+    margin-bottom:15px;
 }
 
 .category h3{
-  font-size:18px;
+    font-size:18px;
 }
 
-
 /* =========================
-   PRODUCT AREA
+   PRODUCT SECTIONS
 ========================= */
 
+/*
+   IMPORTANT:
+   All product sections are hidden by default.
+   JavaScript opens only the selected category.
+*/
+
 .product-section{
-  background:#fafafa;
-  border-top:1px solid #eee;
+    display:none;
+    background:#fafafa;
+    border-top:1px solid #eee;
+    border-bottom:1px solid #eee;
+}
+
+.product-section.active-section{
+    display:block;
 }
 
 .product-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:25px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
 }
 
 .product-card{
-  background:white;
-  border-radius:18px;
-  padding:25px;
-  text-align:center;
-  box-shadow:0 5px 20px rgba(0,0,0,.08);
-  border:1px solid #eee;
-  transition:.3s;
+    background:white;
+    border-radius:20px;
+    padding:30px;
+    text-align:center;
+    box-shadow:0 7px 25px rgba(0,0,0,.08);
+    border:1px solid #eee;
+    transition:.3s;
 }
 
 .product-card:hover{
-  transform:translateY(-5px);
-  box-shadow:0 12px 30px rgba(0,0,0,.12);
+    transform:translateY(-5px);
+    box-shadow:0 12px 30px rgba(0,0,0,.12);
 }
 
 .product-icon{
-  font-size:65px;
-  margin-bottom:15px;
+    font-size:65px;
+    margin-bottom:15px;
 }
 
 .product-card h3{
-  margin-bottom:8px;
+    margin-bottom:10px;
+    font-size:21px;
 }
 
 .product-card p{
-  color:#666;
-  line-height:1.6;
+    color:#666;
+    line-height:1.6;
 }
 
 .price{
-  color:#f57c00;
-  font-size:22px;
-  font-weight:bold;
-  margin:12px 0;
+    color:#f57c00;
+    font-size:20px;
+    font-weight:bold;
+    margin:15px 0;
 }
 
 .order-btn{
-  background:#25d366;
-  color:white;
-  border:none;
-  padding:11px 20px;
-  border-radius:25px;
-  font-weight:bold;
-  transition:.3s;
+    background:#25d366;
+    color:white;
+    border:none;
+    padding:12px 22px;
+    border-radius:25px;
+    font-weight:bold;
+    transition:.3s;
 }
 
 .order-btn:hover{
-  background:#1ebc59;
-  transform:translateY(-2px);
+    background:#1db954;
+    transform:translateY(-2px);
 }
 
+/* =========================
+   IMAGE UPLOAD
+========================= */
+
+.upload-box{
+    margin:15px 0;
+    padding:18px;
+    background:#fff8ee;
+    border:2px dashed #ff9a32;
+    border-radius:14px;
+}
+
+.upload-box label{
+    display:block;
+    font-weight:bold;
+    margin-bottom:10px;
+}
+
+.file-input{
+    width:100%;
+    font-size:14px;
+}
+
+.file-name{
+    margin-top:8px;
+    color:#666;
+    font-size:13px;
+}
 
 /* =========================
    HOW IT WORKS
 ========================= */
 
 .steps{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:25px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
 }
 
 .step{
-  background:white;
-  padding:30px;
-  text-align:center;
-  border-radius:15px;
-  box-shadow:0 5px 20px rgba(0,0,0,.08);
-  border:1px solid #eee;
+    background:white;
+    padding:32px;
+    text-align:center;
+    border-radius:18px;
+    box-shadow:0 7px 25px rgba(0,0,0,.08);
 }
 
 .step-number{
-  width:50px;
-  height:50px;
-  line-height:50px;
-  background:#ff7800;
-  color:white;
-  border-radius:50%;
-  margin:0 auto 15px;
-  font-weight:bold;
-  font-size:20px;
+    width:55px;
+    height:55px;
+    line-height:55px;
+    background:#ff7800;
+    color:white;
+    border-radius:50%;
+    margin:0 auto 17px;
+    font-weight:bold;
+    font-size:20px;
 }
 
 .step p{
-  color:#666;
-  line-height:1.6;
-  margin-top:10px;
+    color:#666;
+    line-height:1.6;
+    margin-top:10px;
 }
-
 
 /* =========================
    DELIVERY
 ========================= */
 
 .delivery-box{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:20px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
 }
 
 .delivery-card{
-  background:white;
-  padding:30px;
-  text-align:center;
-  border-radius:15px;
-  box-shadow:0 5px 20px rgba(0,0,0,.08);
-  border:1px solid #eee;
+    background:white;
+    padding:32px;
+    text-align:center;
+    border-radius:18px;
+    box-shadow:0 7px 25px rgba(0,0,0,.08);
 }
 
 .delivery-card h3{
-  color:#f57c00;
-  margin-bottom:12px;
+    color:#f57c00;
+    margin-bottom:12px;
 }
 
 .delivery-card p{
-  color:#555;
-  line-height:1.7;
+    color:#555;
+    line-height:1.7;
 }
 
-
 /* =========================
-   PROFILE
+   PROFILE PAGE
 ========================= */
 
-.profile-section{
-  background:#fff;
-  display:none;
+.page-view{
+    display:none;
+}
+
+.page-view.active-page{
+    display:block;
+}
+
+.profile-page{
+    min-height:650px;
+    background:#fff;
+    padding:80px 7%;
 }
 
 .profile-card{
-  max-width:600px;
-  margin:auto;
-  background:white;
-  padding:35px;
-  border-radius:20px;
-  box-shadow:0 8px 25px rgba(0,0,0,.1);
-  text-align:center;
-  border:1px solid #eee;
+    max-width:600px;
+    margin:auto;
+    background:white;
+    padding:40px;
+    border-radius:22px;
+    box-shadow:0 10px 35px rgba(0,0,0,.1);
+    text-align:center;
+    border:1px solid #eee;
 }
 
 .profile-avatar{
-  font-size:65px;
-  margin-bottom:15px;
+    width:90px;
+    height:90px;
+    line-height:90px;
+    margin:0 auto 20px;
+    background:#fff1dd;
+    border-radius:50%;
+    font-size:45px;
+}
+
+.profile-card h2{
+    margin-bottom:20px;
 }
 
 .profile-info{
-  margin:15px 0;
-  line-height:2;
-  color:#555;
+    text-align:left;
+    margin:20px 0;
+    padding:20px;
+    background:#fafafa;
+    border-radius:15px;
+    line-height:2;
 }
-
 
 /* =========================
    CONTACT
 ========================= */
 
 .contact{
-  text-align:center;
-  background:#fafafa;
-  border-top:1px solid #eee;
+    text-align:center;
+    background:#f8f8f8;
 }
 
 .contact p{
-  margin:10px 0;
-  font-size:18px;
+    margin:12px 0;
+    font-size:18px;
 }
-
-
-/* =========================
-   SOCIAL MEDIA
-========================= */
 
 .social-links{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  gap:15px;
-  flex-wrap:wrap;
-  margin-top:25px;
+    margin-top:25px;
+    display:flex;
+    justify-content:center;
+    gap:12px;
+    flex-wrap:wrap;
 }
 
-.social-links a{
-  text-decoration:none;
-  color:white;
-  padding:10px 18px;
-  border-radius:25px;
-  font-weight:bold;
-  transition:.3s;
+.social-link{
+    display:inline-block;
+    padding:11px 18px;
+    border-radius:25px;
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
 }
 
 .facebook{
-  background:#1877f2;
+    background:#1877f2;
 }
 
 .instagram{
-  background:#e4405f;
+    background:#e1306c;
 }
 
 .tiktok{
-  background:#111;
-  border:1px solid #555;
+    background:#111;
 }
-
-.social-links a:hover{
-  transform:translateY(-3px);
-  opacity:.9;
-}
-
 
 /* =========================
    MODAL
 ========================= */
 
 .modal{
-  display:none;
-  position:fixed;
-  z-index:2000;
-  left:0;
-  top:0;
-  width:100%;
-  height:100%;
-  background:rgba(0,0,0,.65);
-  align-items:center;
-  justify-content:center;
-  padding:20px;
+    display:none;
+    position:fixed;
+    z-index:2000;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,.65);
+    align-items:center;
+    justify-content:center;
+    padding:20px;
 }
 
 .modal-box{
-  width:100%;
-  max-width:430px;
-  background:white;
-  padding:30px;
-  border-radius:20px;
-  position:relative;
-  box-shadow:0 20px 50px rgba(0,0,0,.25);
+    width:100%;
+    max-width:430px;
+    background:white;
+    padding:32px;
+    border-radius:22px;
+    position:relative;
+    box-shadow:0 15px 50px rgba(0,0,0,.25);
 }
 
 .modal-box h2{
-  text-align:center;
-  margin-bottom:20px;
+    text-align:center;
+    margin-bottom:20px;
 }
 
 .close{
-  position:absolute;
-  right:18px;
-  top:12px;
-  font-size:28px;
-  cursor:pointer;
-  color:#555;
-}
-
-.close:hover{
-  color:#f57c00;
+    position:absolute;
+    right:18px;
+    top:10px;
+    font-size:30px;
+    cursor:pointer;
+    color:#555;
 }
 
 .input{
-  width:100%;
-  padding:13px;
-  margin:8px 0;
-  border:1px solid #ccc;
-  border-radius:8px;
-  font-size:15px;
-  outline:none;
+    width:100%;
+    padding:14px;
+    margin:8px 0;
+    border:1px solid #ccc;
+    border-radius:9px;
+    font-size:15px;
+    outline:none;
 }
 
 .input:focus{
-  border-color:#ff7800;
+    border-color:#ff8500;
 }
 
 .full-btn{
-  width:100%;
-  margin-top:12px;
+    width:100%;
+    margin-top:12px;
 }
 
 .switch{
-  text-align:center;
-  margin-top:18px;
-  color:#666;
+    text-align:center;
+    margin-top:18px;
+    color:#666;
 }
 
 .switch span{
-  color:#f57c00;
-  font-weight:bold;
-  cursor:pointer;
+    color:#f57c00;
+    font-weight:bold;
+    cursor:pointer;
 }
-
 
 /* =========================
    FOOTER
 ========================= */
 
 footer{
-  background:#111;
-  color:white;
-  text-align:center;
-  padding:30px 20px;
-  line-height:1.8;
+    background:#111;
+    color:white;
+    text-align:center;
+    padding:30px 20px;
+    line-height:1.9;
 }
 
 footer span{
-  color:#ff8c00;
+    color:#ff8c00;
 }
 
 .footer-social{
-  display:flex;
-  justify-content:center;
-  gap:15px;
-  margin:15px 0;
-  flex-wrap:wrap;
+    margin-top:10px;
 }
 
 .footer-social a{
-  color:white;
-  text-decoration:none;
-  font-weight:bold;
+    color:#ddd;
+    margin:0 8px;
+    text-decoration:none;
 }
 
 .footer-social a:hover{
-  color:#ff8c00;
+    color:#ff8c00;
 }
-
 
 /* =========================
    MOBILE
@@ -596,143 +633,103 @@ footer span{
 
 @media(max-width:1000px){
 
-  .categories{
-    grid-template-columns:repeat(3,1fr);
-  }
+    .categories{
+        grid-template-columns:repeat(3,1fr);
+    }
 
-  .hero-logo img{
-    width:360px;
-    height:360px;
-  }
+    .hero-logo{
+        min-width:350px;
+    }
+
+    .hero-logo img{
+        width:350px;
+        height:350px;
+    }
 }
 
+@media(max-width:800px){
 
-@media(max-width:900px){
+    header{
+        padding:10px 4%;
+    }
 
-  nav{
-    gap:10px;
-  }
+    nav{
+        gap:10px;
+    }
 
-  nav a:nth-child(2),
-  nav a:nth-child(3){
-    display:none;
-  }
+    nav a:nth-child(2),
+    nav a:nth-child(3),
+    nav a:nth-child(4){
+        display:none;
+    }
 
-  .hero{
-    flex-direction:column;
-    text-align:center;
-    padding-top:50px;
-  }
+    .hero{
+        flex-direction:column;
+        text-align:center;
+        padding:60px 5%;
+    }
 
-  .hero-text{
-    max-width:700px;
-  }
+    .hero-text h2{
+        font-size:43px;
+    }
 
-  .hero-text h2{
-    font-size:44px;
-  }
+    .hero-logo{
+        min-width:0;
+    }
 
-  .hero-logo{
-    margin-top:10px;
-  }
+    .hero-logo img{
+        width:330px;
+        height:330px;
+    }
 
-  .hero-logo img{
-    width:350px;
-    height:350px;
-  }
+    .categories{
+        grid-template-columns:repeat(2,1fr);
+    }
 
-  .categories{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .product-grid,
-  .steps,
-  .delivery-box{
-    grid-template-columns:1fr;
-  }
+    .product-grid,
+    .steps,
+    .delivery-box{
+        grid-template-columns:1fr;
+    }
 }
 
+@media(max-width:500px){
 
-@media(max-width:600px){
+    .brand h1{
+        font-size:20px;
+    }
 
-  header{
-    padding:10px 4%;
-  }
+    .brand img{
+        width:45px;
+        height:45px;
+    }
 
-  .brand h1{
-    font-size:20px;
-  }
+    .categories{
+        grid-template-columns:1fr;
+    }
 
-  .brand img{
-    width:45px;
-    height:45px;
-  }
+    section{
+        padding:55px 5%;
+    }
 
-  nav{
-    gap:7px;
-  }
+    .hero-text h2{
+        font-size:38px;
+    }
 
-  .profile-btn{
-    padding:8px 12px;
-    font-size:13px;
-  }
+    .hero-logo img{
+        width:280px;
+        height:280px;
+    }
 
-  .hero{
-    min-height:auto;
-    padding:55px 5%;
-  }
-
-  .hero-text h2{
-    font-size:38px;
-  }
-
-  .hero-text p{
-    font-size:16px;
-  }
-
-  .hero-logo img{
-    width:300px;
-    height:300px;
-  }
-
-  .categories{
-    grid-template-columns:1fr;
-  }
-
-  section{
-    padding:55px 5%;
-  }
-
-  .section-title h2{
-    font-size:30px;
-  }
-
-  .modal-box{
-    padding:25px 20px;
-  }
-}
-
-
-@media(max-width:400px){
-
-  .hero-logo img{
-    width:260px;
-    height:260px;
-  }
-
-  .hero-text h2{
-    font-size:34px;
-  }
-
-  .btn{
-    width:100%;
-    margin:5px 0;
-  }
+    .btn{
+        display:block;
+        margin:8px auto;
+        width:fit-content;
+    }
 }
 
 </style>
 </head>
-
 
 <body>
 
@@ -743,85 +740,85 @@ footer span{
 
 <header>
 
-  <div class="brand">
+    <div class="brand">
 
-    <img src="logo.png" alt="Fire Squirrel Logo">
+        <img src="logo.png" alt="Fire Squirrel Logo">
 
-    <h1>Fire Squirrel</h1>
+        <h1>Fire Squirrel</h1>
 
-  </div>
+    </div>
 
 
-  <nav>
+    <nav>
 
-    <a href="#home">Home</a>
+        <a href="#home" onclick="showHome()">Home</a>
 
-    <a href="#products">Products</a>
+        <a href="#products" onclick="showProducts()">Products</a>
 
-    <a href="#how">How It Works</a>
+        <a href="#how" onclick="showHome()">How It Works</a>
 
-    <a href="#contact">Contact</a>
+        <a href="#contact" onclick="showHome()">Contact</a>
 
-    <button class="profile-btn" onclick="openLogin()">
-      👤 Login
-    </button>
+        <button class="profile-btn"
+                id="loginNavBtn"
+                onclick="openLogin()">
+            👤 Login
+        </button>
 
-  </nav>
+    </nav>
 
 </header>
 
 
-
 <!-- =========================
-     HOME
+     MAIN HOME
 ========================= -->
+
+<div id="homePage" class="page-view active-page">
+
+
+<!-- HERO -->
 
 <section class="hero" id="home">
 
-  <div class="hero-text">
+    <div class="hero-text">
 
-    <h2>
-      Your Need,<br>
-      <span>We Find It.</span>
-    </h2>
+        <h2>
+            Your Need,<br>
+            <span>We Find It.</span>
+        </h2>
 
-    <p>
-      Fire Squirrel helps customers across Bangladesh find
-      products that may be unavailable or expensive in their
-      local area.
-    </p>
-
-
-    <a
-      class="btn"
-      href="https://wa.me/8801516602562"
-      target="_blank"
-    >
-      📲 Order on WhatsApp
-    </a>
+        <p>
+            Fire Squirrel helps customers across Bangladesh
+            find products that may be unavailable or expensive
+            in their local area.
+        </p>
 
 
-    <a
-      class="btn btn-dark"
-      href="#products"
-    >
-      🛍️ Explore Products
-    </a>
-
-  </div>
+        <a class="btn"
+           href="https://wa.me/8801516602562"
+           target="_blank">
+            📲 Order on WhatsApp
+        </a>
 
 
-  <div class="hero-logo">
+        <a class="btn btn-dark"
+           href="#products"
+           onclick="showProducts()">
+            🛍️ Explore Products
+        </a>
 
-    <img
-      src="logo.png"
-      alt="Fire Squirrel"
-    >
+    </div>
 
-  </div>
+
+    <div class="hero-logo">
+
+        <img src="logo.png"
+             alt="Fire Squirrel">
+
+    </div>
 
 </section>
-
 
 
 <!-- =========================
@@ -830,336 +827,401 @@ footer span{
 
 <section id="products">
 
-  <div class="section-title">
+    <div class="section-title">
 
-    <h2>What We Provide</h2>
+        <h2>What We Provide</h2>
 
-    <p>
-      Choose a category or tell us what you need.
-    </p>
+        <p>
+            Select a category to view available products.
+        </p>
 
-  </div>
-
-
-  <div class="categories">
-
-    <a href="#books" class="category">
-      <div class="icon">📚</div>
-      <h3>Books</h3>
-    </a>
+    </div>
 
 
-    <a href="#sports" class="category">
-      <div class="icon">🏏</div>
-      <h3>Sports Goods</h3>
-    </a>
+    <div class="categories">
 
 
-    <a href="#cosmetics" class="category">
-      <div class="icon">💄</div>
-      <h3>Cosmetics</h3>
-    </a>
+        <button class="category"
+                onclick="openCategory('books', this)">
+
+            <div class="icon">📚</div>
+
+            <h3>Books</h3>
+
+        </button>
 
 
-    <a href="#medicine" class="category">
-      <div class="icon">💊</div>
-      <h3>Medicine</h3>
-    </a>
+        <button class="category"
+                onclick="openCategory('sports', this)">
+
+            <div class="icon">🏏</div>
+
+            <h3>Sports Goods</h3>
+
+        </button>
 
 
-    <a href="#other" class="category">
-      <div class="icon">🛍️</div>
-      <h3>Other Products</h3>
-    </a>
+        <button class="category"
+                onclick="openCategory('cosmetics', this)">
 
-  </div>
+            <div class="icon">💄</div>
+
+            <h3>Cosmetics</h3>
+
+        </button>
+
+
+        <button class="category"
+                onclick="openCategory('medicine', this)">
+
+            <div class="icon">💊</div>
+
+            <h3>Medicine</h3>
+
+        </button>
+
+
+        <button class="category"
+                onclick="openCategory('other', this)">
+
+            <div class="icon">🛍️</div>
+
+            <h3>Other Products</h3>
+
+        </button>
+
+    </div>
 
 </section>
-
 
 
 <!-- =========================
      BOOKS
 ========================= -->
 
-<section class="product-section" id="books">
+<section class="product-section"
+         id="books">
 
-  <div class="section-title">
+    <div class="section-title">
 
-    <h2>📚 Books</h2>
+        <h2>📚 Books</h2>
 
-    <p>
-      Books, guides, novels and educational materials.
-    </p>
-
-  </div>
-
-
-  <div class="product-grid">
-
-    <div class="product-card">
-
-      <div class="product-icon">📖</div>
-
-      <h3>Academic Books</h3>
-
-      <p>
-        Class guides and educational books.
-      </p>
-
-      <div class="price">
-        Contact for Price
-      </div>
-
-      <button
-        class="order-btn"
-        onclick="orderProduct('Academic Books')"
-      >
-        Order Now
-      </button>
+        <p>
+            Tell us which book you need.
+        </p>
 
     </div>
 
 
-    <div class="product-card">
+    <div class="product-grid">
 
-      <div class="product-icon">📕</div>
 
-      <h3>Novels</h3>
+        <div class="product-card">
 
-      <p>
-        Your desired novel or book.
-      </p>
+            <div class="product-icon">📖</div>
 
-      <div class="price">
-        Contact for Price
-      </div>
+            <h3>Academic Books</h3>
 
-      <button
-        class="order-btn"
-        onclick="orderProduct('Novel')"
-      >
-        Order Now
-      </button>
+            <p>
+                Class books, guides and educational materials.
+            </p>
+
+            <div class="price">
+                Contact for Price
+            </div>
+
+            <button class="order-btn"
+                    onclick="orderProduct('Academic Books')">
+                Order on WhatsApp
+            </button>
+
+        </div>
+
+
+        <div class="product-card">
+
+            <div class="product-icon">📕</div>
+
+            <h3>Novels</h3>
+
+            <p>
+                Your desired novel or story book.
+            </p>
+
+            <div class="price">
+                Contact for Price
+            </div>
+
+            <button class="order-btn"
+                    onclick="orderProduct('Novel')">
+                Order on WhatsApp
+            </button>
+
+        </div>
+
+
+        <div class="product-card">
+
+            <div class="product-icon">📚</div>
+
+            <h3>Other Books</h3>
+
+            <p>
+                Can't find your book? Tell us the name or send
+                us a picture.
+            </p>
+
+            <div class="price">
+                Contact for Price
+            </div>
+
+            <button class="order-btn"
+                    onclick="orderProduct('Other Book')">
+                Send Book Request
+            </button>
+
+        </div>
+
 
     </div>
-
-  </div>
 
 </section>
-
 
 
 <!-- =========================
      SPORTS
 ========================= -->
 
-<section class="product-section" id="sports">
+<section class="product-section"
+         id="sports">
 
-  <div class="section-title">
+    <div class="section-title">
 
-    <h2>🏏 Sports Goods</h2>
+        <h2>🏏 Sports Goods</h2>
 
-    <p>
-      Cricket, football and other sports products.
-    </p>
-
-  </div>
-
-
-  <div class="product-grid">
-
-    <div class="product-card">
-
-      <div class="product-icon">🏏</div>
-
-      <h3>Cricket Products</h3>
-
-      <p>
-        Bat, gloves, guards, shoes and more.
-      </p>
-
-      <div class="price">
-        Contact for Price
-      </div>
-
-      <button
-        class="order-btn"
-        onclick="orderProduct('Cricket Products')"
-      >
-        Order Now
-      </button>
+        <p>
+            Choose the sports product you need.
+        </p>
 
     </div>
 
 
-    <div class="product-card">
+    <div class="product-grid">
 
-      <div class="product-icon">⚽</div>
 
-      <h3>Football Products</h3>
+        <div class="product-card">
 
-      <p>
-        Football and related sports goods.
-      </p>
+            <div class="product-icon">👕</div>
 
-      <div class="price">
-        Contact for Price
-      </div>
+            <h3>Jersey & Trousers</h3>
 
-      <button
-        class="order-btn"
-        onclick="orderProduct('Football Products')"
-      >
-        Order Now
-      </button>
+            <p>
+                Sports jersey and trousers in different sizes.
+            </p>
+
+            <div class="price">
+                Contact for Price
+            </div>
+
+            <button class="order-btn"
+                    onclick="orderProduct('Jersey and Trousers')">
+                Order Now
+            </button>
+
+        </div>
+
+
+        <div class="product-card">
+
+            <div class="product-icon">🎨</div>
+
+            <h3>Customize Jersey</h3>
+
+            <p>
+                Want a custom jersey?
+                Send us your design/photo.
+            </p>
+
+
+            <div class="upload-box">
+
+                <label>
+                    📷 Upload Your Jersey Design
+                </label>
+
+                <input
+                    class="file-input"
+                    type="file"
+                    id="jerseyImage"
+                    accept="image/*"
+                    onchange="showFileName()"
+                >
+
+                <div class="file-name"
+                     id="fileName">
+                    No image selected
+                </div>
+
+            </div>
+
+
+            <button class="order-btn"
+                    onclick="customJerseyRequest()">
+                Send Custom Request
+            </button>
+
+        </div>
+
 
     </div>
-
-  </div>
 
 </section>
-
 
 
 <!-- =========================
      COSMETICS
 ========================= -->
 
-<section class="product-section" id="cosmetics">
+<section class="product-section"
+         id="cosmetics">
 
-  <div class="section-title">
+    <div class="section-title">
 
-    <h2>💄 Cosmetics</h2>
+        <h2>💄 Cosmetics</h2>
 
-    <p>
-      Cosmetics and personal care products.
-    </p>
-
-  </div>
-
-
-  <div class="product-grid">
-
-    <div class="product-card">
-
-      <div class="product-icon">💄</div>
-
-      <h3>Cosmetics Products</h3>
-
-      <p>
-        Tell us what product you need.
-      </p>
-
-      <div class="price">
-        Contact for Price
-      </div>
-
-      <button
-        class="order-btn"
-        onclick="orderProduct('Cosmetics Product')"
-      >
-        Order Now
-      </button>
+        <p>
+            Tell us what cosmetic product you need.
+        </p>
 
     </div>
 
-  </div>
+
+    <div class="product-grid">
+
+
+        <div class="product-card">
+
+            <div class="product-icon">💄</div>
+
+            <h3>Cosmetics Products</h3>
+
+            <p>
+                Send us the product name or picture.
+                We will try to find it.
+            </p>
+
+            <div class="price">
+                Contact for Price
+            </div>
+
+            <button class="order-btn"
+                    onclick="orderProduct('Cosmetics Product')">
+                Send Request
+            </button>
+
+        </div>
+
+
+    </div>
 
 </section>
-
 
 
 <!-- =========================
      MEDICINE
 ========================= -->
 
-<section class="product-section" id="medicine">
+<section class="product-section"
+         id="medicine">
 
-  <div class="section-title">
+    <div class="section-title">
 
-    <h2>💊 Medicine</h2>
+        <h2>💊 Medicine</h2>
 
-    <p>
-      Tell us the medicine you are looking for.
-    </p>
-
-  </div>
-
-
-  <div class="product-grid">
-
-    <div class="product-card">
-
-      <div class="product-icon">💊</div>
-
-      <h3>Medicine Request</h3>
-
-      <p>
-        Send us the medicine name or picture.
-      </p>
-
-      <div class="price">
-        Contact for Price
-      </div>
-
-      <button
-        class="order-btn"
-        onclick="orderProduct('Medicine')"
-      >
-        Request Medicine
-      </button>
+        <p>
+            Tell us the medicine you are looking for.
+        </p>
 
     </div>
 
-  </div>
+
+    <div class="product-grid">
+
+
+        <div class="product-card">
+
+            <div class="product-icon">💊</div>
+
+            <h3>Medicine Request</h3>
+
+            <p>
+                Send the medicine name or picture through WhatsApp.
+            </p>
+
+            <div class="price">
+                Contact for Price
+            </div>
+
+            <button class="order-btn"
+                    onclick="orderProduct('Medicine Request')">
+                Request Medicine
+            </button>
+
+        </div>
+
+
+    </div>
 
 </section>
-
 
 
 <!-- =========================
      OTHER PRODUCTS
 ========================= -->
 
-<section class="product-section" id="other">
+<section class="product-section"
+         id="other">
 
-  <div class="section-title">
+    <div class="section-title">
 
-    <h2>🛍️ Other Products</h2>
+        <h2>🛍️ Other Products</h2>
 
-    <p>
-      Can't find your product? Send us a picture.
-    </p>
-
-  </div>
-
-
-  <div class="product-grid">
-
-    <div class="product-card">
-
-      <div class="product-icon">📸</div>
-
-      <h3>Product Request</h3>
-
-      <p>
-        Send us a product picture and we will try to find it.
-      </p>
-
-      <button
-        class="order-btn"
-        onclick="orderProduct('Product Request')"
-      >
-        Send Request
-      </button>
+        <p>
+            If you cannot find your product, send us a picture.
+        </p>
 
     </div>
 
-  </div>
+
+    <div class="product-grid">
+
+
+        <div class="product-card">
+
+            <div class="product-icon">📸</div>
+
+            <h3>Product Request</h3>
+
+            <p>
+                Send us a product picture and our team will
+                try to find the same or a similar product.
+            </p>
+
+            <div class="price">
+                Contact for Price
+            </div>
+
+            <button class="order-btn"
+                    onclick="orderProduct('Other Product Request')">
+                Send Request
+            </button>
+
+        </div>
+
+
+    </div>
 
 </section>
-
 
 
 <!-- =========================
@@ -1168,61 +1230,65 @@ footer span{
 
 <section id="how">
 
-  <div class="section-title">
+    <div class="section-title">
 
-    <h2>How It Works</h2>
+        <h2>How It Works</h2>
 
-    <p>
-      Shopping with Fire Squirrel is simple.
-    </p>
-
-  </div>
-
-
-  <div class="steps">
-
-    <div class="step">
-
-      <div class="step-number">1</div>
-
-      <h3>Tell Us</h3>
-
-      <p>
-        Tell us what product you need.
-      </p>
+        <p>
+            Shopping with Fire Squirrel is simple.
+        </p>
 
     </div>
 
 
-    <div class="step">
+    <div class="steps">
 
-      <div class="step-number">2</div>
 
-      <h3>We Find It</h3>
+        <div class="step">
 
-      <p>
-        Our team searches for your desired product.
-      </p>
+            <div class="step-number">1</div>
+
+            <h3>Tell Us</h3>
+
+            <p>
+                Tell us what product you need.
+                You can also send a product picture.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="step-number">2</div>
+
+            <h3>We Find It</h3>
+
+            <p>
+                Our team searches for the product
+                in Dhaka and other available sources.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="step-number">3</div>
+
+            <h3>Get Delivery</h3>
+
+            <p>
+                We arrange delivery to your location
+                across Bangladesh.
+            </p>
+
+        </div>
+
 
     </div>
-
-
-    <div class="step">
-
-      <div class="step-number">3</div>
-
-      <h3>Get Delivery</h3>
-
-      <p>
-        We arrange delivery to your location.
-      </p>
-
-    </div>
-
-  </div>
 
 </section>
-
 
 
 <!-- =========================
@@ -1231,215 +1297,209 @@ footer span{
 
 <section>
 
-  <div class="section-title">
+    <div class="section-title">
 
-    <h2>Delivery Information</h2>
+        <h2>Delivery Information</h2>
 
-    <p>
-      We deliver products across Bangladesh.
-    </p>
-
-  </div>
-
-
-  <div class="delivery-box">
-
-
-    <div class="delivery-card">
-
-      <h3>🇧🇩 Nationwide</h3>
-
-      <p>
-        Up to 1 kg:
-        <strong>৳140</strong>
-      </p>
+        <p>
+            We deliver products across Bangladesh.
+        </p>
 
     </div>
 
 
-    <div class="delivery-card">
+    <div class="delivery-box">
 
-      <h3>🏙️ Inside Dhaka</h3>
 
-      <p>
-        Delivery charge:
-        <strong>৳70</strong>
-      </p>
+        <div class="delivery-card">
+
+            <h3>🇧🇩 Nationwide</h3>
+
+            <p>
+                Up to 1 kg:
+                <strong>৳140</strong>
+            </p>
+
+        </div>
+
+
+        <div class="delivery-card">
+
+            <h3>🏙️ Inside Dhaka</h3>
+
+            <p>
+                Delivery charge:
+                <strong>৳70</strong>
+            </p>
+
+        </div>
+
+
+        <div class="delivery-card">
+
+            <h3>📦 Additional Weight</h3>
+
+            <p>
+                For every additional 1 kg,
+                <strong>৳20</strong> will be added.
+                <br><br>
+                Example:
+                2kg = ৳160
+                <br>
+                3kg = ৳180
+            </p>
+
+        </div>
+
 
     </div>
-
-
-    <div class="delivery-card">
-
-      <h3>📦 Additional Weight</h3>
-
-      <p>
-
-        For every additional 1 kg,
-        <strong>৳20</strong> will be added.
-
-        <br><br>
-
-        Example:
-        2kg = ৳160,
-        3kg = ৳180.
-
-      </p>
-
-    </div>
-
-  </div>
 
 </section>
-
-
-
-<!-- =========================
-     PROFILE
-========================= -->
-
-<section
-  class="profile-section"
-  id="profile"
->
-
-  <div class="profile-card">
-
-    <div class="profile-avatar">
-      👤
-    </div>
-
-
-    <h2 id="profileName">
-      Customer
-    </h2>
-
-
-    <div class="profile-info">
-
-      <div>
-        📱
-        <strong>Mobile:</strong>
-        <span id="profilePhone"></span>
-      </div>
-
-
-      <div>
-        📍
-        <strong>Address:</strong>
-        <span id="profileAddress"></span>
-      </div>
-
-    </div>
-
-
-    <button
-      class="btn"
-      onclick="logout()"
-    >
-      Logout
-    </button>
-
-  </div>
-
-</section>
-
 
 
 <!-- =========================
      CONTACT
 ========================= -->
 
-<section
-  class="contact"
-  id="contact"
->
+<section class="contact"
+         id="contact">
 
-  <div class="section-title">
+    <div class="section-title">
 
-    <h2>Contact Fire Squirrel</h2>
+        <h2>Contact Fire Squirrel</h2>
+
+        <p>
+            Have a question? Contact us directly.
+        </p>
+
+    </div>
+
 
     <p>
-      Have a question? Contact us directly.
+        📱 WhatsApp:
+        <strong>01516-602562</strong>
     </p>
 
-  </div>
+
+    <p>
+        📧 Email:
+        <strong>firesquirrelbd@gmail.com</strong>
+    </p>
 
 
-  <p>
-    📱 WhatsApp:
-    <strong>01516-602562</strong>
-  </p>
+    <div class="social-links">
 
 
-  <p>
-    📧 Email:
-    <strong>firesquirrelbd@gmail.com</strong>
-  </p>
+        <a class="social-link facebook"
+           href="https://www.facebook.com/firesquirrelbd"
+           target="_blank">
+            Facebook
+        </a>
 
 
-  <a
-    class="btn"
-    href="https://wa.me/8801516602562"
-    target="_blank"
-  >
-    Chat on WhatsApp
-  </a>
+        <a class="social-link instagram"
+           href="https://www.instagram.com/fire_squirrelbd"
+           target="_blank">
+            Instagram
+        </a>
 
 
-  <!-- SOCIAL MEDIA -->
+        <a class="social-link tiktok"
+           href="https://www.tiktok.com/@fire_squirrelbd"
+           target="_blank">
+            TikTok
+        </a>
 
-  <div class="social-links">
 
-    <!-- Facebook URL পরে এখানে বসাবে -->
-    <a
-      href="#"
-      class="facebook"
-      onclick="socialNotice('Facebook')"
-    >
-      Facebook
+    </div>
+
+
+    <br>
+
+
+    <a class="btn"
+       href="https://wa.me/8801516602562"
+       target="_blank">
+        💬 Chat on WhatsApp
     </a>
-
-
-    <a
-      href="https://www.instagram.com/fire_squirrelbd/"
-      target="_blank"
-      class="instagram"
-    >
-      Instagram
-    </a>
-
-
-    <a
-      href="https://www.tiktok.com/@fire_squirrelbd"
-      target="_blank"
-      class="tiktok"
-    >
-      TikTok
-    </a>
-
-  </div>
 
 </section>
 
 
+</div>
+
 
 <!-- =========================
-     LOGIN / REGISTER MODAL
+     PROFILE PAGE
 ========================= -->
 
-<div
-  class="modal"
-  id="authModal"
->
+<div id="profilePage"
+     class="page-view">
 
-  <div class="modal-box">
 
-    <span
-      class="close"
-      onclick="closeLogin()"
-    >
-      ×
+<section class="profile-page">
+
+    <div class="profile-card">
+
+        <div class="profile-avatar">
+            👤
+        </div>
+
+
+        <h2 id="profileName">
+            Customer
+        </h2>
+
+
+        <div class="profile-info">
+
+            <div>
+                📱
+                <strong>Mobile:</strong>
+                <span id="profilePhone"></span>
+            </div>
+
+
+            <div>
+                📍
+                <strong>Address:</strong>
+                <span id="profileAddress"></span>
+            </div>
+
+        </div>
+
+
+        <button class="btn"
+                onclick="logout()">
+            Logout
+        </button>
+
+
+        <button class="btn btn-dark"
+                onclick="showHome()">
+            Back to Home
+        </button>
+
+    </div>
+
+</section>
+
+</div>
+
+
+<!-- =========================
+     LOGIN MODAL
+========================= -->
+
+<div class="modal"
+     id="authModal">
+
+
+<div class="modal-box">
+
+    <span class="close"
+          onclick="closeLogin()">
+        ×
     </span>
 
 
@@ -1447,99 +1507,90 @@ footer span{
 
     <div id="loginBox">
 
-      <h2>👤 Login</h2>
+        <h2>👤 Login</h2>
 
 
-      <input
-        class="input"
-        id="loginPhone"
-        type="tel"
-        placeholder="Mobile Number"
-      >
+        <input
+            class="input"
+            id="loginPhone"
+            type="tel"
+            placeholder="Mobile Number"
+        >
 
 
-      <button
-        class="btn full-btn"
-        onclick="loginUser()"
-      >
-        Login
-      </button>
+        <button class="btn full-btn"
+                onclick="loginUser()">
+            Login
+        </button>
 
 
-      <div class="switch">
+        <div class="switch">
 
-        Don't have an account?
+            Don't have an account?
 
-        <span onclick="showRegister()">
-          Register
-        </span>
+            <span onclick="showRegister()">
+                Register
+            </span>
 
-      </div>
+        </div>
 
     </div>
-
 
 
     <!-- REGISTER -->
 
-    <div
-      id="registerBox"
-      style="display:none;"
-    >
+    <div id="registerBox"
+         style="display:none;">
 
-      <h2>
-        📝 Create Account
-      </h2>
+        <h2>📝 Create Account</h2>
 
 
-      <input
-        class="input"
-        id="regName"
-        type="text"
-        placeholder="Your Name"
-      >
+        <input
+            class="input"
+            id="regName"
+            type="text"
+            placeholder="Your Name"
+        >
 
 
-      <input
-        class="input"
-        id="regPhone"
-        type="tel"
-        placeholder="Mobile Number"
-      >
+        <input
+            class="input"
+            id="regPhone"
+            type="tel"
+            placeholder="Mobile Number"
+        >
 
 
-      <input
-        class="input"
-        id="regAddress"
-        type="text"
-        placeholder="Your Address"
-      >
+        <input
+            class="input"
+            id="regAddress"
+            type="text"
+            placeholder="Your Address"
+        >
 
 
-      <button
-        class="btn full-btn"
-        onclick="registerUser()"
-      >
-        Create Profile
-      </button>
+        <button class="btn full-btn"
+                onclick="registerUser()">
+            Create Profile
+        </button>
 
 
-      <div class="switch">
+        <div class="switch">
 
-        Already have an account?
+            Already have an account?
 
-        <span onclick="showLogin()">
-          Login
-        </span>
+            <span onclick="showLogin()">
+                Login
+            </span>
 
-      </div>
+        </div>
 
     </div>
 
-  </div>
 
 </div>
 
+</div>
 
 
 <!-- =========================
@@ -1548,376 +1599,551 @@ footer span{
 
 <footer>
 
-  <p>
-    © 2026
-    <span>Fire Squirrel</span>
-    — All Rights Reserved.
-  </p>
+    <p>
+        © 2026
+        <span>Fire Squirrel</span>
+        — All Rights Reserved.
+    </p>
 
 
-  <p>
-    Your Trusted Online Shopping Partner
-  </p>
+    <p>
+        Your Trusted Online Shopping Partner
+    </p>
 
 
-  <div class="footer-social">
+    <div class="footer-social">
 
-    <a
-      href="#"
-      onclick="socialNotice('Facebook')"
-    >
-      Facebook
-    </a>
+        <a href="https://www.facebook.com/firesquirrelbd"
+           target="_blank">
+            Facebook
+        </a>
 
 
-    <a
-      href="https://www.instagram.com/fire_squirrelbd/"
-      target="_blank"
-    >
-      Instagram
-    </a>
+        <a href="https://www.instagram.com/fire_squirrelbd"
+           target="_blank">
+            Instagram
+        </a>
 
 
-    <a
-      href="https://www.tiktok.com/@fire_squirrelbd"
-      target="_blank"
-    >
-      TikTok
-    </a>
+        <a href="https://www.tiktok.com/@fire_squirrelbd"
+           target="_blank">
+            TikTok
+        </a>
 
-  </div>
+    </div>
 
 </footer>
 
 
-
-<!-- =========================
-     JAVASCRIPT
-========================= -->
-
 <script>
 
+/* =====================================
+   CATEGORY SYSTEM
+===================================== */
 
-/* =========================
-   AUTH MODAL
-========================= */
+function openCategory(categoryId, button){
+
+    /* Close every product section */
+
+    const sections =
+        document.querySelectorAll(".product-section");
+
+    sections.forEach(function(section){
+
+        section.classList.remove("active-section");
+
+    });
+
+
+    /* Remove active from all buttons */
+
+    const buttons =
+        document.querySelectorAll(".category");
+
+    buttons.forEach(function(btn){
+
+        btn.classList.remove("active");
+
+    });
+
+
+    /* Open selected category */
+
+    const selected =
+        document.getElementById(categoryId);
+
+    if(selected){
+
+        selected.classList.add("active-section");
+
+    }
+
+
+    /* Make clicked button active */
+
+    if(button){
+
+        button.classList.add("active");
+
+    }
+
+
+    /* Smooth scroll to selected section */
+
+    setTimeout(function(){
+
+        if(selected){
+
+            selected.scrollIntoView({
+                behavior:"smooth",
+                block:"start"
+            });
+
+        }
+
+    },100);
+
+}
+
+
+/* =====================================
+   PRODUCTS VIEW
+===================================== */
+
+function showProducts(){
+
+    document.getElementById("homePage")
+        .classList.add("active-page");
+
+    document.getElementById("profilePage")
+        .classList.remove("active-page");
+
+
+    setTimeout(function(){
+
+        const products =
+            document.getElementById("products");
+
+        if(products){
+
+            products.scrollIntoView({
+                behavior:"smooth"
+            });
+
+        }
+
+    },100);
+
+}
+
+
+/* =====================================
+   HOME VIEW
+===================================== */
+
+function showHome(){
+
+    document.getElementById("homePage")
+        .classList.add("active-page");
+
+    document.getElementById("profilePage")
+        .classList.remove("active-page");
+
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+
+/* =====================================
+   LOGIN MODAL
+===================================== */
 
 function openLogin(){
 
-  document.getElementById("authModal").style.display="flex";
+    document.getElementById("authModal")
+        .style.display="flex";
 
-  showLogin();
+    showLogin();
 
 }
 
 
 function closeLogin(){
 
-  document.getElementById("authModal").style.display="none";
+    document.getElementById("authModal")
+        .style.display="none";
 
 }
 
 
 function showLogin(){
 
-  document.getElementById("loginBox").style.display="block";
+    document.getElementById("loginBox")
+        .style.display="block";
 
-  document.getElementById("registerBox").style.display="none";
+    document.getElementById("registerBox")
+        .style.display="none";
 
 }
 
 
 function showRegister(){
 
-  document.getElementById("loginBox").style.display="none";
+    document.getElementById("loginBox")
+        .style.display="none";
 
-  document.getElementById("registerBox").style.display="block";
+    document.getElementById("registerBox")
+        .style.display="block";
 
 }
 
 
-
-/* =========================
+/* =====================================
    REGISTER
-========================= */
+===================================== */
 
 function registerUser(){
 
-  const name =
-    document.getElementById("regName").value.trim();
+    const name =
+        document.getElementById("regName")
+        .value.trim();
+
+    const phone =
+        document.getElementById("regPhone")
+        .value.trim();
+
+    const address =
+        document.getElementById("regAddress")
+        .value.trim();
 
 
-  const phone =
-    document.getElementById("regPhone").value.trim();
+    if(!name || !phone || !address){
+
+        alert(
+            "Please fill in all information."
+        );
+
+        return;
+
+    }
 
 
-  const address =
-    document.getElementById("regAddress").value.trim();
+    const user = {
+
+        name:name,
+        phone:phone,
+        address:address
+
+    };
 
 
-  if(!name || !phone || !address){
-
-    alert(
-      "Please fill in all information."
+    localStorage.setItem(
+        "fireSquirrelUser",
+        JSON.stringify(user)
     );
 
-    return;
-
-  }
-
-
-  const user = {
-
-    name:name,
-
-    phone:phone,
-
-    address:address
-
-  };
-
-
-  localStorage.setItem(
-    "fireSquirrelUser",
-    JSON.stringify(user)
-  );
-
-
-  alert(
-    "Profile created successfully!"
-  );
-
-
-  closeLogin();
-
-  showProfile();
-
-}
-
-
-
-/* =========================
-   LOGIN
-========================= */
-
-function loginUser(){
-
-  const phone =
-    document.getElementById("loginPhone").value.trim();
-
-
-  const savedUser =
-    localStorage.getItem("fireSquirrelUser");
-
-
-  if(!savedUser){
 
     alert(
-      "No account found. Please register first."
+        "Profile created successfully!"
     );
 
-    showRegister();
-
-    return;
-
-  }
-
-
-  const user =
-    JSON.parse(savedUser);
-
-
-  if(phone !== user.phone){
-
-    alert(
-      "Mobile number does not match."
-    );
-
-    return;
-
-  }
-
-
-  closeLogin();
-
-  showProfile();
-
-}
-
-
-
-/* =========================
-   PROFILE
-========================= */
-
-function showProfile(){
-
-  const savedUser =
-    localStorage.getItem("fireSquirrelUser");
-
-
-  if(!savedUser){
-
-    openLogin();
-
-    return;
-
-  }
-
-
-  const user =
-    JSON.parse(savedUser);
-
-
-  document.getElementById(
-    "profileName"
-  ).innerText = user.name;
-
-
-  document.getElementById(
-    "profilePhone"
-  ).innerText = user.phone;
-
-
-  document.getElementById(
-    "profileAddress"
-  ).innerText = user.address;
-
-
-  const profile =
-    document.getElementById("profile");
-
-
-  profile.style.display="block";
-
-
-  profile.scrollIntoView({
-    behavior:"smooth"
-  });
-
-}
-
-
-
-/* =========================
-   LOGOUT
-========================= */
-
-function logout(){
-
-  localStorage.removeItem(
-    "fireSquirrelUser"
-  );
-
-
-  document.getElementById(
-    "profile"
-  ).style.display="none";
-
-
-  alert(
-    "Logged out successfully."
-  );
-
-}
-
-
-
-/* =========================
-   WHATSAPP ORDER
-========================= */
-
-function orderProduct(product){
-
-  const message =
-    "Hello Fire Squirrel, I want to order/request: "
-    + product;
-
-
-  const whatsapp =
-    "https://wa.me/8801516602562?text="
-    + encodeURIComponent(message);
-
-
-  window.open(
-    whatsapp,
-    "_blank"
-  );
-
-}
-
-
-
-/* =========================
-   SOCIAL NOTICE
-========================= */
-
-function socialNotice(platform){
-
-  alert(
-    platform +
-    " link will be added soon."
-  );
-
-}
-
-
-
-/* =========================
-   CLOSE MODAL OUTSIDE
-========================= */
-
-window.onclick=function(event){
-
-  const modal =
-    document.getElementById("authModal");
-
-
-  if(event.target === modal){
 
     closeLogin();
 
-  }
+    showProfile();
+
+}
+
+
+/* =====================================
+   LOGIN
+===================================== */
+
+function loginUser(){
+
+    const phone =
+        document.getElementById("loginPhone")
+        .value.trim();
+
+
+    const savedUser =
+        localStorage.getItem(
+            "fireSquirrelUser"
+        );
+
+
+    if(!savedUser){
+
+        alert(
+            "No account found. Please register first."
+        );
+
+        showRegister();
+
+        return;
+
+    }
+
+
+    const user =
+        JSON.parse(savedUser);
+
+
+    if(phone !== user.phone){
+
+        alert(
+            "Mobile number does not match."
+        );
+
+        return;
+
+    }
+
+
+    closeLogin();
+
+    showProfile();
+
+}
+
+
+/* =====================================
+   PROFILE
+===================================== */
+
+function showProfile(){
+
+    const savedUser =
+        localStorage.getItem(
+            "fireSquirrelUser"
+        );
+
+
+    if(!savedUser){
+
+        openLogin();
+
+        return;
+
+    }
+
+
+    const user =
+        JSON.parse(savedUser);
+
+
+    document.getElementById("profileName")
+        .innerText=user.name;
+
+
+    document.getElementById("profilePhone")
+        .innerText=user.phone;
+
+
+    document.getElementById("profileAddress")
+        .innerText=user.address;
+
+
+    document.getElementById("homePage")
+        .classList.remove("active-page");
+
+
+    document.getElementById("profilePage")
+        .classList.add("active-page");
+
+
+    document.getElementById("loginNavBtn")
+        .innerText="👤 My Profile";
+
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+
+/* =====================================
+   LOGOUT
+===================================== */
+
+function logout(){
+
+    localStorage.removeItem(
+        "fireSquirrelUser"
+    );
+
+
+    document.getElementById("profilePage")
+        .classList.remove("active-page");
+
+
+    document.getElementById("homePage")
+        .classList.add("active-page");
+
+
+    document.getElementById("loginNavBtn")
+        .innerText="👤 Login";
+
+
+    alert(
+        "Logged out successfully."
+    );
+
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+
+/* =====================================
+   WHATSAPP PRODUCT ORDER
+===================================== */
+
+function orderProduct(product){
+
+    const message =
+        "Hello Fire Squirrel,%0A%0A" +
+        "I want to request/order: " +
+        product +
+        "%0A%0APlease provide details and price.";
+
+    const whatsapp =
+        "https://wa.me/8801516602562?text=" +
+        encodeURIComponent(
+            "Hello Fire Squirrel,\n\n" +
+            "I want to request/order: " +
+            product +
+            "\n\nPlease provide details and price."
+        );
+
+
+    window.open(
+        whatsapp,
+        "_blank"
+    );
+
+}
+
+
+/* =====================================
+   CUSTOM JERSEY IMAGE
+===================================== */
+
+function showFileName(){
+
+    const fileInput =
+        document.getElementById("jerseyImage");
+
+    const fileName =
+        document.getElementById("fileName");
+
+
+    if(fileInput.files.length > 0){
+
+        fileName.innerText =
+            "Selected: " +
+            fileInput.files[0].name;
+
+    }else{
+
+        fileName.innerText =
+            "No image selected";
+
+    }
+
+}
+
+
+function customJerseyRequest(){
+
+    const fileInput =
+        document.getElementById("jerseyImage");
+
+
+    let message =
+        "Hello Fire Squirrel,\n\n" +
+        "I want a Customize Jersey.\n" +
+        "I have a jersey design/photo to share.\n\n" +
+        "Please contact me for details.";
+
+    
+    if(fileInput.files.length > 0){
+
+        message +=
+            "\n\nSelected image: " +
+            fileInput.files[0].name;
+
+    }else{
+
+        message +=
+            "\n\nI will send the jersey picture/design on WhatsApp.";
+
+    }
+
+
+    const whatsapp =
+        "https://wa.me/8801516602562?text=" +
+        encodeURIComponent(message);
+
+
+    window.open(
+        whatsapp,
+        "_blank"
+    );
+
+}
+
+
+/* =====================================
+   CLOSE MODAL OUTSIDE
+===================================== */
+
+window.onclick=function(event){
+
+    const modal =
+        document.getElementById("authModal");
+
+
+    if(event.target === modal){
+
+        closeLogin();
+
+    }
 
 };
 
 
-
-/* =========================
-   AUTO SHOW PROFILE
-========================= */
+/* =====================================
+   KEEP USER LOGGED IN
+===================================== */
 
 window.addEventListener(
-  "load",
-  function(){
+    "DOMContentLoaded",
+    function(){
 
-    const savedUser =
-      localStorage.getItem("fireSquirrelUser");
-
-
-    if(savedUser){
-
-      const user =
-        JSON.parse(savedUser);
+        const savedUser =
+            localStorage.getItem(
+                "fireSquirrelUser"
+            );
 
 
-      document.getElementById(
-        "profileName"
-      ).innerText=user.name;
+        if(savedUser){
 
+            document.getElementById("loginNavBtn")
+                .innerText="👤 My Profile";
 
-      document.getElementById(
-        "profilePhone"
-      ).innerText=user.phone;
-
-
-      document.getElementById(
-        "profileAddress"
-      ).innerText=user.address;
+        }
 
     }
-
-  }
 );
 
 </script>
