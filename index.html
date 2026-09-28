@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Fire Squirrel | Your Trusted Online Shopping Partner</title>
+  <title>Fire Squirrel | Online Shopping</title>
 
   <style>
     * {
@@ -23,17 +23,24 @@
       color: #222;
     }
 
+    button,
+    a {
+      cursor: pointer;
+    }
+
     /* HEADER */
+
     header {
       background: #111;
-      padding: 15px 6%;
+      color: white;
+      padding: 12px 6%;
       display: flex;
       align-items: center;
       justify-content: space-between;
       position: sticky;
       top: 0;
-      z-index: 1000;
-      box-shadow: 0 3px 15px rgba(0,0,0,0.2);
+      z-index: 999;
+      box-shadow: 0 4px 15px rgba(0,0,0,.2);
     }
 
     .brand {
@@ -45,8 +52,8 @@
     .brand img {
       width: 55px;
       height: 55px;
-      border-radius: 50%;
       object-fit: cover;
+      border-radius: 50%;
       border: 2px solid #ff8c00;
     }
 
@@ -55,27 +62,43 @@
       font-size: 25px;
     }
 
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin-left: 22px;
-      font-weight: bold;
-      transition: 0.3s;
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 20px;
     }
 
-    nav a:hover {
+    nav a,
+    nav button {
+      color: white;
+      background: none;
+      border: none;
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: bold;
+    }
+
+    nav a:hover,
+    nav button:hover {
       color: #ff8c00;
     }
 
+    .profile-btn {
+      border: 1px solid #ff8c00 !important;
+      padding: 9px 15px;
+      border-radius: 20px;
+    }
+
     /* HERO */
+
     .hero {
-      min-height: 600px;
+      min-height: 580px;
       padding: 70px 7%;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 40px;
-      background: linear-gradient(135deg, #fff7ed, #ffe0b2);
+      background: linear-gradient(135deg, #fff8ee, #ffe0b2);
     }
 
     .hero-text {
@@ -93,7 +116,7 @@
     }
 
     .hero-text p {
-      font-size: 19px;
+      font-size: 18px;
       line-height: 1.7;
       color: #555;
       margin-bottom: 30px;
@@ -101,19 +124,18 @@
 
     .btn {
       display: inline-block;
-      background: #ff7a00;
+      background: #ff7800;
       color: white;
-      padding: 14px 25px;
+      padding: 13px 22px;
+      border: none;
       border-radius: 30px;
       text-decoration: none;
       font-weight: bold;
-      margin-right: 10px;
-      transition: 0.3s;
+      margin: 5px;
     }
 
     .btn:hover {
-      background: #e65f00;
-      transform: translateY(-2px);
+      background: #df5f00;
     }
 
     .btn-dark {
@@ -124,17 +146,18 @@
       width: 350px;
       max-width: 100%;
       border-radius: 50%;
-      box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+      box-shadow: 0 15px 40px rgba(0,0,0,.2);
     }
 
-    /* SECTION */
+    /* SECTIONS */
+
     section {
       padding: 70px 7%;
     }
 
     .section-title {
       text-align: center;
-      margin-bottom: 45px;
+      margin-bottom: 40px;
     }
 
     .section-title h2 {
@@ -147,6 +170,7 @@
     }
 
     /* CATEGORIES */
+
     .categories {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
@@ -154,21 +178,25 @@
     }
 
     .category {
+      display: block;
+      text-decoration: none;
+      color: #111;
       background: white;
       padding: 30px 15px;
       text-align: center;
       border-radius: 15px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-      transition: 0.3s;
+      box-shadow: 0 5px 20px rgba(0,0,0,.08);
+      transition: .3s;
     }
 
     .category:hover {
-      transform: translateY(-7px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      transform: translateY(-8px);
+      box-shadow: 0 12px 30px rgba(0,0,0,.15);
+      border: 2px solid #ff8500;
     }
 
     .category .icon {
-      font-size: 42px;
+      font-size: 45px;
       margin-bottom: 15px;
     }
 
@@ -176,7 +204,55 @@
       font-size: 18px;
     }
 
+    /* PRODUCT AREA */
+
+    .product-section {
+      background: #fff;
+      border-top: 1px solid #eee;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .product-card {
+      background: white;
+      border-radius: 18px;
+      padding: 25px;
+      text-align: center;
+      box-shadow: 0 5px 20px rgba(0,0,0,.08);
+      border: 1px solid #eee;
+    }
+
+    .product-icon {
+      font-size: 65px;
+      margin-bottom: 15px;
+    }
+
+    .product-card h3 {
+      margin-bottom: 8px;
+    }
+
+    .price {
+      color: #f57c00;
+      font-size: 22px;
+      font-weight: bold;
+      margin: 12px 0;
+    }
+
+    .order-btn {
+      background: #25d366;
+      color: white;
+      border: none;
+      padding: 11px 20px;
+      border-radius: 25px;
+      font-weight: bold;
+    }
+
     /* HOW IT WORKS */
+
     .steps {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -186,51 +262,31 @@
     .step {
       background: white;
       padding: 30px;
-      border-radius: 15px;
       text-align: center;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0,0,0,.08);
     }
 
     .step-number {
       width: 50px;
       height: 50px;
       line-height: 50px;
-      margin: 0 auto 15px;
-      background: #ff7a00;
+      background: #ff7800;
       color: white;
       border-radius: 50%;
+      margin: 0 auto 15px;
       font-weight: bold;
       font-size: 20px;
     }
 
     .step p {
       color: #666;
-      margin-top: 10px;
       line-height: 1.6;
-    }
-
-    /* REQUEST */
-    .request {
-      background: #111;
-      color: white;
-      text-align: center;
-      border-radius: 25px;
-      padding: 55px 25px;
-    }
-
-    .request h2 {
-      font-size: 35px;
-      margin-bottom: 15px;
-    }
-
-    .request p {
-      color: #ddd;
-      max-width: 700px;
-      margin: 0 auto 25px;
-      line-height: 1.7;
+      margin-top: 10px;
     }
 
     /* DELIVERY */
+
     .delivery-box {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -240,22 +296,51 @@
     .delivery-card {
       background: white;
       padding: 30px;
-      border-radius: 15px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
       text-align: center;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0,0,0,.08);
     }
 
     .delivery-card h3 {
       color: #f57c00;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
 
     .delivery-card p {
-      color: #666;
-      line-height: 1.6;
+      color: #555;
+      line-height: 1.7;
+    }
+
+    /* PROFILE */
+
+    .profile-section {
+      background: #fff1dd;
+      display: none;
+    }
+
+    .profile-card {
+      max-width: 600px;
+      margin: auto;
+      background: white;
+      padding: 35px;
+      border-radius: 20px;
+      box-shadow: 0 8px 25px rgba(0,0,0,.1);
+      text-align: center;
+    }
+
+    .profile-avatar {
+      font-size: 65px;
+      margin-bottom: 15px;
+    }
+
+    .profile-info {
+      margin: 15px 0;
+      line-height: 2;
+      color: #555;
     }
 
     /* CONTACT */
+
     .contact {
       text-align: center;
       background: #fff0dc;
@@ -266,21 +351,97 @@
       font-size: 18px;
     }
 
+    /* MODAL */
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,.65);
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal-box {
+      width: 100%;
+      max-width: 430px;
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      position: relative;
+    }
+
+    .modal-box h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .close {
+      position: absolute;
+      right: 18px;
+      top: 12px;
+      font-size: 28px;
+      cursor: pointer;
+    }
+
+    .input {
+      width: 100%;
+      padding: 13px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 15px;
+    }
+
+    .full-btn {
+      width: 100%;
+      margin-top: 12px;
+    }
+
+    .switch {
+      text-align: center;
+      margin-top: 18px;
+      color: #666;
+    }
+
+    .switch span {
+      color: #f57c00;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
     /* FOOTER */
+
     footer {
       background: #111;
       color: white;
       text-align: center;
-      padding: 25px 15px;
+      padding: 25px;
+      line-height: 1.8;
     }
 
     footer span {
       color: #ff8c00;
-      font-weight: bold;
     }
 
     /* MOBILE */
-    @media (max-width: 900px) {
+
+    @media(max-width: 900px) {
+
+      nav {
+        gap: 10px;
+      }
+
+      nav a:nth-child(2),
+      nav a:nth-child(3) {
+        display: none;
+      }
+
       .hero {
         flex-direction: column;
         text-align: center;
@@ -294,23 +455,30 @@
         grid-template-columns: repeat(2, 1fr);
       }
 
+      .product-grid,
       .steps,
       .delivery-box {
         grid-template-columns: 1fr;
       }
-
-      nav {
-        display: none;
-      }
     }
 
-    @media (max-width: 500px) {
-      .categories {
-        grid-template-columns: 1fr;
+    @media(max-width: 500px) {
+
+      header {
+        padding: 10px 4%;
       }
 
-      .hero-text h2 {
-        font-size: 34px;
+      .brand h1 {
+        font-size: 20px;
+      }
+
+      .brand img {
+        width: 45px;
+        height: 45px;
+      }
+
+      .categories {
+        grid-template-columns: 1fr;
       }
 
       section {
@@ -322,229 +490,899 @@
 
 <body>
 
-  <!-- HEADER -->
-  <header>
-    <div class="brand">
-      <img src="logo.png" alt="Fire Squirrel Logo">
-      <h1>Fire Squirrel</h1>
-    </div>
+<!-- HEADER -->
 
-    <nav>
-      <a href="#home">Home</a>
-      <a href="#categories">Products</a>
-      <a href="#how">How It Works</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+<header>
 
+  <div class="brand">
+    <img src="logo.png" alt="Fire Squirrel Logo">
+    <h1>Fire Squirrel</h1>
+  </div>
 
-  <!-- HERO -->
-  <section class="hero" id="home">
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#products">Products</a>
+    <a href="#how">How It Works</a>
+    <a href="#contact">Contact</a>
 
-    <div class="hero-text">
-      <h2>
-        Your Need,<br>
-        <span>We Find It.</span>
-      </h2>
+    <button class="profile-btn" onclick="openLogin()">
+      👤 Login
+    </button>
+  </nav>
 
-      <p>
-        Fire Squirrel helps customers across Bangladesh find products
-        that may be unavailable or expensive in their local area.
-        We search, collect and deliver your desired products to your hand.
-      </p>
-
-      <a class="btn"
-         href="https://wa.me/8801516602562?text=Hello%20Fire%20Squirrel%2C%20I%20want%20to%20order%20a%20product."
-         target="_blank">
-        Order on WhatsApp
-      </a>
-
-      <a class="btn btn-dark" href="#categories">
-        Explore Products
-      </a>
-    </div>
-
-    <div class="hero-logo">
-      <img src="logo.png" alt="Fire Squirrel">
-    </div>
-
-  </section>
+</header>
 
 
-  <!-- CATEGORIES -->
-  <section id="categories">
+<!-- HOME -->
 
-    <div class="section-title">
-      <h2>What We Provide</h2>
-      <p>Tell us what you need — we will try to find it for you.</p>
-    </div>
+<section class="hero" id="home">
 
-    <div class="categories">
+  <div class="hero-text">
 
-      <div class="category">
-        <div class="icon">📚</div>
-        <h3>Books</h3>
-      </div>
-
-      <div class="category">
-        <div class="icon">🏏</div>
-        <h3>Sports Goods</h3>
-      </div>
-
-      <div class="category">
-        <div class="icon">💄</div>
-        <h3>Cosmetics</h3>
-      </div>
-
-      <div class="category">
-        <div class="icon">💊</div>
-        <h3>Medicine</h3>
-      </div>
-
-      <div class="category">
-        <div class="icon">🛍️</div>
-        <h3>Other Products</h3>
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- HOW IT WORKS -->
-  <section id="how">
-
-    <div class="section-title">
-      <h2>How It Works</h2>
-      <p>Shopping with Fire Squirrel is simple.</p>
-    </div>
-
-    <div class="steps">
-
-      <div class="step">
-        <div class="step-number">1</div>
-        <h3>Tell Us What You Need</h3>
-        <p>
-          Send us the product name, size, quality and other details.
-        </p>
-      </div>
-
-      <div class="step">
-        <div class="step-number">2</div>
-        <h3>We Find It</h3>
-        <p>
-          Our team searches for the product and informs you about availability and price.
-        </p>
-      </div>
-
-      <div class="step">
-        <div class="step-number">3</div>
-        <h3>Get It Delivered</h3>
-        <p>
-          Once confirmed, we arrange delivery to your location.
-        </p>
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- PRODUCT REQUEST -->
-  <section>
-
-    <div class="request">
-
-      <h2>Can't Find Your Product?</h2>
-
-      <p>
-        No problem! If you have a picture of the product you want,
-        send it to us. Our team will try to find the same or a similar product.
-      </p>
-
-      <a class="btn"
-         href="https://wa.me/8801516602562?text=Hello%20Fire%20Squirrel%2C%20I%20am%20sending%20a%20product%20picture."
-         target="_blank">
-        📸 Send Product Picture
-      </a>
-
-    </div>
-
-  </section>
-
-
-  <!-- DELIVERY -->
-  <section>
-
-    <div class="section-title">
-      <h2>Delivery Information</h2>
-      <p>We deliver products across Bangladesh.</p>
-    </div>
-
-    <div class="delivery-box">
-
-      <div class="delivery-card">
-        <h3>🇧🇩 Nationwide</h3>
-        <p>
-          Delivery charge: ৳140
-        </p>
-      </div>
-
-      <div class="delivery-card">
-        <h3>🏙️ Dhaka</h3>
-        <p>
-          Inside Dhaka delivery charge: ৳70
-        </p>
-      </div>
-
-      <div class="delivery-card">
-        <h3>📦 Weight</h3>
-        <p>
-          Additional courier charge may apply for products over 1kg.
-        </p>
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- CONTACT -->
-  <section class="contact" id="contact">
-
-    <div class="section-title">
-      <h2>Contact Fire Squirrel</h2>
-      <p>Have a question? Contact us directly.</p>
-    </div>
-
-    <p>📱 WhatsApp: <strong>01516-602562</strong></p>
+    <h2>
+      Your Need,<br>
+      <span>We Find It.</span>
+    </h2>
 
     <p>
-      📧 Email:
-      <strong>firesquirrelbd@gmail.com</strong>
+      Fire Squirrel helps customers across Bangladesh find
+      products that may be unavailable or expensive in their
+      local area.
     </p>
-
-    <br>
 
     <a class="btn"
        href="https://wa.me/8801516602562"
        target="_blank">
-      Chat on WhatsApp
+      📲 Order on WhatsApp
     </a>
 
-  </section>
+    <a class="btn btn-dark" href="#products">
+      🛍️ Explore Products
+    </a>
+
+  </div>
+
+  <div class="hero-logo">
+    <img src="logo.png" alt="Fire Squirrel">
+  </div>
+
+</section>
 
 
-  <!-- FOOTER -->
-  <footer>
+<!-- CATEGORIES -->
+
+<section id="products">
+
+  <div class="section-title">
+
+    <h2>What We Provide</h2>
+
     <p>
-      © 2026 <span>Fire Squirrel</span> — All Rights Reserved.
+      Click a category to see available products.
     </p>
 
+  </div>
+
+
+  <div class="categories">
+
+    <a href="#books" class="category">
+      <div class="icon">📚</div>
+      <h3>Books</h3>
+    </a>
+
+
+    <a href="#sports" class="category">
+      <div class="icon">🏏</div>
+      <h3>Sports Goods</h3>
+    </a>
+
+
+    <a href="#cosmetics" class="category">
+      <div class="icon">💄</div>
+      <h3>Cosmetics</h3>
+    </a>
+
+
+    <a href="#medicine" class="category">
+      <div class="icon">💊</div>
+      <h3>Medicine</h3>
+    </a>
+
+
+    <a href="#other" class="category">
+      <div class="icon">🛍️</div>
+      <h3>Other Products</h3>
+    </a>
+
+  </div>
+
+</section>
+
+
+<!-- BOOKS -->
+
+<section class="product-section" id="books">
+
+  <div class="section-title">
+
+    <h2>📚 Books</h2>
+
     <p>
-      Your Trusted Online Shopping Partner
+      Books, guides, novels and educational materials.
     </p>
-  </footer>
+
+  </div>
+
+  <div class="product-grid">
+
+    <div class="product-card">
+
+      <div class="product-icon">📖</div>
+
+      <h3>Academic Books</h3>
+
+      <p>
+        Class guides and educational books.
+      </p>
+
+      <div class="price">
+        Contact for Price
+      </div>
+
+      <button class="order-btn"
+              onclick="orderProduct('Academic Books')">
+        Order Now
+      </button>
+
+    </div>
+
+
+    <div class="product-card">
+
+      <div class="product-icon">📕</div>
+
+      <h3>Novels</h3>
+
+      <p>
+        Your desired novel or book.
+      </p>
+
+      <div class="price">
+        Contact for Price
+      </div>
+
+      <button class="order-btn"
+              onclick="orderProduct('Novel')">
+        Order Now
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- SPORTS -->
+
+<section class="product-section" id="sports">
+
+  <div class="section-title">
+
+    <h2>🏏 Sports Goods</h2>
+
+    <p>
+      Cricket, football and other sports products.
+    </p>
+
+  </div>
+
+  <div class="product-grid">
+
+    <div class="product-card">
+
+      <div class="product-icon">🏏</div>
+
+      <h3>Cricket Products</h3>
+
+      <p>
+        Bat, gloves, guards, shoes and more.
+      </p>
+
+      <div class="price">
+        Contact for Price
+      </div>
+
+      <button class="order-btn"
+              onclick="orderProduct('Cricket Products')">
+        Order Now
+      </button>
+
+    </div>
+
+
+    <div class="product-card">
+
+      <div class="product-icon">⚽</div>
+
+      <h3>Football Products</h3>
+
+      <p>
+        Football and related sports goods.
+      </p>
+
+      <div class="price">
+        Contact for Price
+      </div>
+
+      <button class="order-btn"
+              onclick="orderProduct('Football Products')">
+        Order Now
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- COSMETICS -->
+
+<section class="product-section" id="cosmetics">
+
+  <div class="section-title">
+
+    <h2>💄 Cosmetics</h2>
+
+    <p>
+      Cosmetics and personal care products.
+    </p>
+
+  </div>
+
+  <div class="product-grid">
+
+    <div class="product-card">
+
+      <div class="product-icon">💄</div>
+
+      <h3>Cosmetics Products</h3>
+
+      <p>
+        Tell us what product you need.
+      </p>
+
+      <div class="price">
+        Contact for Price
+      </div>
+
+      <button class="order-btn"
+              onclick="orderProduct('Cosmetics Product')">
+        Order Now
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- MEDICINE -->
+
+<section class="product-section" id="medicine">
+
+  <div class="section-title">
+
+    <h2>💊 Medicine</h2>
+
+    <p>
+      Tell us the medicine you are looking for.
+    </p>
+
+  </div>
+
+  <div class="product-grid">
+
+    <div class="product-card">
+
+      <div class="product-icon">💊</div>
+
+      <h3>Medicine Request</h3>
+
+      <p>
+        Send us the medicine name or picture.
+      </p>
+
+      <div class="price">
+        Contact for Price
+      </div>
+
+      <button class="order-btn"
+              onclick="orderProduct('Medicine')">
+        Request Medicine
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- OTHER PRODUCTS -->
+
+<section class="product-section" id="other">
+
+  <div class="section-title">
+
+    <h2>🛍️ Other Products</h2>
+
+    <p>
+      Can't find your product? Send us a picture.
+    </p>
+
+  </div>
+
+  <div class="product-grid">
+
+    <div class="product-card">
+
+      <div class="product-icon">📸</div>
+
+      <h3>Product Request</h3>
+
+      <p>
+        Send us a product picture and we will try to find it.
+      </p>
+
+      <button class="order-btn"
+              onclick="orderProduct('Product Request')">
+        Send Request
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- HOW IT WORKS -->
+
+<section id="how">
+
+  <div class="section-title">
+
+    <h2>How It Works</h2>
+
+    <p>
+      Shopping with Fire Squirrel is simple.
+    </p>
+
+  </div>
+
+
+  <div class="steps">
+
+    <div class="step">
+
+      <div class="step-number">1</div>
+
+      <h3>Tell Us</h3>
+
+      <p>
+        Tell us what product you need.
+      </p>
+
+    </div>
+
+
+    <div class="step">
+
+      <div class="step-number">2</div>
+
+      <h3>We Find It</h3>
+
+      <p>
+        Our team searches for your desired product.
+      </p>
+
+    </div>
+
+
+    <div class="step">
+
+      <div class="step-number">3</div>
+
+      <h3>Get Delivery</h3>
+
+      <p>
+        We arrange delivery to your location.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- DELIVERY -->
+
+<section>
+
+  <div class="section-title">
+
+    <h2>Delivery Information</h2>
+
+    <p>
+      We deliver products across Bangladesh.
+    </p>
+
+  </div>
+
+
+  <div class="delivery-box">
+
+    <div class="delivery-card">
+
+      <h3>🇧🇩 Nationwide</h3>
+
+      <p>
+        Up to 1 kg: <strong>৳140</strong>
+      </p>
+
+    </div>
+
+
+    <div class="delivery-card">
+
+      <h3>🏙️ Inside Dhaka</h3>
+
+      <p>
+        Delivery charge: <strong>৳70</strong>
+      </p>
+
+    </div>
+
+
+    <div class="delivery-card">
+
+      <h3>📦 Additional Weight</h3>
+
+      <p>
+        For every additional 1 kg,
+        <strong>৳20</strong> will be added.
+        <br><br>
+        Example: 2kg = ৳160,
+        3kg = ৳180.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- PROFILE -->
+
+<section class="profile-section" id="profile">
+
+  <div class="profile-card">
+
+    <div class="profile-avatar">
+      👤
+    </div>
+
+    <h2 id="profileName">
+      Customer
+    </h2>
+
+    <div class="profile-info">
+
+      <div>
+        📱 <strong>Mobile:</strong>
+        <span id="profilePhone"></span>
+      </div>
+
+      <div>
+        📍 <strong>Address:</strong>
+        <span id="profileAddress"></span>
+      </div>
+
+    </div>
+
+    <button class="btn"
+            onclick="logout()">
+      Logout
+    </button>
+
+  </div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section class="contact" id="contact">
+
+  <div class="section-title">
+
+    <h2>Contact Fire Squirrel</h2>
+
+    <p>
+      Have a question? Contact us directly.
+    </p>
+
+  </div>
+
+  <p>
+    📱 WhatsApp:
+    <strong>01516-602562</strong>
+  </p>
+
+  <p>
+    📧 Email:
+    <strong>firesquirrelbd@gmail.com</strong>
+  </p>
+
+  <a class="btn"
+     href="https://wa.me/8801516602562"
+     target="_blank">
+    Chat on WhatsApp
+  </a>
+
+</section>
+
+
+<!-- LOGIN / REGISTER MODAL -->
+
+<div class="modal" id="authModal">
+
+  <div class="modal-box">
+
+    <span class="close"
+          onclick="closeLogin()">
+      ×
+    </span>
+
+
+    <!-- LOGIN -->
+
+    <div id="loginBox">
+
+      <h2>👤 Login</h2>
+
+      <input
+        class="input"
+        id="loginPhone"
+        type="tel"
+        placeholder="Mobile Number"
+      >
+
+      <button class="btn full-btn"
+              onclick="loginUser()">
+        Login
+      </button>
+
+      <div class="switch">
+        Don't have an account?
+        <span onclick="showRegister()">
+          Register
+        </span>
+      </div>
+
+    </div>
+
+
+    <!-- REGISTER -->
+
+    <div id="registerBox"
+         style="display:none;">
+
+      <h2>📝 Create Account</h2>
+
+      <input
+        class="input"
+        id="regName"
+        type="text"
+        placeholder="Your Name"
+      >
+
+      <input
+        class="input"
+        id="regPhone"
+        type="tel"
+        placeholder="Mobile Number"
+      >
+
+      <input
+        class="input"
+        id="regAddress"
+        type="text"
+        placeholder="Your Address"
+      >
+
+      <button class="btn full-btn"
+              onclick="registerUser()">
+        Create Profile
+      </button>
+
+      <div class="switch">
+        Already have an account?
+        <span onclick="showLogin()">
+          Login
+        </span>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+  <p>
+    © 2026
+    <span>Fire Squirrel</span>
+    — All Rights Reserved.
+  </p>
+
+  <p>
+    Your Trusted Online Shopping Partner
+  </p>
+
+</footer>
+
+
+<script>
+
+  /* AUTH MODAL */
+
+  function openLogin() {
+
+    document.getElementById("authModal").style.display = "flex";
+
+    showLogin();
+  }
+
+
+  function closeLogin() {
+
+    document.getElementById("authModal").style.display = "none";
+
+  }
+
+
+  function showLogin() {
+
+    document.getElementById("loginBox").style.display = "block";
+
+    document.getElementById("registerBox").style.display = "none";
+
+  }
+
+
+  function showRegister() {
+
+    document.getElementById("loginBox").style.display = "none";
+
+    document.getElementById("registerBox").style.display = "block";
+
+  }
+
+
+  /* REGISTER */
+
+  function registerUser() {
+
+    const name =
+      document.getElementById("regName").value.trim();
+
+    const phone =
+      document.getElementById("regPhone").value.trim();
+
+    const address =
+      document.getElementById("regAddress").value.trim();
+
+
+    if (!name || !phone || !address) {
+
+      alert("Please fill in all information.");
+
+      return;
+
+    }
+
+
+    const user = {
+
+      name: name,
+
+      phone: phone,
+
+      address: address
+
+    };
+
+
+    localStorage.setItem(
+      "fireSquirrelUser",
+      JSON.stringify(user)
+    );
+
+
+    alert(
+      "Profile created successfully!"
+    );
+
+
+    closeLogin();
+
+    showProfile();
+
+  }
+
+
+  /* LOGIN */
+
+  function loginUser() {
+
+    const phone =
+      document.getElementById("loginPhone").value.trim();
+
+
+    const savedUser =
+      localStorage.getItem("fireSquirrelUser");
+
+
+    if (!savedUser) {
+
+      alert(
+        "No account found. Please register first."
+      );
+
+      showRegister();
+
+      return;
+
+    }
+
+
+    const user =
+      JSON.parse(savedUser);
+
+
+    if (phone !== user.phone) {
+
+      alert(
+        "Mobile number does not match."
+      );
+
+      return;
+
+    }
+
+
+    closeLogin();
+
+    showProfile();
+
+  }
+
+
+  /* PROFILE */
+
+  function showProfile() {
+
+    const savedUser =
+      localStorage.getItem("fireSquirrelUser");
+
+
+    if (!savedUser) {
+
+      openLogin();
+
+      return;
+
+    }
+
+
+    const user =
+      JSON.parse(savedUser);
+
+
+    document.getElementById("profileName").innerText =
+      user.name;
+
+
+    document.getElementById("profilePhone").innerText =
+      user.phone;
+
+
+    document.getElementById("profileAddress").innerText =
+      user.address;
+
+
+    const profile =
+      document.getElementById("profile");
+
+
+    profile.style.display = "block";
+
+
+    profile.scrollIntoView({
+      behavior: "smooth"
+    });
+
+  }
+
+
+  /* LOGOUT */
+
+  function logout() {
+
+    localStorage.removeItem(
+      "fireSquirrelUser"
+    );
+
+
+    document.getElementById("profile").style.display =
+      "none";
+
+
+    alert("Logged out successfully.");
+
+  }
+
+
+  /* WHATSAPP ORDER */
+
+  function orderProduct(product) {
+
+    const message =
+      "Hello Fire Squirrel, I want to order/request: "
+      + product;
+
+
+    const whatsapp =
+      "https://wa.me/8801516602562?text="
+      + encodeURIComponent(message);
+
+
+    window.open(
+      whatsapp,
+      "_blank"
+    );
+
+  }
+
+
+  /* CLOSE MODAL WHEN CLICKING OUTSIDE */
+
+  window.onclick = function(event) {
+
+    const modal =
+      document.getElementById("authModal");
+
+
+    if (event.target === modal) {
+
+      closeLogin();
+
+    }
+
+  };
+
+</script>
 
 </body>
 </html>
