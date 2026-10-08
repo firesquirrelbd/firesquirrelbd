@@ -10,34 +10,35 @@ body{background:#f4f6f8;color:#161616;line-height:1.5}
 button,input,select,textarea{font:inherit}
 button{cursor:pointer;transition:0.2s;border:none}
 header{background:#111;color:#fff;position:sticky;top:0;z-index:100;box-shadow:0 2px 10px rgba(0,0,0,0.1)}
-.nav{max-width:1250px;margin:auto;padding:12px 18px;display:flex;gap:15px;align-items:center}
+.nav{max-width:1250px;margin:auto;padding:12px 18px;display:flex;gap:12px;align-items:center}
 .brand{display:flex;align-items:center;gap:8px;cursor:pointer}
 .logo{width:42px;height:42px;border-radius:50%;background:#fff;border:2px solid #ff8500;display:flex;align-items:center;justify-content:center;font-size:22px}
 .brand-name{font-size:22px;font-weight:800;color:#ff8a00;white-space:nowrap}
 .search{flex:1;display:flex}
 .search input{width:100%;padding:10px 14px;border:0;border-radius:8px 0 0 8px;outline:0;font-size:14px}
 .search button{padding:0 16px;background:#ff8500;border-radius:0 8px 8px 0;color:#fff;font-weight:bold}
-.navBtn{background:#222;color:#fff;border:1px solid #444;border-radius:8px;padding:9px 14px;font-size:14px;display:flex;align-items:center;gap:5px}
+.navBtn{background:#222;color:#fff;border:1px solid #444;border-radius:8px;padding:8px 12px;font-size:13px;display:flex;align-items:center;gap:5px}
 .navBtn:hover{background:#333;border-color:#ff8500}
 
-.hero{background:linear-gradient(135deg,#fff7ed,#ffdcb6);padding:40px 20px}
+.hero{background:linear-gradient(135deg,#fff7ed,#ffdcb6);padding:35px 20px}
 .heroIn{max-width:1250px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:20px}
-.hero h1{font-size:38px;margin-bottom:10px}.hero h1 span{color:#f47700}
+.hero h1{font-size:36px;margin-bottom:10px}.hero h1 span{color:#f47700}
 .hero p{max-width:650px;color:#555;font-size:15px;margin-bottom:18px}
-.btn{border-radius:8px;padding:10px 18px;font-weight:700;display:inline-block}
+.btn{border-radius:8px;padding:9px 16px;font-weight:700;display:inline-block}
 .orange{background:#ff7800;color:#fff}.orange:hover{background:#e06900}
 .dark{background:#161616;color:#fff}.dark:hover{background:#333}
+.green{background:#17733a;color:#fff}
 
 .container{max-width:1250px;margin:auto;padding:25px 20px}
 .head{display:flex;justify-content:space-between;align-items:center;margin-bottom:15px}
-.categories{display:grid;grid-template-columns:repeat(auto-fill, minmax(110px, 1fr));gap:10px;margin-bottom:25px}
-.cat{background:#fff;border:1px solid #e0e0e0;border-radius:10px;padding:12px 6px;text-align:center;cursor:pointer}
+.categories{display:grid;grid-template-columns:repeat(auto-fill, minmax(100px, 1fr));gap:10px;margin-bottom:25px}
+.cat{background:#fff;border:1px solid #e0e0e0;border-radius:10px;padding:10px 5px;text-align:center;cursor:pointer}
 .cat:hover, .cat.active{border-color:#ff8500;box-shadow:0 4px 12px rgba(255,133,0,0.15);background:#fff9f0}
-.icon{font-size:24px;margin-bottom:4px}.cat small{display:block;color:#666;font-size:12px}
+.icon{font-size:22px;margin-bottom:4px}.cat small{display:block;color:#666;font-size:11px}
 
-.grid{display:grid;grid-template-columns:repeat(auto-fill, minmax(240px, 1fr));gap:18px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill, minmax(230px, 1fr));gap:18px}
 .card{background:#fff;border:1px solid #eee;border-radius:12px;overflow:hidden;box-shadow:0 3px 10px rgba(0,0,0,0.04);display:flex;flex-direction:column}
-.pic{height:180px;background:#fafafa;display:flex;align-items:center;justify-content:center;font-size:50px;overflow:hidden;border-bottom:1px solid #f0f0f0}
+.pic{height:170px;background:#fafafa;display:flex;align-items:center;justify-content:center;font-size:50px;overflow:hidden;border-bottom:1px solid #f0f0f0}
 .pic img{width:100%;height:100%;object-fit:cover}
 .body{padding:14px;display:flex;flex-direction:column;flex:1}
 .body h3{font-size:16px;margin-bottom:5px;color:#222}
@@ -48,22 +49,27 @@ header{background:#111;color:#fff;position:sticky;top:0;z-index:100;box-shadow:0
 .buy{background:#ff7800;color:#fff}
 .empty-msg{grid-column:1/-1;text-align:center;padding:50px 20px;background:#fff;border-radius:12px;border:2px dashed #ddd}
 
+/* DASHBOARD STATS */
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fill, minmax(130px, 1fr));gap:12px;margin-bottom:20px}
+.stat-box{background:#fff8f0;border:1px solid #ffe0c2;border-radius:10px;padding:12px;text-align:center}
+.stat-box h4{font-size:20px;color:#ff7800;margin-bottom:4px}
+.stat-box p{font-size:11px;color:#666}
+
 /* MODAL */
 .modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:200;align-items:center;justify-content:center;padding:15px}
 .modal.show{display:flex}
-.box{background:#fff;border-radius:14px;padding:22px;width:min(520px,100%);max-height:90vh;overflow-y:auto;position:relative}
+.box{background:#fff;border-radius:14px;padding:22px;width:min(600px,100%);max-height:90vh;overflow-y:auto;position:relative}
 .close{position:absolute;right:15px;top:15px;background:#eee;border-radius:50%;width:28px;height:28px;font-weight:bold}
 .form{display:flex;flex-direction:column;gap:10px;margin-top:12px}
 .form input,.form select,.form textarea{padding:10px 12px;border:1px solid #ddd;border-radius:8px;outline:0;width:100%}
 
-/* PROFILE & DASHBOARD */
 .profileTop{display:flex;gap:15px;align-items:center;background:#fff6eb;padding:15px;border-radius:10px;margin-bottom:15px}
 .tabs{display:flex;gap:8px;margin-bottom:15px;border-bottom:1px solid #ddd;padding-bottom:10px}
-.tab{background:#f0f0f0;padding:8px 14px;border-radius:6px;font-weight:bold;font-size:13px}
+.tab{background:#f0f0f0;padding:8px 14px;border-radius:6px;font-weight:bold;font-size:12px}
 .tab.active{background:#ff7800;color:#fff}
 .order-card{border:1px solid #eee;border-radius:8px;padding:12px;margin-bottom:10px;background:#fafafa}
 
-footer{background:#111;color:#fff;padding:30px 20px;margin-top:40px;text-align:center;font-size:13px}
+footer{background:#111;color:#fff;padding:25px 20px;margin-top:40px;text-align:center;font-size:13px}
 </style>
 </head>
 <body>
@@ -75,12 +81,13 @@ footer{background:#111;color:#fff;padding:30px 20px;margin-top:40px;text-align:c
     <div class="brand-name">Fire Squirrel</div>
   </div>
   <div class="search">
-    <input id="search" placeholder="Search products or categories..." oninput="filterProducts()">
+    <input id="search" placeholder="Search products, categories, or shops..." oninput="filterProducts()">
     <button onclick="filterProducts()">🔍</button>
   </div>
   <button id="authBtn" class="navBtn" onclick="openAuthModal()">👤 Login / Register</button>
-  <button id="accountBtn" class="navBtn" style="display:none" onclick="openAccountModal()">👤 Account</button>
+  <button id="accountBtn" class="navBtn" style="display:none" onclick="openAccountModal()">👤 My Account</button>
   <button id="sellerDashBtn" class="navBtn" style="display:none;background:#ff7800;" onclick="openSellerModal()">🏪 Seller Panel</button>
+  <button id="adminDashBtn" class="navBtn" style="display:none;background:#17733a;" onclick="openAdminModal()">👑 Admin Panel</button>
 </div>
 </header>
 
@@ -97,12 +104,12 @@ footer{background:#111;color:#fff;padding:30px 20px;margin-top:40px;text-align:c
 
 <section class="container" id="productsSection">
 <div class="head">
-  <h2>🛍️ Product Categories</h2>
+  <h2>🛍️ Categories</h2>
 </div>
 <div class="categories" id="catGrid"></div>
 
-<div class="head" style="margin-top:20px;">
-  <h2>🔥 Latest Products (News Feed)</h2>
+<div class="head" style="margin-top:10px;">
+  <h2>🔥 Products News Feed</h2>
   <span id="productCount" class="muted">0 Products</span>
 </div>
 <div id="productGrid" class="grid"></div>
@@ -113,7 +120,7 @@ footer{background:#111;color:#fff;padding:30px 20px;margin-top:40px;text-align:c
   <p style="color:#888;margin-top:5px;">Contact: 01516602562 | Email: firesquirrelbd@gmail.com</p>
 </footer>
 
-<!-- AUTH MODAL (Login / Register) -->
+<!-- AUTH MODAL -->
 <div class="modal" id="authModal">
 <div class="box">
   <button class="close" onclick="closeModal('authModal')">✕</button>
@@ -121,376 +128,4 @@ footer{background:#111;color:#fff;padding:30px 20px;margin-top:40px;text-align:c
   <div class="form">
     <select id="authRole">
       <option value="customer">I am a Customer</option>
-      <option value="seller">I am a Seller / Shop Owner</option>
-    </select>
-    <input id="authName" placeholder="Full Name (for new register)" style="display:none;">
-    <input id="authShopName" placeholder="Shop Name (for sellers)" style="display:none;">
-    <input id="authMobile" placeholder="Mobile Number">
-    <input id="authPass" type="password" placeholder="Password">
-    <button class="btn orange" id="authSubmitBtn" onclick="handleAuth()">Login</button>
-    <button class="btn dark" id="toggleAuthBtn" onclick="toggleAuthMode()">New here? Create Account</button>
-  </div>
-</div>
-</div>
-
-<!-- CHECKOUT MODAL -->
-<div class="modal" id="checkoutModal">
-<div class="box">
-  <button class="close" onclick="closeModal('checkoutModal')">✕</button>
-  <h2>🛒 Checkout Order</h2>
-  <div id="checkoutInfo" style="margin:10px 0;padding:10px;background:#fff8f0;border-radius:8px;"></div>
-  <div class="form">
-    <input id="shipName" placeholder="Full Name">
-    <input id="shipMobile" placeholder="Mobile Number">
-    <textarea id="shipAddress" placeholder="Full Delivery Address"></textarea>
-    <select id="paymentMethod">
-      <option value="">Select Payment Method</option>
-      <option value="COD">Cash on Delivery</option>
-      <option value="Online">bKash / Nagad (01516602562)</option>
-    </select>
-    <button class="btn orange" onclick="confirmOrder()">Place Order Now</button>
-  </div>
-</div>
-</div>
-
-<!-- SELLER PANEL MODAL -->
-<div class="modal" id="sellerModal">
-<div class="box" style="width:min(650px,100%);">
-  <button class="close" onclick="closeModal('sellerModal')">✕</button>
-  <h2>🏪 Seller Dashboard</h2>
-  <div id="sellerShopInfo" style="margin:10px 0;font-weight:bold;color:#ff7800;"></div>
-  
-  <div class="tabs">
-    <button class="tab active" id="tabUpload" onclick="switchSellerTab('upload')">➕ Add New Product</button>
-    <button class="tab" id="tabMyProducts" onclick="switchSellerTab('products')">📦 My Products</button>
-  </div>
-
-  <div id="sellerTabUpload">
-    <h3>Upload Product to News Feed</h3>
-    <div class="form">
-      <input id="prodTitle" placeholder="Product Title / Name">
-      <select id="prodCat">
-        <option value="Clothing">Clothing (কাপড়)</option>
-        <option value="Electronics">Electronics (ইলেকট্রনিক্স)</option>
-        <option value="Mobile">Mobile (মোবাইল)</option>
-        <option value="Books">Books (বই)</option>
-        <option value="Sports">Sports (খেলাধুলা)</option>
-        <option value="Beauty">Beauty (প্রসাধনী)</option>
-        <option value="Medicine">Medicine (স্বাস্থ্য)</option>
-        <option value="Grocery">Grocery (মুদিখানা)</option>
-        <option value="Other">Other (অন্যান্য)</option>
-      </select>
-      <input id="prodPrice" type="number" placeholder="Price (৳)">
-      <input id="prodImg" placeholder="Image URL / Emoji (e.g. 👕 or https://...)">
-      <textarea id="prodDesc" placeholder="Product Description"></textarea>
-      <button class="btn orange" onclick="uploadProduct()">Publish to Marketplace</button>
-    </div>
-  </div>
-
-  <div id="sellerTabProducts" style="display:none;">
-    <div id="sellerProductList"></div>
-  </div>
-</div>
-</div>
-
-<!-- CUSTOMER ACCOUNT MODAL -->
-<div class="modal" id="accountModal">
-<div class="box">
-  <button class="close" onclick="closeModal('accountModal')">✕</button>
-  <h2>👤 My Account</h2>
-  <div class="profileTop">
-    <div>
-      <h3 id="accName">Customer</h3>
-      <p id="accMobile" style="color:#666;font-size:13px;"></p>
-      <span id="accRole" style="background:#ff7800;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;">Customer</span>
-    </div>
-  </div>
-  <h3>📦 My Orders</h3>
-  <div id="myOrdersList" style="margin-top:10px;"></div>
-  <button class="btn dark" style="width:100%;margin-top:15px;" onclick="logout()">Logout</button>
-</div>
-</div>
-
-<script>
-// CATEGORIES DATA
-const categories = [
-  {name:'All', icon:'🛍️'}, {name:'Clothing', icon:'👕'}, {name:'Electronics', icon:'📺'},
-  {name:'Mobile', icon:'📱'}, {name:'Books', icon:'📚'}, {name:'Sports', icon:'🏏'},
-  {name:'Beauty', icon:'💄'}, {name:'Medicine', icon:'💊'}, {name:'Grocery', icon:'🛒'},
-  {name:'Other', icon:'📦'}
-];
-
-// STATE MANAGEMENT
-let currentUser = JSON.parse(localStorage.getItem('fs_user')) || null;
-let products = JSON.parse(localStorage.getItem('fs_products')) || [];
-let orders = JSON.parse(localStorage.getItem('fs_orders')) || [];
-let selectedCategory = 'All';
-let isRegisterMode = false;
-let pendingOrderProduct = null;
-
-// INIT
-window.onload = function(){
-  renderCategories();
-  renderProducts();
-  updateAuthUI();
-};
-
-function renderCategories(){
-  document.getElementById('catGrid').innerHTML = categories.map(c => `
-    <div class="cat ${selectedCategory === c.name ? 'active' : ''}" onclick="selectCat('${c.name}')">
-      <div class="icon">${c.icon}</div>
-      <small>${c.name}</small>
-    </div>
-  `).join('');
-}
-
-function selectCat(catName){
-  selectedCategory = catName;
-  renderCategories();
-  renderProducts();
-}
-
-function renderProducts(){
-  const searchQ = document.getElementById('search').value.toLowerCase().trim();
-  let list = products;
-
-  if(selectedCategory !== 'All'){
-    list = list.filter(p => p.category === selectedCategory);
-  }
-  if(searchQ){
-    list = list.filter(p => p.title.toLowerCase().includes(searchQ) || p.shop.toLowerCase().includes(searchQ));
-  }
-
-  document.getElementById('productCount').textContent = `${list.length} Products`;
-  
-  const grid = document.getElementById('productGrid');
-  if(list.length === 0){
-    grid.innerHTML = `
-      <div class="empty-msg">
-        <h3>No products found!</h3>
-        <p style="color:#777;margin-top:5px;">Sellers haven't uploaded any products in this category yet.</p>
-      </div>`;
-    return;
-  }
-
-  grid.innerHTML = list.map(p => `
-    <div class="card">
-      <div class="pic">
-        ${p.img.startsWith('http') ? `<img src="${p.img}" alt="${p.title}">` : p.img || '📦'}
-      </div>
-      <div class="body">
-        <h3>${p.title}</h3>
-        <div class="muted">🏪 Shop: <b>${p.shop}</b></div>
-        <div class="muted">Category: ${p.category}</div>
-        <div class="price">৳${p.price}</div>
-        <div class="actions">
-          <button class="buy" onclick='initiateOrder(${JSON.stringify(p)})'>Order Now</button>
-        </div>
-      </div>
-    </div>
-  `).join('');
-}
-
-function filterProducts(){ renderProducts(); }
-
-// AUTHENTICATION LOGIC
-function openAuthModal(role='customer'){
-  if(role === 'seller'){
-    document.getElementById('authRole').value = 'seller';
-  }
-  openModal('authModal');
-}
-
-function toggleAuthMode(){
-  isRegisterMode = !isRegisterMode;
-  document.getElementById('authTitle').textContent = isRegisterMode ? 'Create New Account' : 'Login to Fire Squirrel';
-  document.getElementById('authSubmitBtn').textContent = isRegisterMode ? 'Register' : 'Login';
-  document.getElementById('toggleAuthBtn').textContent = isRegisterMode ? 'Already have an account? Login' : 'New here? Create Account';
-  
-  document.getElementById('authName').style.display = isRegisterMode ? 'block' : 'none';
-  const isSeller = document.getElementById('authRole').value === 'seller';
-  document.getElementById('authShopName').style.display = (isRegisterMode && isSeller) ? 'block' : 'none';
-}
-
-document.getElementById('authRole').addEventListener('change', function(){
-  const isSeller = this.value === 'seller';
-  document.getElementById('authShopName').style.display = (isRegisterMode && isSeller) ? 'block' : 'none';
-});
-
-function handleAuth(){
-  const role = document.getElementById('authRole').value;
-  const mobile = document.getElementById('authMobile').value.trim();
-  const pass = document.getElementById('authPass').value;
-  const name = document.getElementById('authName').value.trim();
-  const shopName = document.getElementById('authShopName').value.trim();
-
-  if(!mobile || !pass){ alert('Please fill in mobile and password.'); return; }
-
-  let users = JSON.parse(localStorage.getItem('fs_users')) || [];
-
-  if(isRegisterMode){
-    if(!name){ alert('Please enter your name.'); return; }
-    if(role === 'seller' && !shopName){ alert('Please enter shop name.'); return; }
-
-    const exists = users.find(u => u.mobile === mobile);
-    if(exists){ alert('Mobile number already registered!'); return; }
-
-    const newUser = { role, mobile, pass, name, shopName: shopName || name + ' Shop' };
-    users.push(newUser);
-    localStorage.setItem('fs_users', JSON.stringify(users));
-    currentUser = newUser;
-  } else {
-    const user = users.find(u => u.mobile === mobile && u.pass === pass && u.role === role);
-    if(!user){ alert('Invalid Credentials!'); return; }
-    currentUser = user;
-  }
-
-  localStorage.setItem('fs_user', JSON.stringify(currentUser));
-  closeModal('authModal');
-  updateAuthUI();
-
-  if(pendingOrderProduct){
-    openCheckout(pendingOrderProduct);
-    pendingOrderProduct = null;
-  }
-}
-
-function updateAuthUI(){
-  if(currentUser){
-    document.getElementById('authBtn').style.display = 'none';
-    document.getElementById('accountBtn').style.display = 'flex';
-    if(currentUser.role === 'seller'){
-      document.getElementById('sellerDashBtn').style.display = 'flex';
-    } else {
-      document.getElementById('sellerDashBtn').style.display = 'none';
-    }
-  } else {
-    document.getElementById('authBtn').style.display = 'flex';
-    document.getElementById('accountBtn').style.display = 'none';
-    document.getElementById('sellerDashBtn').style.display = 'none';
-  }
-}
-
-function logout(){
-  currentUser = null;
-  localStorage.removeItem('fs_user');
-  updateAuthUI();
-  closeModal('accountModal');
-  closeModal('sellerModal');
-}
-
-// SELLER DASHBOARD & PRODUCT UPLOAD
-function openSellerModal(){
-  if(!currentUser || currentUser.role !== 'seller') return;
-  document.getElementById('sellerShopInfo').textContent = `🏪 Shop: ${currentUser.shopName} (${currentUser.name})`;
-  renderSellerProducts();
-  openModal('sellerModal');
-}
-
-function switchSellerTab(tab){
-  document.getElementById('tabUpload').classList.toggle('active', tab==='upload');
-  document.getElementById('tabMyProducts').classList.toggle('active', tab==='products');
-  document.getElementById('sellerTabUpload').style.display = tab==='upload' ? 'block' : 'none';
-  document.getElementById('sellerTabProducts').style.display = tab==='products' ? 'block' : 'none';
-}
-
-function uploadProduct(){
-  const title = document.getElementById('prodTitle').value.trim();
-  const category = document.getElementById('prodCat').value;
-  const price = document.getElementById('prodPrice').value;
-  const img = document.getElementById('prodImg').value.trim() || '📦';
-  const desc = document.getElementById('prodDesc').value.trim();
-
-  if(!title || !price){ alert('Please fill in product title and price.'); return; }
-
-  const newProd = {
-    id: 'P_' + Date.now(),
-    title,
-    category,
-    price: Number(price),
-    img,
-    desc,
-    sellerMobile: currentUser.mobile,
-    shop: currentUser.shopName
-  };
-
-  products.unshift(newProd);
-  localStorage.setItem('fs_products', JSON.stringify(products));
-
-  alert('✅ Product published successfully to News Feed!');
-  document.getElementById('prodTitle').value = '';
-  document.getElementById('prodPrice').value = '';
-  document.getElementById('prodImg').value = '';
-  document.getElementById('prodDesc').value = '';
-
-  renderProducts();
-  switchSellerTab('products');
-  renderSellerProducts();
-}
-
-function renderSellerProducts(){
-  const myProds = products.filter(p => p.sellerMobile === currentUser.mobile);
-  const container = document.getElementById('sellerProductList');
-  if(!myProds.length){
-    container.innerHTML = '<p style="color:#777;">You have not uploaded any products yet.</p>';
-    return;
-  }
-
-  container.innerHTML = myProds.map(p => `
-    <div style="display:flex;justify-content:space-between;align-items:center;padding:10px;border-bottom:1px solid #eee;">
-      <div>
-        <b>${p.title}</b> (৳${p.price})<br>
-        <small style="color:#666;">Cat: ${p.category}</small>
-      </div>
-      <button style="background:#ff3333;color:#fff;padding:5px 10px;border-radius:5px;" onclick="deleteProduct('${p.id}')">Delete</button>
-    </div>
-  `).join('');
-}
-
-function deleteProduct(id){
-  products = products.filter(p => p.id !== id);
-  localStorage.setItem('fs_products', JSON.stringify(products));
-  renderProducts();
-  renderSellerProducts();
-}
-
-// CHECKOUT & ORDERS
-function initiateOrder(product){
-  if(!currentUser){
-    pendingOrderProduct = product;
-    openAuthModal('customer');
-    return;
-  }
-  openCheckout(product);
-}
-
-function openCheckout(product){
-  pendingOrderProduct = product;
-  document.getElementById('checkoutInfo').innerHTML = `
-    <b>${product.title}</b><br>
-    Shop: ${product.shop} | Price: <b>৳${product.price}</b>
-  `;
-  document.getElementById('shipName').value = currentUser.name || '';
-  document.getElementById('shipMobile').value = currentUser.mobile || '';
-  openModal('checkoutModal');
-}
-
-function confirmOrder(){
-  const method = document.getElementById('paymentMethod').value;
-  const address = document.getElementById('shipAddress').value.trim();
-
-  if(!method || !address){ alert('Please fill in address and select payment method.'); return; }
-
-  const newOrder = {
-    id: 'FS' + Math.floor(10000 + Math.random() * 90000),
-    product: pendingOrderProduct.title,
-    price: pendingOrderProduct.price,
-    shop: pendingOrderProduct.shop,
-    customerMobile: currentUser.mobile,
-    address,
-    method,
-    date: new Date().toLocaleDateString('en-GB')
-  };
-
-  orders.unshift(newOrder);
-  localStorage.setItem('fs_orders', JSON.stringify(orders
+      <option value="seller">I am a Seller / Shop Owner
