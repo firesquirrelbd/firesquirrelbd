@@ -2,76 +2,85 @@
 <html lang="bn">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Fire Squirrel Marketplace — Customer Flow Demo</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fire Squirrel | Multi-Vendor Marketplace</title>
 <style>
-*{box-sizing:border-box}
-body{margin:0;font-family:Arial,"Noto Sans Bengali",sans-serif;background:#f5f6f8;color:#161616}
-button,input,select{font:inherit}
-button{cursor:pointer}
-header{background:#111;color:#fff;position:sticky;top:0;z-index:20}
-.nav{max-width:1250px;margin:auto;padding:12px 18px;display:flex;gap:12px;align-items:center}
-.brand{display:flex;align-items:center;gap:8px;min-width:205px}
-.logo{width:48px;height:48px;border-radius:50%;background:#fff;border:2px solid #ff8500;display:flex;align-items:center;justify-content:center;font-size:28px}
-.brand-name{font-size:23px;font-weight:800;color:#ff8a00;white-space:nowrap}
+*{box-sizing:border-box;margin:0;padding:0;font-family:Arial, sans-serif;}
+body{background:#f4f6f8;color:#161616;line-height:1.5}
+button,input,select,textarea{font:inherit}
+button{cursor:pointer;transition:0.2s;border:none}
+header{background:#111;color:#fff;position:sticky;top:0;z-index:100;box-shadow:0 2px 10px rgba(0,0,0,0.1)}
+.nav{max-width:1250px;margin:auto;padding:12px 18px;display:flex;gap:15px;align-items:center}
+.brand{display:flex;align-items:center;gap:8px;cursor:pointer}
+.logo{width:42px;height:42px;border-radius:50%;background:#fff;border:2px solid #ff8500;display:flex;align-items:center;justify-content:center;font-size:22px}
+.brand-name{font-size:22px;font-weight:800;color:#ff8a00;white-space:nowrap}
 .search{flex:1;display:flex}
-.search input{width:100%;padding:12px 14px;border:0;border-radius:8px 0 0 8px;outline:0}
-.search button{padding:0 17px;border:0;background:#ff8500;border-radius:0 8px 8px 0}
-.navBtn{border:1px solid #444;background:#202020;color:#fff;border-radius:8px;padding:10px 13px}
-.accountBtn{display:none}
-.hero{background:linear-gradient(135deg,#fff7ed,#ffdcb6);padding:55px 20px}
-.heroIn{max-width:1250px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:28px}
-.hero h1{font-size:44px;margin:0 0 12px}.hero h1 span{color:#f47700}
-.hero p{max-width:710px;color:#555;line-height:1.7}
-.heroLogo{width:210px;height:210px;border-radius:50%;background:#fff;border:5px solid #ff8500;display:flex;align-items:center;justify-content:center;font-size:105px;box-shadow:0 12px 32px #0002}
-.btn{border:0;border-radius:8px;padding:12px 17px;font-weight:700}.orange{background:#ff7800;color:#fff}.dark{background:#161616;color:#fff}
-.container{max-width:1250px;margin:auto;padding:34px 20px}
-.categories{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
-.cat{background:#fff;border:1px solid #e8e8e8;border-radius:12px;padding:16px 8px;text-align:center;cursor:pointer}.cat:hover{box-shadow:0 8px 20px #0001}
-.icon{font-size:30px}.cat small{display:block;color:#777;margin-top:3px}
-.head{display:flex;justify-content:space-between;align-items:center;margin-bottom:17px}
-.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-.card{background:#fff;border:1px solid #eee;border-radius:12px;overflow:hidden;box-shadow:0 4px 18px #0000000a}
-.pic{height:175px;background:#efeff1;display:flex;align-items:center;justify-content:center;font-size:65px}
-.body{padding:15px}.body h3{margin:0 0 5px}.muted{color:#777;font-size:13px}.price{font-size:21px;font-weight:800;margin:8px 0}
-.actions{display:flex;gap:8px;margin-top:10px}.actions button{flex:1;border:0;border-radius:7px;padding:9px;font-weight:700}
-.details{background:#e9ebef}.buy{background:#ff7800;color:#fff}.add{background:#151515;color:#fff;width:100%;margin-top:8px}
-.shops{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.shop{background:#fff;border:1px solid #eee;border-radius:12px;padding:18px;text-align:center}
-.avatar{width:75px;height:75px;border-radius:50%;margin:auto;display:flex;align-items:center;justify-content:center;background:#fff1df;font-size:40px}
-.info{background:#fff6e6;border-left:5px solid #ff8500;border-radius:8px;padding:14px;line-height:1.6}
-footer{background:#111;color:#fff;padding:42px 20px 24px;margin-top:30px}.footerGrid{max-width:1250px;margin:auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:22px}
-footer h3{margin-top:0;color:#ff8a00}footer a{display:block;color:#ddd;text-decoration:none;margin:8px 0}footer a:hover{color:#ff8a00}
-.bottom{text-align:center;color:#999;border-top:1px solid #333;max-width:1250px;margin:24px auto 0;padding-top:17px;font-size:13px}
-.modal{display:none;position:fixed;inset:0;background:#0009;z-index:50;align-items:center;justify-content:center;padding:18px}.modal.show{display:flex}
-.box{background:#fff;border-radius:14px;padding:24px;width:min(590px,100%);max-height:90vh;overflow:auto;position:relative}.close{position:absolute;right:12px;top:10px;background:#eee;border:0;border-radius:7px;padding:4px 10px}
-.form{display:grid;gap:9px;margin-top:15px}.form input,.form select{padding:12px;border:1px solid #ddd;border-radius:8px;outline:0}
-.small{font-size:12px;color:#777;line-height:1.5}.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:15px 0}.tab{border:1px solid #ddd;background:#f5f5f5;border-radius:7px;padding:8px 12px}.tab.active{background:#111;color:#fff}
-.profileTop{display:flex;gap:15px;align-items:center;background:#fff6eb;padding:15px;border-radius:10px}.profileAvatar{width:65px;height:65px;border-radius:50%;background:#111;color:#fff;display:flex;align-items:center;justify-content:center;font-size:28px}
-.order{border:1px solid #e6e6e6;border-radius:10px;padding:13px;margin-top:10px}.orderHead{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
-.status{padding:5px 9px;border-radius:20px;background:#e8f7ed;color:#17733a;font-size:12px;font-weight:700}
-.timeline{display:flex;justify-content:space-between;gap:6px;margin-top:12px}.step{flex:1;text-align:center;font-size:11px;color:#999}.step.active{color:#17733a;font-weight:700}.dot{width:12px;height:12px;border-radius:50%;background:#ccc;margin:0 auto 5px}.step.active .dot{background:#17733a}
-.cartRow{display:flex;justify-content:space-between;gap:10px;padding:10px 0;border-bottom:1px solid #eee}
-.adminHint{font-size:12px;color:#888;margin-top:10px}
-@media(max-width:1050px){.categories{grid-template-columns:repeat(4,1fr)}.grid{grid-template-columns:repeat(3,1fr)}}
-@media(max-width:800px){.nav{flex-wrap:wrap}.search{order:3;flex-basis:100%}.heroIn{flex-direction:column;align-items:flex-start}.grid{grid-template-columns:repeat(2,1fr)}.footerGrid{grid-template-columns:1fr 1fr}}
-@media(max-width:520px){.categories{grid-template-columns:repeat(2,1fr)}.grid{grid-template-columns:1fr}.shops{grid-template-columns:1fr}.footerGrid{grid-template-columns:1fr}.hero h1{font-size:33px}.timeline{flex-direction:column}}
+.search input{width:100%;padding:10px 14px;border:0;border-radius:8px 0 0 8px;outline:0;font-size:14px}
+.search button{padding:0 16px;background:#ff8500;border-radius:0 8px 8px 0;color:#fff;font-weight:bold}
+.navBtn{background:#222;color:#fff;border:1px solid #444;border-radius:8px;padding:9px 14px;font-size:14px;display:flex;align-items:center;gap:5px}
+.navBtn:hover{background:#333;border-color:#ff8500}
+
+.hero{background:linear-gradient(135deg,#fff7ed,#ffdcb6);padding:40px 20px}
+.heroIn{max-width:1250px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.hero h1{font-size:38px;margin-bottom:10px}.hero h1 span{color:#f47700}
+.hero p{max-width:650px;color:#555;font-size:15px;margin-bottom:18px}
+.btn{border-radius:8px;padding:10px 18px;font-weight:700;display:inline-block}
+.orange{background:#ff7800;color:#fff}.orange:hover{background:#e06900}
+.dark{background:#161616;color:#fff}.dark:hover{background:#333}
+
+.container{max-width:1250px;margin:auto;padding:25px 20px}
+.head{display:flex;justify-content:space-between;align-items:center;margin-bottom:15px}
+.categories{display:grid;grid-template-columns:repeat(auto-fill, minmax(110px, 1fr));gap:10px;margin-bottom:25px}
+.cat{background:#fff;border:1px solid #e0e0e0;border-radius:10px;padding:12px 6px;text-align:center;cursor:pointer}
+.cat:hover, .cat.active{border-color:#ff8500;box-shadow:0 4px 12px rgba(255,133,0,0.15);background:#fff9f0}
+.icon{font-size:24px;margin-bottom:4px}.cat small{display:block;color:#666;font-size:12px}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill, minmax(240px, 1fr));gap:18px}
+.card{background:#fff;border:1px solid #eee;border-radius:12px;overflow:hidden;box-shadow:0 3px 10px rgba(0,0,0,0.04);display:flex;flex-direction:column}
+.pic{height:180px;background:#fafafa;display:flex;align-items:center;justify-content:center;font-size:50px;overflow:hidden;border-bottom:1px solid #f0f0f0}
+.pic img{width:100%;height:100%;object-fit:cover}
+.body{padding:14px;display:flex;flex-direction:column;flex:1}
+.body h3{font-size:16px;margin-bottom:5px;color:#222}
+.muted{color:#777;font-size:12px;margin-bottom:3px}
+.price{font-size:19px;font-weight:800;color:#ff7800;margin:8px 0}
+.actions{display:flex;gap:8px;margin-top:auto}
+.actions button{flex:1;border-radius:6px;padding:8px;font-weight:bold;font-size:13px}
+.buy{background:#ff7800;color:#fff}
+.empty-msg{grid-column:1/-1;text-align:center;padding:50px 20px;background:#fff;border-radius:12px;border:2px dashed #ddd}
+
+/* MODAL */
+.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:200;align-items:center;justify-content:center;padding:15px}
+.modal.show{display:flex}
+.box{background:#fff;border-radius:14px;padding:22px;width:min(520px,100%);max-height:90vh;overflow-y:auto;position:relative}
+.close{position:absolute;right:15px;top:15px;background:#eee;border-radius:50%;width:28px;height:28px;font-weight:bold}
+.form{display:flex;flex-direction:column;gap:10px;margin-top:12px}
+.form input,.form select,.form textarea{padding:10px 12px;border:1px solid #ddd;border-radius:8px;outline:0;width:100%}
+
+/* PROFILE & DASHBOARD */
+.profileTop{display:flex;gap:15px;align-items:center;background:#fff6eb;padding:15px;border-radius:10px;margin-bottom:15px}
+.tabs{display:flex;gap:8px;margin-bottom:15px;border-bottom:1px solid #ddd;padding-bottom:10px}
+.tab{background:#f0f0f0;padding:8px 14px;border-radius:6px;font-weight:bold;font-size:13px}
+.tab.active{background:#ff7800;color:#fff}
+.order-card{border:1px solid #eee;border-radius:8px;padding:12px;margin-bottom:10px;background:#fafafa}
+
+footer{background:#111;color:#fff;padding:30px 20px;margin-top:40px;text-align:center;font-size:13px}
 </style>
 </head>
 <body>
 
 <header>
 <div class="nav">
-  <div class="brand">
+  <div class="brand" onclick="window.scrollTo(0,0)">
     <div class="logo">🔥</div>
     <div class="brand-name">Fire Squirrel</div>
   </div>
   <div class="search">
-    <input id="search" placeholder="Search products / shops..." oninput="searchProducts()">
-    <button onclick="searchProducts()">🔍</button>
+    <input id="search" placeholder="Search products or categories..." oninput="filterProducts()">
+    <button onclick="filterProducts()">🔍</button>
   </div>
-  <button id="loginBtn" class="navBtn" onclick="openModal('loginModal')">Login</button>
-  <button class="navBtn" onclick="openModal('sellerModal')">Become a Seller</button>
-  <button id="accountBtn" class="navBtn accountBtn" onclick="openModal('accountModal')">👤 My Account</button>
+  <button id="authBtn" class="navBtn" onclick="openAuthModal()">👤 Login / Register</button>
+  <button id="accountBtn" class="navBtn" style="display:none" onclick="openAccountModal()">👤 Account</button>
+  <button id="sellerDashBtn" class="navBtn" style="display:none;background:#ff7800;" onclick="openSellerModal()">🏪 Seller Panel</button>
 </div>
 </header>
 
@@ -79,340 +88,409 @@ footer h3{margin-top:0;color:#ff8a00}footer a{display:block;color:#ddd;text-deco
 <div class="heroIn">
   <div>
     <h1>Your Need, <span>We Find It.</span></h1>
-    <p>আগে product দেখুন, search করুন, category ঘুরে দেখুন। Order Now চাপার সময় login চাইবে। একবার login করলে এরপর আবার login করতে হবে না—customer নিজের profile থেকে order ও status দেখতে পারবে।</p>
-    <button class="btn orange" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">Shop Now</button>
-    <button class="btn dark" onclick="openModal('sellerModal')">Sell on Fire Squirrel</button>
+    <p>Marketplace-e apnar pochonder product khujun athoba nijer dokan khule sorasori sell korun!</p>
+    <button class="btn orange" onclick="document.getElementById('productsSection').scrollIntoView({behavior:'smooth'})">Browse Products</button>
+    <button class="btn dark" onclick="openAuthModal('seller')">Become a Seller</button>
   </div>
-  <div class="heroLogo">🔥</div>
 </div>
 </section>
 
-<section class="container">
-<h2>🛍️ Categories</h2>
-<div class="categories">
-<div class="cat" onclick="filterCat('All')"><div class="icon">🛍️</div><b>All</b><small>সব</small></div>
-<div class="cat" onclick="filterCat('Clothing')"><div class="icon">👕</div><b>Clothing</b><small>কাপড়</small></div>
-<div class="cat" onclick="filterCat('Electronics')"><div class="icon">📺</div><b>Electronics</b><small>ইলেকট্রনিক্স</small></div>
-<div class="cat" onclick="filterCat('Mobile')"><div class="icon">📱</div><b>Mobile</b><small>মোবাইল</small></div>
-<div class="cat" onclick="filterCat('Books')"><div class="icon">📚</div><b>Books</b><small>বই</small></div>
-<div class="cat" onclick="filterCat('Sports')"><div class="icon">🏏</div><b>Sports</b><small>খেলাধুলা</small></div>
-<div class="cat" onclick="filterCat('Beauty')"><div class="icon">💄</div><b>Beauty</b><small>প্রসাধনী</small></div>
-<div class="cat" onclick="filterCat('Medicine')"><div class="icon">💊</div><b>Medicine</b><small>স্বাস্থ্য</small></div>
-<div class="cat" onclick="filterCat('Grocery')"><div class="icon">🛒</div><b>Grocery</b><small>মুদিখানা</small></div>
-<div class="cat" onclick="filterCat('Home')"><div class="icon">🏠</div><b>Home</b><small>ঘর</small></div>
-<div class="cat" onclick="filterCat('Shoes')"><div class="icon">👟</div><b>Shoes</b><small>জুতা</small></div>
-<div class="cat" onclick="filterCat('Bags')"><div class="icon">🎒</div><b>Bags</b><small>ব্যাগ</small></div>
-<div class="cat" onclick="filterCat('Jewelry')"><div class="icon">💍</div><b>Jewelry</b><small>গহনা</small></div>
-<div class="cat" onclick="filterCat('Baby')"><div class="icon">🧸</div><b>Baby & Kids</b><small>শিশু</small></div>
-<div class="cat" onclick="filterCat('Computer')"><div class="icon">💻</div><b>Computer</b><small>কম্পিউটার</small></div>
-<div class="cat" onclick="filterCat('Stationery')"><div class="icon">✏️</div><b>Stationery</b><small>স্টেশনারি</small></div>
-<div class="cat" onclick="filterCat('Automotive')"><div class="icon">🚗</div><b>Automotive</b><small>অটোমোটিভ</small></div>
-<div class="cat" onclick="filterCat('Furniture')"><div class="icon">🛋️</div><b>Furniture</b><small>ফার্নিচার</small></div>
-<div class="cat" onclick="filterCat('Agriculture')"><div class="icon">🌱</div><b>Agriculture</b><small>কৃষি</small></div>
-<div class="cat" onclick="filterCat('Other')"><div class="icon">📦</div><b>Other</b><small>অন্যান্য</small></div>
+<section class="container" id="productsSection">
+<div class="head">
+  <h2>🛍️ Product Categories</h2>
 </div>
-</section>
+<div class="categories" id="catGrid"></div>
 
-<section class="container" id="products">
-<div class="head"><h2>🔥 Products</h2><span id="count" class="muted"></span></div>
-<div id="grid" class="grid"></div>
-</section>
-
-<section class="container">
-<h2>🏪 Popular Shops</h2>
-<div class="shops">
-<div class="shop"><div class="avatar">🏏</div><h3>Rahim Sports</h3><p class="muted">⭐ 4.8 · 128 Products · 96% Success</p><button class="btn orange" onclick="alert('Demo: Shop Profile')">View Shop</button></div>
-<div class="shop"><div class="avatar">📚</div><h3>Book Corner BD</h3><p class="muted">⭐ 4.7 · 245 Products · 94% Success</p><button class="btn orange" onclick="alert('Demo: Shop Profile')">View Shop</button></div>
-<div class="shop"><div class="avatar">💄</div><h3>Beauty House</h3><p class="muted">⭐ 4.9 · 86 Products · 98% Success</p><button class="btn orange" onclick="alert('Demo: Shop Profile')">View Shop</button></div>
+<div class="head" style="margin-top:20px;">
+  <h2>🔥 Latest Products (News Feed)</h2>
+  <span id="productCount" class="muted">0 Products</span>
 </div>
-</section>
-
-<section class="container">
-<div class="info">
-<b>✅ Customer flow in this demo:</b> Website-এ ঢুকে আগে product browse করবে → Order Now চাপলে login চাইবে → নতুন হলে mobile verification + password set করবে → login হয়ে যাবে → checkout complete করবে → এরপর My Account থেকে Profile + My Orders + Order Status দেখতে পারবে।
-</div>
+<div id="productGrid" class="grid"></div>
 </section>
 
 <footer>
-<div class="footerGrid">
-<div><h3>🔥 Fire Squirrel</h3><p>আপনার প্রয়োজন, আমাদের খোঁজ।<br>এক প্ল্যাটফর্মে বিভিন্ন দোকানদারের পণ্য খুঁজে দেখুন ও order করুন।</p></div>
-<div><h3>Social</h3>
-<a href="https://www.facebook.com/firesquirrelbd" target="_blank">📘 Facebook</a>
-<a href="https://www.instagram.com/fire_squirrelbd" target="_blank">📸 Instagram</a>
-<a href="https://www.tiktok.com/@fire_squirrelbd" target="_blank">🎵 TikTok</a>
-</div>
-<div><h3>Contact</h3>
-<a href="https://firesquirrelbd.github.io/firesquirrelbd/" target="_blank">🌐 Website</a>
-<a href="mailto:firesquirrelbd@gmail.com">✉️ firesquirrelbd@gmail.com</a>
-<a href="https://wa.me/8801516602562" target="_blank">💬 WhatsApp: 01516602562</a>
-</div>
-<div><h3>Support & Complaint</h3><p>☎️ <b>01516602562</b></p><p>Payment Number:<br><b>01516602562</b></p></div>
-</div>
-<div class="bottom">© 2026 Fire Squirrel — Marketplace Demo</div>
+  <p>© 2026 <strong>Fire Squirrel Marketplace</strong> — All Rights Reserved.</p>
+  <p style="color:#888;margin-top:5px;">Contact: 01516602562 | Email: firesquirrelbd@gmail.com</p>
 </footer>
 
-<!-- Login modal: appears only when customer needs to order -->
-<div class="modal" id="loginModal">
+<!-- AUTH MODAL (Login / Register) -->
+<div class="modal" id="authModal">
 <div class="box">
-<button class="close" onclick="closeModal('loginModal')">✕</button>
-<h2 id="loginTitle">Login to Continue</h2>
-<p class="muted">Order করতে গিয়ে login লাগছে। প্রথমবার হলে verification-এর পর account তৈরি হবে।</p>
-<div class="form">
-<input id="custMobile" placeholder="Mobile Number">
-<input id="custPassword" type="password" placeholder="Password">
-<button class="btn orange" onclick="customerLogin()">Login</button>
-<button class="btn dark" onclick="startRegister()">New Customer? Register</button>
-<div class="small">Demo: register করলে verification step দেখাবে। Final website-এ real OTP আসবে।</div>
-</div>
+  <button class="close" onclick="closeModal('authModal')">✕</button>
+  <h2 id="authTitle">Login to Fire Squirrel</h2>
+  <div class="form">
+    <select id="authRole">
+      <option value="customer">I am a Customer</option>
+      <option value="seller">I am a Seller / Shop Owner</option>
+    </select>
+    <input id="authName" placeholder="Full Name (for new register)" style="display:none;">
+    <input id="authShopName" placeholder="Shop Name (for sellers)" style="display:none;">
+    <input id="authMobile" placeholder="Mobile Number">
+    <input id="authPass" type="password" placeholder="Password">
+    <button class="btn orange" id="authSubmitBtn" onclick="handleAuth()">Login</button>
+    <button class="btn dark" id="toggleAuthBtn" onclick="toggleAuthMode()">New here? Create Account</button>
+  </div>
 </div>
 </div>
 
-<!-- OTP -->
-<div class="modal" id="otpModal">
-<div class="box">
-<button class="close" onclick="closeModal('otpModal')">✕</button>
-<h2>📲 Verify Mobile Number</h2>
-<p id="otpText">Your OTP has been sent to your mobile number.</p>
-<div class="form">
-<input id="otpCode" maxlength="6" placeholder="Enter OTP">
-<button class="btn orange" onclick="verifyCustomerOtp()">Verify OTP</button>
-<div class="small">Demo OTP: <b>123456</b><br>Final version-এ এখানে real SMS OTP service থাকবে।</div>
-</div>
-</div>
-</div>
-
-<!-- Checkout -->
+<!-- CHECKOUT MODAL -->
 <div class="modal" id="checkoutModal">
 <div class="box">
-<button class="close" onclick="closeModal('checkoutModal')">✕</button>
-<h2>🛒 Checkout</h2>
-<div id="checkoutInfo"></div>
-<div class="form">
-<input id="shipName" placeholder="Customer Name">
-<input id="shipMobile" placeholder="Mobile Number">
-<input id="shipAddress" placeholder="Full Delivery Address">
-<input id="shipArea" placeholder="Village / Area">
-<input id="shipUpazila" placeholder="Upazila / Thana">
-<input id="shipDistrict" placeholder="District">
-<select id="paymentMethod">
-<option>Choose Payment Method</option>
-<option>Online Payment — 01516602562</option>
-<option>Cash on Delivery (Demo)</option>
-</select>
-<button class="btn orange" onclick="placeOrder()">Confirm Order</button>
-</div>
+  <button class="close" onclick="closeModal('checkoutModal')">✕</button>
+  <h2>🛒 Checkout Order</h2>
+  <div id="checkoutInfo" style="margin:10px 0;padding:10px;background:#fff8f0;border-radius:8px;"></div>
+  <div class="form">
+    <input id="shipName" placeholder="Full Name">
+    <input id="shipMobile" placeholder="Mobile Number">
+    <textarea id="shipAddress" placeholder="Full Delivery Address"></textarea>
+    <select id="paymentMethod">
+      <option value="">Select Payment Method</option>
+      <option value="COD">Cash on Delivery</option>
+      <option value="Online">bKash / Nagad (01516602562)</option>
+    </select>
+    <button class="btn orange" onclick="confirmOrder()">Place Order Now</button>
+  </div>
 </div>
 </div>
 
-<!-- Customer Account -->
+<!-- SELLER PANEL MODAL -->
+<div class="modal" id="sellerModal">
+<div class="box" style="width:min(650px,100%);">
+  <button class="close" onclick="closeModal('sellerModal')">✕</button>
+  <h2>🏪 Seller Dashboard</h2>
+  <div id="sellerShopInfo" style="margin:10px 0;font-weight:bold;color:#ff7800;"></div>
+  
+  <div class="tabs">
+    <button class="tab active" id="tabUpload" onclick="switchSellerTab('upload')">➕ Add New Product</button>
+    <button class="tab" id="tabMyProducts" onclick="switchSellerTab('products')">📦 My Products</button>
+  </div>
+
+  <div id="sellerTabUpload">
+    <h3>Upload Product to News Feed</h3>
+    <div class="form">
+      <input id="prodTitle" placeholder="Product Title / Name">
+      <select id="prodCat">
+        <option value="Clothing">Clothing (কাপড়)</option>
+        <option value="Electronics">Electronics (ইলেকট্রনিক্স)</option>
+        <option value="Mobile">Mobile (মোবাইল)</option>
+        <option value="Books">Books (বই)</option>
+        <option value="Sports">Sports (খেলাধুলা)</option>
+        <option value="Beauty">Beauty (প্রসাধনী)</option>
+        <option value="Medicine">Medicine (স্বাস্থ্য)</option>
+        <option value="Grocery">Grocery (মুদিখানা)</option>
+        <option value="Other">Other (অন্যান্য)</option>
+      </select>
+      <input id="prodPrice" type="number" placeholder="Price (৳)">
+      <input id="prodImg" placeholder="Image URL / Emoji (e.g. 👕 or https://...)">
+      <textarea id="prodDesc" placeholder="Product Description"></textarea>
+      <button class="btn orange" onclick="uploadProduct()">Publish to Marketplace</button>
+    </div>
+  </div>
+
+  <div id="sellerTabProducts" style="display:none;">
+    <div id="sellerProductList"></div>
+  </div>
+</div>
+</div>
+
+<!-- CUSTOMER ACCOUNT MODAL -->
 <div class="modal" id="accountModal">
 <div class="box">
-<button class="close" onclick="closeModal('accountModal')">✕</button>
-<h2>👤 My Account</h2>
-<div class="profileTop">
-<div class="profileAvatar">👤</div>
-<div><b id="profileName">Demo Customer</b><div class="muted" id="profileMobile">015XXXXXXXX</div></div>
-</div>
-<div class="tabs">
-<button class="tab active" id="tabProfile" onclick="showAccountTab('profile')">My Profile</button>
-<button class="tab" id="tabOrders" onclick="showAccountTab('orders')">My Orders</button>
-<button class="tab" onclick="showAccountTab('track')">Track Order</button>
-</div>
-<div id="accountContent"></div>
-</div>
-</div>
-
-<!-- Seller -->
-<div class="modal" id="sellerModal">
-<div class="box">
-<button class="close" onclick="closeModal('sellerModal')">✕</button>
-<h2>🏪 Become a Seller</h2>
-<div class="form">
-<input placeholder="Owner Name">
-<input placeholder="Shop Name">
-<input placeholder="Mobile Number">
-<input type="password" placeholder="Create Password">
-<input placeholder="Shop Address">
-<select><option>Choose Category</option><option>Clothing</option><option>Electronics</option><option>Mobile</option><option>Books</option><option>Sports</option><option>Beauty</option><option>Medicine</option><option>Grocery</option><option>Home</option><option>Other</option></select>
-<button class="btn orange" onclick="alert('Demo: Mobile verification → Seller Profile → Seller Dashboard')">Create Seller Account</button>
-</div>
+  <button class="close" onclick="closeModal('accountModal')">✕</button>
+  <h2>👤 My Account</h2>
+  <div class="profileTop">
+    <div>
+      <h3 id="accName">Customer</h3>
+      <p id="accMobile" style="color:#666;font-size:13px;"></p>
+      <span id="accRole" style="background:#ff7800;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;">Customer</span>
+    </div>
+  </div>
+  <h3>📦 My Orders</h3>
+  <div id="myOrdersList" style="margin-top:10px;"></div>
+  <button class="btn dark" style="width:100%;margin-top:15px;" onclick="logout()">Logout</button>
 </div>
 </div>
 
 <script>
-const products=[
-{name:'Premium Cricket Bat',shop:'Rahim Sports',cat:'Sports',price:1800,icon:'🏏',stock:12},
-{name:'University Admission Guide',shop:'Book Corner BD',cat:'Books',price:450,icon:'📚',stock:20},
-{name:'Premium Face Wash',shop:'Beauty House',cat:'Beauty',price:650,icon:'🧴',stock:15},
-{name:'Football Match Ball',shop:'Rahim Sports',cat:'Sports',price:950,icon:'⚽',stock:9},
-{name:'English Novel',shop:'Book Corner BD',cat:'Books',price:320,icon:'📖',stock:30},
-{name:'Sports Jersey',shop:'Rahim Sports',cat:'Clothing',price:750,icon:'👕',stock:25},
-{name:'Smartphone Cover',shop:'Tech Point',cat:'Mobile',price:250,icon:'📱',stock:40},
-{name:'Bluetooth Headphone',shop:'Tech Point',cat:'Electronics',price:1250,icon:'🎧',stock:14},
-{name:'Men Casual Shirt',shop:'Fashion House',cat:'Clothing',price:900,icon:'👔',stock:22},
-{name:'Women Handbag',shop:'Style Shop',cat:'Bags',price:1100,icon:'👜',stock:16},
-{name:'Running Shoes',shop:'Rahim Sports',cat:'Shoes',price:1800,icon:'👟',stock:11},
-{name:'School Backpack',shop:'Smart Store',cat:'Bags',price:850,icon:'🎒',stock:10},
-{name:'Kitchen Blender',shop:'Home Mart',cat:'Home',price:2200,icon:'🍳',stock:8},
-{name:'Baby Toy Set',shop:'Kids World',cat:'Baby',price:750,icon:'🧸',stock:19},
-{name:'Computer Keyboard',shop:'Tech Point',cat:'Computer',price:650,icon:'⌨️',stock:13},
-{name:'Notebook Set',shop:'Stationery Corner',cat:'Stationery',price:280,icon:'📒',stock:35},
-{name:'Car Phone Holder',shop:'Auto Zone',cat:'Automotive',price:450,icon:'🚗',stock:12},
-{name:'Organic Plant Seeds',shop:'Agro Store',cat:'Agriculture',price:300,icon:'🌱',stock:28},
-{name:'Pet Food',shop:'Pet Care BD',cat:'Other',price:950,icon:'🐾',stock:20},
-{name:'Office Chair',shop:'Home Mart',cat:'Furniture',price:5200,icon:'🪑',stock:5},
-{name:'Health Product',shop:'Health Store',cat:'Medicine',price:700,icon:'💊',stock:10},
-{name:'Grocery Combo Pack',shop:'Daily Needs',cat:'Grocery',price:1200,icon:'🛒',stock:18},
-{name:'Gold-plated Necklace',shop:'Style Shop',cat:'Jewelry',price:1500,icon:'💍',stock:7},
-{name:'Lipstick Collection',shop:'Beauty House',cat:'Beauty',price:550,icon:'💄',stock:18}
+// CATEGORIES DATA
+const categories = [
+  {name:'All', icon:'🛍️'}, {name:'Clothing', icon:'👕'}, {name:'Electronics', icon:'📺'},
+  {name:'Mobile', icon:'📱'}, {name:'Books', icon:'📚'}, {name:'Sports', icon:'🏏'},
+  {name:'Beauty', icon:'💄'}, {name:'Medicine', icon:'💊'}, {name:'Grocery', icon:'🛒'},
+  {name:'Other', icon:'📦'}
 ];
 
-let activeCategory='All';
-let loggedIn=false;
-let customer={name:'Demo Customer',mobile:'015XXXXXXXX'};
-let pendingProduct=null;
-let orders=[
-{id:'FS10021',product:'Premium Cricket Bat',shop:'Rahim Sports',price:1800,date:'08 Oct 2026',status:'Out for Delivery'}
-];
+// STATE MANAGEMENT
+let currentUser = JSON.parse(localStorage.getItem('fs_user')) || null;
+let products = JSON.parse(localStorage.getItem('fs_products')) || [];
+let orders = JSON.parse(localStorage.getItem('fs_orders')) || [];
+let selectedCategory = 'All';
+let isRegisterMode = false;
+let pendingOrderProduct = null;
 
-function render(list){
-document.getElementById('grid').innerHTML=list.map(p=>`
-<div class="card">
-<div class="pic">${p.icon}</div>
-<div class="body">
-<h3>${p.name}</h3>
-<div class="muted">🏪 ${p.shop}</div>
-<div class="muted">Category: ${p.cat}</div>
-<div class="price">৳${p.price}</div>
-<div class="muted">✓ Stock: ${p.stock}</div>
-<div class="actions">
-<button class="details" onclick='showDetails(${JSON.stringify(p)})'>Details</button>
-<button class="buy" onclick='orderNow(${JSON.stringify(p)})'>Order Now</button>
-</div>
-<button class="add" onclick='addToCart(${JSON.stringify(p)})'>+ Add to Cart</button>
-</div></div>`).join('');
-document.getElementById('count').textContent=`${list.length} products`;
-}
-
-function filterCat(cat){
-activeCategory=cat;
-render(cat==='All'?products:products.filter(p=>p.cat===cat));
-document.getElementById('products').scrollIntoView({behavior:'smooth'});
-}
-function searchProducts(){
-const q=document.getElementById('search').value.toLowerCase().trim();
-const base=activeCategory==='All'?products:products.filter(p=>p.cat===activeCategory);
-render(base.filter(p=>(p.name+' '+p.shop+' '+p.cat).toLowerCase().includes(q)));
-}
-function showDetails(p){alert(`Product Details Demo\n\n${p.name}\nShop: ${p.shop}\nCategory: ${p.cat}\nPrice: ৳${p.price}\nStock: ${p.stock}`)}
-function addToCart(p){
-if(!loggedIn){pendingProduct=p;openModal('loginModal');return}
-alert(`${p.name} added to cart. Demo cart flow can continue from Account/Checkout.`);
-}
-function orderNow(p){
-pendingProduct=p;
-if(!loggedIn){openModal('loginModal');return}
-openCheckout(p);
-}
-function openCheckout(p){
-document.getElementById('checkoutInfo').innerHTML=`<div class="info"><b>${p.name}</b><br>Shop: ${p.shop}<br>Product Price: <b>৳${p.price}</b></div>`;
-document.getElementById('shipName').value=customer.name||'';
-document.getElementById('shipMobile').value=customer.mobile||'';
-openModal('checkoutModal');
-}
-function customerLogin(){
-const m=document.getElementById('custMobile').value.trim();
-const pw=document.getElementById('custPassword').value;
-if(!m||!pw){alert('Please enter mobile number and password.');return}
-if(!loggedIn){
-customer.mobile=m;
-loggedIn=true;
-closeModal('loginModal');
-document.getElementById('loginBtn').style.display='none';
-document.getElementById('accountBtn').style.display='block';
-if(pendingProduct){openCheckout(pendingProduct);pendingProduct=null;}
-}
-}
-function startRegister(){
-const m=document.getElementById('custMobile').value.trim();
-if(!m){alert('First enter your mobile number.');return}
-customer.mobile=m;
-closeModal('loginModal');
-document.getElementById('otpText').textContent=`Demo OTP sent to ${m}`;
-openModal('otpModal');
-}
-function verifyCustomerOtp(){
-const otp=document.getElementById('otpCode').value.trim();
-if(otp!=='123456'){alert('Wrong OTP. Demo OTP is 123456.');return}
-customer.name='Demo Customer';
-loggedIn=true;
-closeModal('otpModal');
-document.getElementById('loginBtn').style.display='none';
-document.getElementById('accountBtn').style.display='block';
-if(pendingProduct){openCheckout(pendingProduct);pendingProduct=null;}
-}
-function placeOrder(){
-const payment=document.getElementById('paymentMethod').value;
-if(payment==='Choose Payment Method'){alert('Choose a payment method.');return}
-const p=pendingProduct||products[0];
-const newOrder={
-id:'FS'+Math.floor(10000+Math.random()*89999),
-product:p.name,shop:p.shop,price:p.price,date:'08 Oct 2026',status:'Order Placed'
+// INIT
+window.onload = function(){
+  renderCategories();
+  renderProducts();
+  updateAuthUI();
 };
-orders.unshift(newOrder);
-pendingProduct=null;
-closeModal('checkoutModal');
-alert(`✅ Order placed successfully!\n\nOrder ID: ${newOrder.id}\nProduct: ${newOrder.product}\nTotal: ৳${newOrder.price}\nPayment: ${payment}`);
+
+function renderCategories(){
+  document.getElementById('catGrid').innerHTML = categories.map(c => `
+    <div class="cat ${selectedCategory === c.name ? 'active' : ''}" onclick="selectCat('${c.name}')">
+      <div class="icon">${c.icon}</div>
+      <small>${c.name}</small>
+    </div>
+  `).join('');
 }
-function showAccountTab(tab){
-document.getElementById('tabProfile').classList.remove('active');
-document.getElementById('tabOrders').classList.remove('active');
-if(tab==='profile'){
-document.getElementById('tabProfile').classList.add('active');
-document.getElementById('accountContent').innerHTML=`
-<h3>My Profile</h3>
-<p><b>Name:</b> ${customer.name}</p>
-<p><b>Mobile:</b> ${customer.mobile}</p>
-<p><b>Email:</b> Not added</p>
-<p><b>Delivery Address:</b> Demo address can be saved here.</p>
-<button class="btn dark" onclick="alert('Demo: Edit profile form')">Edit Profile</button>`;
-}else if(tab==='orders'){
-document.getElementById('tabOrders').classList.add('active');
-document.getElementById('accountContent').innerHTML='<h3>📦 My Orders</h3>'+
-orders.map(o=>`
-<div class="order">
-<div class="orderHead"><b>Order #${o.id}</b><span class="status">${o.status}</span></div>
-<p style="margin:8px 0"><b>${o.product}</b><br>Shop: ${o.shop}<br>Price: ৳${o.price}<br>Date: ${o.date}</p>
-<button class="btn orange" onclick="viewOrder('${o.id}')">View / Track Order</button>
-<button class="btn dark" onclick="reorder('${o.product}')">Reorder</button>
-</div>`).join('');
-}else{
-document.getElementById('accountContent').innerHTML=`
-<h3>🚚 Track Order</h3>
-${orders.length?orders.slice(0,1).map(o=>`
-<div class="order"><b>Order #${o.id}</b><p>${o.product}</p>
-<div class="timeline">
-<div class="step active"><div class="dot"></div>Placed</div>
-<div class="step active"><div class="dot"></div>Confirmed</div>
-<div class="step active"><div class="dot"></div>Processing</div>
-<div class="step active"><div class="dot"></div>Shipped</div>
-<div class="step"><div class="dot"></div>Delivered</div>
-</div></div>`).join(''):'<p>No order found.</p>'}`;
+
+function selectCat(catName){
+  selectedCategory = catName;
+  renderCategories();
+  renderProducts();
 }
+
+function renderProducts(){
+  const searchQ = document.getElementById('search').value.toLowerCase().trim();
+  let list = products;
+
+  if(selectedCategory !== 'All'){
+    list = list.filter(p => p.category === selectedCategory);
+  }
+  if(searchQ){
+    list = list.filter(p => p.title.toLowerCase().includes(searchQ) || p.shop.toLowerCase().includes(searchQ));
+  }
+
+  document.getElementById('productCount').textContent = `${list.length} Products`;
+  
+  const grid = document.getElementById('productGrid');
+  if(list.length === 0){
+    grid.innerHTML = `
+      <div class="empty-msg">
+        <h3>No products found!</h3>
+        <p style="color:#777;margin-top:5px;">Sellers haven't uploaded any products in this category yet.</p>
+      </div>`;
+    return;
+  }
+
+  grid.innerHTML = list.map(p => `
+    <div class="card">
+      <div class="pic">
+        ${p.img.startsWith('http') ? `<img src="${p.img}" alt="${p.title}">` : p.img || '📦'}
+      </div>
+      <div class="body">
+        <h3>${p.title}</h3>
+        <div class="muted">🏪 Shop: <b>${p.shop}</b></div>
+        <div class="muted">Category: ${p.category}</div>
+        <div class="price">৳${p.price}</div>
+        <div class="actions">
+          <button class="buy" onclick='initiateOrder(${JSON.stringify(p)})'>Order Now</button>
+        </div>
+      </div>
+    </div>
+  `).join('');
 }
-function viewOrder(id){
-const o=orders.find(x=>x.id===id);
-alert(`Order #${o.id}\nProduct: ${o.product}\nShop: ${o.shop}\nPrice: ৳${o.price}\nStatus: ${o.status}\n\nFinal version-এ এখানে full tracking page থাকবে.`);
+
+function filterProducts(){ renderProducts(); }
+
+// AUTHENTICATION LOGIC
+function openAuthModal(role='customer'){
+  if(role === 'seller'){
+    document.getElementById('authRole').value = 'seller';
+  }
+  openModal('authModal');
 }
-function reorder(name){
-const p=products.find(x=>x.name===name);
-if(p) orderNow(p); else alert('Product available for reorder in demo.');
+
+function toggleAuthMode(){
+  isRegisterMode = !isRegisterMode;
+  document.getElementById('authTitle').textContent = isRegisterMode ? 'Create New Account' : 'Login to Fire Squirrel';
+  document.getElementById('authSubmitBtn').textContent = isRegisterMode ? 'Register' : 'Login';
+  document.getElementById('toggleAuthBtn').textContent = isRegisterMode ? 'Already have an account? Login' : 'New here? Create Account';
+  
+  document.getElementById('authName').style.display = isRegisterMode ? 'block' : 'none';
+  const isSeller = document.getElementById('authRole').value === 'seller';
+  document.getElementById('authShopName').style.display = (isRegisterMode && isSeller) ? 'block' : 'none';
 }
-function openAccount(){openModal('accountModal');showAccountTab('profile');}
-function openModal(id){document.getElementById(id).classList.add('show')}
-function closeModal(id){document.getElementById(id).classList.remove('show')}
-document.getElementById('accountBtn').onclick=openAccount;
-render(products);
-</script>
-</body>
-</html>
+
+document.getElementById('authRole').addEventListener('change', function(){
+  const isSeller = this.value === 'seller';
+  document.getElementById('authShopName').style.display = (isRegisterMode && isSeller) ? 'block' : 'none';
+});
+
+function handleAuth(){
+  const role = document.getElementById('authRole').value;
+  const mobile = document.getElementById('authMobile').value.trim();
+  const pass = document.getElementById('authPass').value;
+  const name = document.getElementById('authName').value.trim();
+  const shopName = document.getElementById('authShopName').value.trim();
+
+  if(!mobile || !pass){ alert('Please fill in mobile and password.'); return; }
+
+  let users = JSON.parse(localStorage.getItem('fs_users')) || [];
+
+  if(isRegisterMode){
+    if(!name){ alert('Please enter your name.'); return; }
+    if(role === 'seller' && !shopName){ alert('Please enter shop name.'); return; }
+
+    const exists = users.find(u => u.mobile === mobile);
+    if(exists){ alert('Mobile number already registered!'); return; }
+
+    const newUser = { role, mobile, pass, name, shopName: shopName || name + ' Shop' };
+    users.push(newUser);
+    localStorage.setItem('fs_users', JSON.stringify(users));
+    currentUser = newUser;
+  } else {
+    const user = users.find(u => u.mobile === mobile && u.pass === pass && u.role === role);
+    if(!user){ alert('Invalid Credentials!'); return; }
+    currentUser = user;
+  }
+
+  localStorage.setItem('fs_user', JSON.stringify(currentUser));
+  closeModal('authModal');
+  updateAuthUI();
+
+  if(pendingOrderProduct){
+    openCheckout(pendingOrderProduct);
+    pendingOrderProduct = null;
+  }
+}
+
+function updateAuthUI(){
+  if(currentUser){
+    document.getElementById('authBtn').style.display = 'none';
+    document.getElementById('accountBtn').style.display = 'flex';
+    if(currentUser.role === 'seller'){
+      document.getElementById('sellerDashBtn').style.display = 'flex';
+    } else {
+      document.getElementById('sellerDashBtn').style.display = 'none';
+    }
+  } else {
+    document.getElementById('authBtn').style.display = 'flex';
+    document.getElementById('accountBtn').style.display = 'none';
+    document.getElementById('sellerDashBtn').style.display = 'none';
+  }
+}
+
+function logout(){
+  currentUser = null;
+  localStorage.removeItem('fs_user');
+  updateAuthUI();
+  closeModal('accountModal');
+  closeModal('sellerModal');
+}
+
+// SELLER DASHBOARD & PRODUCT UPLOAD
+function openSellerModal(){
+  if(!currentUser || currentUser.role !== 'seller') return;
+  document.getElementById('sellerShopInfo').textContent = `🏪 Shop: ${currentUser.shopName} (${currentUser.name})`;
+  renderSellerProducts();
+  openModal('sellerModal');
+}
+
+function switchSellerTab(tab){
+  document.getElementById('tabUpload').classList.toggle('active', tab==='upload');
+  document.getElementById('tabMyProducts').classList.toggle('active', tab==='products');
+  document.getElementById('sellerTabUpload').style.display = tab==='upload' ? 'block' : 'none';
+  document.getElementById('sellerTabProducts').style.display = tab==='products' ? 'block' : 'none';
+}
+
+function uploadProduct(){
+  const title = document.getElementById('prodTitle').value.trim();
+  const category = document.getElementById('prodCat').value;
+  const price = document.getElementById('prodPrice').value;
+  const img = document.getElementById('prodImg').value.trim() || '📦';
+  const desc = document.getElementById('prodDesc').value.trim();
+
+  if(!title || !price){ alert('Please fill in product title and price.'); return; }
+
+  const newProd = {
+    id: 'P_' + Date.now(),
+    title,
+    category,
+    price: Number(price),
+    img,
+    desc,
+    sellerMobile: currentUser.mobile,
+    shop: currentUser.shopName
+  };
+
+  products.unshift(newProd);
+  localStorage.setItem('fs_products', JSON.stringify(products));
+
+  alert('✅ Product published successfully to News Feed!');
+  document.getElementById('prodTitle').value = '';
+  document.getElementById('prodPrice').value = '';
+  document.getElementById('prodImg').value = '';
+  document.getElementById('prodDesc').value = '';
+
+  renderProducts();
+  switchSellerTab('products');
+  renderSellerProducts();
+}
+
+function renderSellerProducts(){
+  const myProds = products.filter(p => p.sellerMobile === currentUser.mobile);
+  const container = document.getElementById('sellerProductList');
+  if(!myProds.length){
+    container.innerHTML = '<p style="color:#777;">You have not uploaded any products yet.</p>';
+    return;
+  }
+
+  container.innerHTML = myProds.map(p => `
+    <div style="display:flex;justify-content:space-between;align-items:center;padding:10px;border-bottom:1px solid #eee;">
+      <div>
+        <b>${p.title}</b> (৳${p.price})<br>
+        <small style="color:#666;">Cat: ${p.category}</small>
+      </div>
+      <button style="background:#ff3333;color:#fff;padding:5px 10px;border-radius:5px;" onclick="deleteProduct('${p.id}')">Delete</button>
+    </div>
+  `).join('');
+}
+
+function deleteProduct(id){
+  products = products.filter(p => p.id !== id);
+  localStorage.setItem('fs_products', JSON.stringify(products));
+  renderProducts();
+  renderSellerProducts();
+}
+
+// CHECKOUT & ORDERS
+function initiateOrder(product){
+  if(!currentUser){
+    pendingOrderProduct = product;
+    openAuthModal('customer');
+    return;
+  }
+  openCheckout(product);
+}
+
+function openCheckout(product){
+  pendingOrderProduct = product;
+  document.getElementById('checkoutInfo').innerHTML = `
+    <b>${product.title}</b><br>
+    Shop: ${product.shop} | Price: <b>৳${product.price}</b>
+  `;
+  document.getElementById('shipName').value = currentUser.name || '';
+  document.getElementById('shipMobile').value = currentUser.mobile || '';
+  openModal('checkoutModal');
+}
+
+function confirmOrder(){
+  const method = document.getElementById('paymentMethod').value;
+  const address = document.getElementById('shipAddress').value.trim();
+
+  if(!method || !address){ alert('Please fill in address and select payment method.'); return; }
+
+  const newOrder = {
+    id: 'FS' + Math.floor(10000 + Math.random() * 90000),
+    product: pendingOrderProduct.title,
+    price: pendingOrderProduct.price,
+    shop: pendingOrderProduct.shop,
+    customerMobile: currentUser.mobile,
+    address,
+    method,
+    date: new Date().toLocaleDateString('en-GB')
+  };
+
+  orders.unshift(newOrder);
+  localStorage.setItem('fs_orders', JSON.stringify(orders
