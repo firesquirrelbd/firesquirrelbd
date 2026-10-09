@@ -3,38 +3,866 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fire Squirrel | Buy, Sell & Shop</title>
+<title>Fire Squirrel | Marketplace</title>
+
 <style>
-*{box-sizing:border-box;margin:0;padding:0;font-family:Arial, sans-serif;}
-body{background:#f0f2f5;color:#2c3e50;line-height:1.5}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f5f6f8;color:#171717}
 button,input,select,textarea{font:inherit}
-button{cursor:pointer;transition:0.2s;border:none}
-header{background:#009877;color:#fff;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,0.15)}
-.nav{max-width:1250px;margin:auto;padding:10px 18px;display:flex;gap:12px;align-items:center}
-.brand{display:flex;align-items:center;gap:8px;cursor:pointer}
-.logo{width:38px;height:38px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;font-size:20px}
-.brand-name{font-size:22px;font-weight:800;color:#fff;white-space:nowrap}
-.search-bar{flex:1;display:flex;background:#fff;border-radius:20px;padding:3px;}
-.search-bar select{border:none;background:transparent;padding:6px 10px;font-size:13px;border-right:1px solid #ddd;outline:none}
-.search-bar input{border:none;outline:none;padding:6px 12px;width:100%;font-size:14px}
-.search-bar button{background:#ffc800;color:#000;font-weight:bold;padding:6px 16px;border-radius:16px}
+button{cursor:pointer;border:0;border-radius:8px;padding:10px 14px;font-weight:bold}
+header{background:#111;color:#fff;position:sticky;top:0;z-index:10}
+.nav{max-width:1200px;margin:auto;padding:12px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:8px;font-weight:bold;font-size:21px}
+.logo{width:46px;height:46px;border:3px solid #ff8500;border-radius:50%;display:grid;place-items:center;background:#fff;overflow:hidden}
+.logo img{width:100%;height:100%;object-fit:contain;border-radius:50%}
+.search{display:flex;flex:1;min-width:180px}
+.search input{width:100%;padding:11px;border:0;border-radius:7px 0 0 7px}
+.search button{background:#ff8500;color:#fff;border-radius:0 7px 7px 0}
+.orange{background:#ff7800;color:#fff}
+.dark{background:#171717;color:#fff}
+.light{background:#fff;color:#111}
+.hero{background:linear-gradient(135deg,#fff7ed,#ffddb9);padding:50px 20px}
+.hero-inner{max-width:1200px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:25px}
+.hero h1{font-size:42px;margin:0 0 12px}
+.hero h1 span{color:#f47700}
+.hero p{max-width:700px;color:#555;line-height:1.7}
+.hero-logo{width:175px;height:175px;flex-shrink:0;border-radius:50%;border:5px solid #ff8500;background:#fff;display:grid;place-items:center;font-size:75px}
+.container{max-width:1200px;margin:auto;padding:28px 16px}
+.categories{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+.category{background:white;border:1px solid #eee;padding:16px 5px;border-radius:10px;text-align:center;cursor:pointer}
+.category div{font-size:27px}.category small{display:block;color:#777;margin-top:5px}
+.products{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.product,.shop-card,.review-card{background:white;border:1px solid #eee;border-radius:11px;padding:13px}
+.product-image{height:155px;display:grid;place-items:center;background:#eee;border-radius:8px;font-size:55px;overflow:hidden}
+.product-image img{width:100%;height:100%;object-fit:contain}
+.product h3{font-size:16px;margin:12px 0 5px}
+.muted{font-size:13px;color:#777}
+.price{font-size:21px;font-weight:bold;margin:8px 0}
+.stars{color:#f5a000;margin:5px 0}
+.actions{display:flex;gap:7px;margin-top:10px}
+.actions button{flex:1;padding:9px 5px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.stat{background:#fff;border:1px solid #eee;border-radius:10px;text-align:center;padding:17px}
+.stat strong{display:block;color:#f47700;font-size:27px;margin-top:6px}
+.shops{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}
+.empty{background:white;border:1px dashed #ccc;padding:25px;text-align:center;border-radius:10px;color:#666;grid-column:1/-1}
+footer{background:#111;color:white;padding:35px 20px;margin-top:20px}
+.footer-grid{max-width:1200px;margin:auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:24px}
+footer h3{color:#ff8a00}
+footer a{display:block;color:#ddd;text-decoration:none;margin:8px 0}
+.footer-bottom{max-width:1200px;margin:25px auto 0;border-top:1px solid #333;padding-top:15px;text-align:center;color:#aaa;font-size:13px}
+.modal{display:none;position:fixed;inset:0;background:#0009;z-index:30;align-items:center;justify-content:center;padding:15px}
+.modal.show{display:flex}
+.modal-box{background:#fff;width:min(600px,100%);max-height:90vh;overflow:auto;border-radius:13px;padding:23px;position:relative}
+.close{position:absolute;right:10px;top:10px;background:#eee}
+.form{display:grid;gap:9px;margin-top:15px}
+.form input,.form select,.form textarea{width:100%;padding:11px;border:1px solid #ddd;border-radius:7px}
+.form textarea{min-height:80px}
+.tabs{display:flex;gap:7px;flex-wrap:wrap;margin:16px 0}
+.tab{background:#eee}.tab.active{background:#111;color:#fff}
+.panel{background:#fff;border:1px solid #eee;border-radius:11px;padding:18px;margin-bottom:15px}
+.item-row{border:1px solid #eee;border-radius:8px;padding:12px;margin:9px 0}
+.status{display:inline-block;background:#e9f8ed;color:#18703b;border-radius:20px;padding:4px 8px;font-size:12px}
+.pending{background:#fff1d6;color:#8b5600}
+.admin-panel{display:none;background:#111;color:#fff;border-radius:12px;padding:20px}
+.admin-panel.show{display:block}
+.admin-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:15px 0}
+.admin-stat{background:#242424;padding:14px;border-radius:8px}
+.admin-stat strong{display:block;color:#ff9500;font-size:25px;margin-top:5px}
+.small-note{font-size:12px;color:#777;line-height:1.6}
+table{border-collapse:collapse;width:100%}
+td,th{padding:9px;border-bottom:1px solid #ddd;text-align:left}
+@media(max-width:850px){
+ .products{grid-template-columns:repeat(2,1fr)}
+ .categories{grid-template-columns:repeat(3,1fr)}
+ .hero-inner{flex-direction:column;align-items:flex-start}
+ .shops{grid-template-columns:1fr}
+ .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:520px){
+ .products{grid-template-columns:1fr}
+ .categories{grid-template-columns:repeat(2,1fr)}
+ .stats,.admin-stats{grid-template-columns:repeat(2,1fr)}
+ .footer-grid{grid-template-columns:1fr}
+ .hero h1{font-size:32px}
+}
+</style>
+</head>
 
-.post-btn{background:#ffc800;color:#000;font-weight:bold;padding:8px 16px;border-radius:20px;font-size:13px}
-.navBtn{background:rgba(255,255,255,0.15);color:#fff;border-radius:20px;padding:8px 14px;font-size:13px}
+<body>
 
-.container{max-width:1250px;margin:auto;padding:20px}
-.layout{display:grid;grid-template-columns:220px 1fr;gap:20px}
+<header>
+  <div class="nav">
+    <div class="brand">
+      <div class="logo">
+        <img src="logo.png" alt="Fire Squirrel"
+             onerror="this.style.display='none';this.parentElement.textContent='🔥'">
+      </div>
+      <span>Fire Squirrel</span>
+    </div>
 
-.sidebar{background:#fff;border-radius:8px;padding:15px;height:fit-content;box-shadow:0 1px 4px rgba(0,0,0,0.08)}
-.sidebar h3{font-size:13px;color:#888;text-transform:uppercase;margin-bottom:10px}
-.cat-item{display:flex;align-items:center;gap:10px;padding:8px;border-radius:6px;cursor:pointer;font-size:13px}
-.cat-item.active, .cat-item:hover{background:#e6f4f1;color:#009877;font-weight:bold}
+    <div class="search">
+      <input id="searchInput" placeholder="Search products and shops..." oninput="renderProducts()">
+      <button onclick="renderProducts()">🔍</button>
+    </div>
 
-.feed-header{display:flex;justify-content:space-between;align-items:center;background:#fff;padding:12px 15px;border-radius:8px;margin-bottom:15px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill, minmax(210px, 1fr));gap:15px}
-.card{background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,0.08);display:flex;flex-direction:column}
-.pic{height:150px;background:#fafafa;display:flex;align-items:center;justify-content:center;font-size:40px;position:relative}
-.pic img{width:100%;height:100%;object-fit:cover}
-.badge{position:absolute;top:6px;left:6px;background:#009877;color:#fff;font-size:10px;padding:2px 5px;border-radius:3px}
-.body{padding:12px;display:flex;flex-direction:column;flex:1}
-.body h4{font-size:14px;color:#22
+    <button id="loginButton" class="light" onclick="openModal('authModal')">Login</button>
+    <button class="orange" onclick="openModal('sellerRegisterModal')">Become a Seller</button>
+    <button id="accountButton" class="light" hidden onclick="openAccount()">My Account</button>
+    <button id="sellerButton" class="light" hidden onclick="openSellerDashboard()">Seller Dashboard</button>
+    <button id="notificationButton" class="light" hidden onclick="showNotifications()">🔔 <span id="notificationCount">0</span></button>
+    <button id="logoutButton" class="light" hidden onclick="logout()">Logout</button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <h1>Your Need, <span>We Find It.</span></h1>
+      <p>
+        বাংলাদেশের বিভিন্ন দোকানদারের পণ্য এক জায়গায় খুঁজুন।
+        পণ্য দেখুন, দাম তুলনা করুন এবং নিজের account থেকে order ও review পরিচালনা করুন।
+      </p>
+      <button class="orange" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">
+        Shop Now
+      </button>
+      <button class="dark" onclick="openModal('sellerRegisterModal')">Sell on Fire Squirrel</button>
+    </div>
+    <div class="hero-logo">🔥</div>
+  </div>
+</section>
+
+<section class="container">
+  <h2>🛍️ Shop by Category</h2>
+  <div class="categories" id="categories"></div>
+</section>
+
+<section class="container" id="products">
+  <h2>🔥 Products</h2>
+  <p id="productCount" class="muted"></p>
+  <div class="products" id="productGrid"></div>
+</section>
+
+<section class="container">
+  <h2>🏪 Approved Shops</h2>
+  <div class="shops" id="shopGrid"></div>
+</section>
+
+<section class="container">
+  <div class="stats">
+    <div class="stat">🏪<br>Shops opened<strong id="shopCount">0</strong></div>
+    <div class="stat">📦<br>Approved products<strong id="approvedProductCount">0</strong></div>
+    <div class="stat">🛒<br>Orders placed<strong id="orderCount">0</strong></div>
+    <div class="stat">⭐<br>Reviews<strong id="reviewCount">0</strong></div>
+  </div>
+</section>
+
+<section class="container" id="sellerDashboard" hidden>
+  <h2>🏪 Seller Dashboard</h2>
+  <div id="sellerDashboardContent"></div>
+</section>
+
+<section class="container" id="customerAccount" hidden>
+  <h2>👤 My Account</h2>
+  <div class="panel">
+    <div class="tabs">
+      <button class="tab active" onclick="showAccountTab('profile',this)">My Profile</button>
+      <button class="tab" onclick="showAccountTab('orders',this)">My Orders</button>
+      <button class="tab" onclick="showAccountTab('reviews',this)">Rate & Review</button>
+    </div>
+    <div id="accountContent"></div>
+  </div>
+</section>
+
+<section class="container" id="adminSection" hidden>
+  <div class="admin-panel show">
+    <h2>🔐 Owner Admin Dashboard</h2>
+    <p>Admin management panel</p>
+    <div class="admin-stats">
+      <div class="admin-stat">Total Sellers<strong id="adminSellerCount">0</strong></div>
+      <div class="admin-stat">Total Products<strong id="adminProductCount">0</strong></div>
+      <div class="admin-stat">Total Orders<strong id="adminOrderCount">0</strong></div>
+      <div class="admin-stat">Commission<strong id="adminCommission">৳0</strong></div>
+    </div>
+    <div class="tabs">
+      <button class="tab active" onclick="showAdminTab('sellers',this)">Sellers</button>
+      <button class="tab" onclick="showAdminTab('products',this)">Products</button>
+      <button class="tab" onclick="showAdminTab('orders',this)">Orders</button>
+      <button class="tab" onclick="showAdminTab('reviews',this)">Reviews</button>
+    </div>
+    <div id="adminContent"></div>
+    <button class="light" onclick="logout()">Admin Logout</button>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <h3>🔥 Fire Squirrel</h3>
+      <p>Your Need, We Find It.</p>
+      <p>Founded in 2026</p>
+      <p>বাংলাদেশের জন্য multi-vendor marketplace.</p>
+    </div>
+    <div>
+      <h3>Social Media</h3>
+      <a href="https://www.facebook.com/firesquirrelbd" target="_blank">Facebook</a>
+      <a href="https://www.instagram.com/fire_squirrelbd" target="_blank">Instagram — @fire_squirrelbd</a>
+      <a href="https://www.tiktok.com/@fire_squirrelbd" target="_blank">TikTok — @fire_squirrelbd</a>
+    </div>
+    <div>
+      <h3>Contact & Support</h3>
+      <a href="https://firesquirrelbd.github.io/firesquirrelbd/" target="_blank">Website</a>
+      <a href="mailto:firesquirrelbd@gmail.com">firesquirrelbd@gmail.com</a>
+      <a href="https://wa.me/8801516602562" target="_blank">WhatsApp: 01516-602562</a>
+      <p>Complaint number: <b>01516-602562</b></p>
+      <p>Payment demo number: <b>01516602562</b></p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © 2026 Fire Squirrel. All rights reserved.
+  </div>
+</footer>
+
+<!-- Customer login -->
+<div class="modal" id="authModal">
+  <div class="modal-box">
+    <button class="close" onclick="closeModal('authModal')">✕</button>
+    <h2>Customer Login</h2>
+    <div class="form">
+      <input id="loginPhone" placeholder="Mobile number">
+      <input id="loginPassword" type="password" placeholder="Password">
+      <button class="orange" onclick="loginCustomer()">Login</button>
+      <hr>
+      <h3>Create Customer Account</h3>
+      <input id="registerName" placeholder="Full name">
+      <input id="registerPhone" placeholder="Mobile number">
+      <input id="registerPassword" type="password" placeholder="Create password">
+      <button class="dark" onclick="registerCustomer()">Register</button>
+      <p class="small-note">এই prototype-এ OTP simulated। real SMS OTP চালু করতে backend ও SMS provider লাগবে।</p>
+    </div>
+  </div>
+</div>
+
+<!-- Seller registration -->
+<div class="modal" id="sellerRegisterModal">
+  <div class="modal-box">
+    <button class="close" onclick="closeModal('sellerRegisterModal')">✕</button>
+    <h2>🏪 Seller Registration</h2>
+    <div class="form">
+      <input id="sellerOwner" placeholder="Owner name">
+      <input id="sellerShopName" placeholder="Shop name">
+      <input id="sellerPhone" placeholder="Mobile number">
+      <input id="sellerPassword" type="password" placeholder="Create password">
+      <input id="sellerAddress" placeholder="Shop area / address">
+      <select id="sellerCategory">
+        <option value="">Choose main category</option>
+        <option>Clothing</option><option>Electronics</option><option>Mobile</option>
+        <option>Books</option><option>Sports</option><option>Beauty</option>
+        <option>Medicine</option><option>Grocery</option><option>Home</option>
+        <option>Shoes</option><option>Bags</option><option>Other</option>
+      </select>
+      <button class="orange" onclick="registerSeller()">Submit Seller Application</button>
+      <p class="small-note">প্রথমে application pending থাকবে। Admin approve করার আগে shop/product public হবে না।</p>
+    </div>
+  </div>
+</div>
+
+<!-- Simulated OTP -->
+<div class="modal" id="otpModal">
+  <div class="modal-box">
+    <button class="close" onclick="closeModal('otpModal')">✕</button>
+    <h2>📲 OTP Verification (Demo)</h2>
+    <p>Demo OTP: <b>123456</b></p>
+    <input id="otpInput" placeholder="Enter OTP">
+    <br><br>
+    <button class="orange" onclick="verifyOtp()">Verify OTP</button>
+  </div>
+</div>
+
+<!-- Checkout -->
+<div class="modal" id="checkoutModal">
+  <div class="modal-box">
+    <button class="close" onclick="closeModal('checkoutModal')">✕</button>
+    <h2>🛒 Checkout</h2>
+    <div id="checkoutDetails"></div>
+    <div class="form">
+      <input id="checkoutName" placeholder="Customer name">
+      <input id="checkoutPhone" placeholder="Mobile number">
+      <input id="checkoutAddress" placeholder="Full delivery address">
+      <input id="checkoutVillage" placeholder="Village / area">
+      <input id="checkoutUpazila" placeholder="Upazila / thana">
+      <input id="checkoutDistrict" placeholder="District">
+      <select id="paymentMethod">
+        <option value="">Select payment method</option>
+        <option value="Online payment (demo)">Online payment — 01516602562</option>
+        <option value="Cash on delivery (demo)">Cash on delivery (demo)</option>
+      </select>
+      <button class="orange" onclick="placeOrder()">Confirm Order</button>
+    </div>
+  </div>
+</div>
+
+<!-- Private demo admin login -->
+<div class="modal" id="adminLoginModal">
+  <div class="modal-box">
+    <button class="close" onclick="closeModal('adminLoginModal')">✕</button>
+    <h2>🔐 Owner Admin Login</h2>
+    <div class="form">
+      <input id="adminUsername" placeholder="Admin username / email">
+      <input id="adminPassword" type="password" placeholder="Admin password">
+      <button class="orange" onclick="adminLogin()">Continue to OTP</button>
+      <p class="small-note">Demo credentials are stored in the page source and are NOT secure for a public business website.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+/*
+  FRONTEND PROTOTYPE ONLY.
+  Data is local to this browser. Do not use real customer data/passwords.
+  Real multi-user marketplace needs server-side authentication, database,
+  role permissions, RLS, and real SMS/email integration.
+*/
+
+const DEMO_ADMIN_USER = "owner@firesquirrelbd.com";
+const DEMO_ADMIN_PASSWORD = "FS@Demo2026";
+const DEMO_OTP = "123456";
+const DB_KEY = "fs_marketplace_prototype_v1";
+const SESSION_KEY = "fs_marketplace_session_v1";
+
+const CATEGORIES = [
+  ["All","🛍️"],["Clothing","👕"],["Electronics","📺"],["Mobile","📱"],
+  ["Books","📚"],["Sports","🏏"],["Beauty","💄"],["Medicine","💊"],
+  ["Grocery","🛒"],["Home","🏠"],["Shoes","👟"],["Bags","🎒"],
+  ["Jewelry","💍"],["Baby & Kids","🧸"],["Computer","💻"],
+  ["Stationery","✏️"],["Automotive","🚗"],["Furniture","🛋️"],
+  ["Agriculture","🌱"],["Other","📦"]
+];
+
+function blankDB(){
+  return {users:[],shops:[],products:[],orders:[],reviews:[],notifications:[]};
+}
+function loadDB(){
+  try{return JSON.parse(localStorage.getItem(DB_KEY)) || blankDB();}
+  catch(e){return blankDB();}
+}
+let db = loadDB();
+let session = null;
+try { session = JSON.parse(localStorage.getItem(SESSION_KEY) || "null"); } catch(e){}
+let currentCategory = "All";
+let pendingProductId = null;
+let pendingOtpAction = null;
+let selectedReviewOrder = null;
+let selectedStars = 0;
+let pendingRegistration = null;
+
+function saveDB(){
+  localStorage.setItem(DB_KEY,JSON.stringify(db));
+  refreshCounts();
+}
+function saveSession(){
+  if(session) localStorage.setItem(SESSION_KEY,JSON.stringify(session));
+  else localStorage.removeItem(SESSION_KEY);
+}
+function currentUser(){
+  if(!session || session.role === "admin") return null;
+  return db.users.find(u=>u.id===session.userId) || null;
+}
+function isAdmin(){return !!session && session.role === "admin";}
+function uid(prefix){return prefix + Date.now().toString(36) + Math.random().toString(36).slice(2,6);}
+function safe(s){
+  return String(s ?? "").replace(/[&<>"']/g,c=>({
+    "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
+  }[c]));
+}
+function openModal(id){document.getElementById(id).classList.add("show");}
+function closeModal(id){document.getElementById(id).classList.remove("show");}
+
+function buildCategories(){
+  document.getElementById("categories").innerHTML=CATEGORIES.map(c=>
+    `<div class="category" onclick="chooseCategory('${safe(c[0])}')">
+      <div>${c[1]}</div><b>${safe(c[0])}</b>
+    </div>`).join("");
+}
+function visibleProducts(){
+  return db.products.filter(p=>{
+    const shop=db.shops.find(s=>s.id===p.shopId);
+    return p.status==="approved" && shop && shop.status==="approved";
+  });
+}
+function renderProducts(){
+  const q=document.getElementById("searchInput").value.toLowerCase().trim();
+  let list=visibleProducts();
+  if(currentCategory!=="All") list=list.filter(p=>p.category===currentCategory);
+  if(q) list=list.filter(p=>(p.name+" "+p.category+" "+(p.shopName||"")).toLowerCase().includes(q));
+  document.getElementById("productCount").textContent=list.length+" approved products";
+  const grid=document.getElementById("productGrid");
+  if(!list.length){
+    grid.innerHTML='<div class="empty">এখনো কোনো approved product নেই। Seller shop approve হয়ে product upload ও admin approve করলে এখানে product দেখা যাবে।</div>';
+    return;
+  }
+  grid.innerHTML=list.map(p=>{
+    const shop=db.shops.find(s=>s.id===p.shopId);
+    const stars=getShopRating(p.shopId);
+    return `<div class="product">
+      <div class="product-image">${p.image ? `<img src="${safe(p.image)}" alt="">` : "📦"}</div>
+      <h3>${safe(p.name)}</h3>
+      <div class="muted">🏪 ${safe(shop?.name||"Shop")}</div>
+      <div class="stars">${stars.label}</div>
+      <div class="price">৳${Number(p.price).toLocaleString("en-BD")}</div>
+      <div class="muted">Stock: ${Number(p.stock)}</div>
+      <div class="muted">${safe(p.description||"")}</div>
+      <div class="actions">
+        <button class="light" onclick="productDetails('${p.id}')">Details</button>
+        <button class="orange" onclick="orderNow('${p.id}')">Order Now</button>
+      </div>
+    </div>`;
+  }).join("");
+}
+function chooseCategory(cat){
+  currentCategory=cat;
+  renderProducts();
+  document.getElementById("products").scrollIntoView({behavior:"smooth"});
+}
+function productDetails(id){
+  const p=visibleProducts().find(x=>x.id===id);
+  if(p) alert(`${p.name}\nPrice: ৳${p.price}\nCategory: ${p.category}\nStock: ${p.stock}\n\n${p.description||""}`);
+}
+function renderShops(){
+  const shops=db.shops.filter(s=>s.status==="approved");
+  document.getElementById("shopGrid").innerHTML=shops.length?shops.map(s=>{
+    const rating=getShopRating(s.id);
+    const count=visibleProducts().filter(p=>p.shopId===s.id).length;
+    return `<div class="shop-card">
+      <h3>🏪 ${safe(s.name)}</h3>
+      <div class="stars">${rating.label}</div>
+      <p class="muted">${rating.count} reviews · ${count} products</p>
+      <p class="muted">📍 ${safe(s.address||"Bangladesh")}</p>
+      <button class="orange" onclick="viewShop('${s.id}')">View Shop</button>
+    </div>`;
+  }).join(""):'<div class="empty">এখনো কোনো approved shop নেই। Seller approve হলে এখানে shop দেখা যাবে।</div>';
+}
+function viewShop(shopId){
+  const shop=db.shops.find(s=>s.id===shopId);
+  const list=visibleProducts().filter(p=>p.shopId===shopId);
+  alert(`${shop.name}\nLocation: ${shop.address||"Not supplied"}\nApproved Products: ${list.length}\nRating: ${getShopRating(shopId).label}`);
+}
+function getShopRating(shopId){
+  const r=db.reviews.filter(x=>x.shopId===shopId);
+  if(!r.length) return {label:"No reviews yet",count:0};
+  const avg=r.reduce((n,x)=>n+x.stars,0)/r.length;
+  return {label:"★ "+avg.toFixed(1)+"/5",count:r.length};
+}
+function refreshCounts(){
+  const approvedShops=db.shops.filter(s=>s.status==="approved");
+  document.getElementById("shopCount").textContent=approvedShops.length;
+  document.getElementById("approvedProductCount").textContent=visibleProducts().length;
+  document.getElementById("orderCount").textContent=db.orders.length;
+  document.getElementById("reviewCount").textContent=db.reviews.length;
+  renderShops();
+  renderProducts();
+  updateHeader();
+}
+function updateHeader(){
+  const user=currentUser();
+  document.getElementById("loginButton").hidden=!!session;
+  document.getElementById("accountButton").hidden=!user || user.role!=="customer";
+  document.getElementById("sellerButton").hidden=!user || user.role!=="seller";
+  document.getElementById("notificationButton").hidden=!session;
+  document.getElementById("logoutButton").hidden=!session;
+  const notifications=getMyNotifications();
+  document.getElementById("notificationCount").textContent=notifications.filter(n=>!n.read).length;
+  document.getElementById("adminSection").hidden=!isAdmin();
+  document.getElementById("sellerDashboard").hidden=!(user&&user.role==="seller");
+  document.getElementById("customerAccount").hidden=!(user&&user.role==="customer");
+}
+function getMyNotifications(){
+  if(isAdmin()) return db.notifications.filter(n=>n.for==="admin");
+  const user=currentUser();
+  return user?db.notifications.filter(n=>n.for===user.id):[];
+}
+function notify(forId,message){
+  db.notifications.unshift({id:uid("N"),for:forId,message,read:false,date:new Date().toLocaleString()});
+}
+function showNotifications(){
+  const list=getMyNotifications();
+  if(!list.length){alert("কোনো notification নেই।");return;}
+  alert(list.map(n=>"• "+n.message+" ("+n.date+")").join("\n"));
+  list.forEach(n=>n.read=true);
+  saveDB();
+}
+function logout(){
+  session=null;saveSession();
+  document.getElementById("adminSection").hidden=true;
+  document.getElementById("sellerDashboard").hidden=true;
+  document.getElementById("customerAccount").hidden=true;
+  updateHeader();
+  location.hash="";
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+/* Customer account */
+function registerCustomer(){
+  const name=document.getElementById("registerName").value.trim();
+  const phone=document.getElementById("registerPhone").value.trim();
+  const password=document.getElementById("registerPassword").value;
+  if(!name||!phone||!password){alert("Name, mobile ও password পূরণ করো।");return;}
+  if(db.users.some(u=>u.phone===phone)){alert("এই mobile number দিয়ে account আছে। Login করো।");return;}
+  pendingRegistration={role:"customer",name,phone,password};
+  pendingOtpAction="register";
+  closeModal("authModal");
+  alert("Demo OTP: 123456. Real OTP এখনো connect করা হয়নি।");
+  openModal("otpModal");
+}
+function loginCustomer(){
+  const phone=document.getElementById("loginPhone").value.trim();
+  const password=document.getElementById("loginPassword").value;
+  const user=db.users.find(u=>u.phone===phone && u.password===password);
+  if(!user){alert("Account পাওয়া যায়নি। Register করো, অথবা তথ্য ঠিক আছে কিনা দেখো।");return;}
+  session={role:user.role,userId:user.id};saveSession();
+  closeModal("authModal");
+  location.hash="";
+  afterLogin();
+}
+function verifyOtp(){
+  if(document.getElementById("otpInput").value!==DEMO_OTP){alert("ভুল OTP। Demo OTP হলো 123456।");return;}
+  if(pendingOtpAction==="register" && pendingRegistration){
+    const u={id:uid("U"),...pendingRegistration,createdAt:new Date().toISOString()};
+    db.users.push(u);
+    if(u.role==="seller"){
+      const shop={id:uid("S"),ownerId:u.id,name:u.shopName,address:u.shopAddress,category:u.category,status:"pending"};
+      db.shops.push(shop);
+      u.shopId=shop.id;
+      notify("admin","New seller registration: "+shop.name);
+    }
+    saveDB();
+    session={role:u.role,userId:u.id};saveSession();
+  }else if(pendingOtpAction==="admin"){
+    session={role:"admin"};saveSession();
+  }
+  pendingRegistration=null;pendingOtpAction=null;
+  closeModal("otpModal");
+  afterLogin();
+}
+function afterLogin(){
+  updateHeader();
+  if(isAdmin()){renderAdmin();document.getElementById("adminSection").hidden=false;}
+  else if(currentUser()?.role==="seller"){renderSellerDashboard();}
+  else if(currentUser()?.role==="customer"){showAccountTab("profile");}
+  refreshCounts();
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+/* Seller registration/dashboard */
+function registerSeller(){
+  const owner=document.getElementById("sellerOwner").value.trim();
+  const shopName=document.getElementById("sellerShopName").value.trim();
+  const phone=document.getElementById("sellerPhone").value.trim();
+  const password=document.getElementById("sellerPassword").value;
+  const address=document.getElementById("sellerAddress").value.trim();
+  const category=document.getElementById("sellerCategory").value;
+  if(!owner||!shopName||!phone||!password||!category){alert("সব প্রয়োজনীয় তথ্য পূরণ করো।");return;}
+  if(db.users.some(u=>u.phone===phone)){alert("এই mobile number দিয়ে account আছে।");return;}
+  pendingRegistration={role:"seller",name:owner,shopName,phone,password,shopAddress:address,category};
+  pendingOtpAction="register";
+  closeModal("sellerRegisterModal");
+  alert("Demo OTP: 123456. Real SMS এখনো connect করা হয়নি।");
+  openModal("otpModal");
+}
+function openSellerDashboard(){
+  const user=currentUser();
+  if(user?.role!=="seller") return;
+  renderSellerDashboard();
+  document.getElementById("sellerDashboard").hidden=false;
+  document.getElementById("sellerDashboard").scrollIntoView({behavior:"smooth"});
+}
+function renderSellerDashboard(){
+  const u=currentUser();
+  if(!u)return;
+  const shop=db.shops.find(s=>s.ownerId===u.id);
+  const box=document.getElementById("sellerDashboardContent");
+  if(!shop){box.innerHTML='<div class="panel">Shop profile পাওয়া যায়নি।</div>';return;}
+  const products=db.products.filter(p=>p.shopId===shop.id);
+  const orders=db.orders.filter(o=>o.shopId===shop.id);
+  let html=`<div class="panel">
+    <h3>${safe(shop.name)}</h3>
+    <p>Status: <span class="status ${shop.status==="approved"?"":"pending"}">${safe(shop.status)}</span></p>
+    <p class="muted">Location: ${safe(shop.address||"Not added")}</p>
+    <p>Products: ${products.length} · Orders: ${orders.length}</p>
+  </div>`;
+  if(shop.status==="approved"){
+    html+=`<div class="panel"><h3>➕ Add Product</h3>
+    <div class="form">
+      <input id="newProductName" placeholder="Product name">
+      <select id="newProductCategory">${CATEGORIES.filter(c=>c[0]!=="All").map(c=>`<option>${safe(c[0])}</option>`).join("")}</select>
+      <input id="newProductPrice" type="number" min="1" placeholder="Price (৳)">
+      <input id="newProductStock" type="number" min="0" placeholder="Stock quantity">
+      <input id="newProductImage" placeholder="Product image URL (optional)">
+      <textarea id="newProductDescription" placeholder="Full product description and specifications"></textarea>
+      <button class="orange" onclick="addProduct()">Submit Product for Approval</button>
+    </div>
+    <p class="small-note">Admin approve না করা পর্যন্ত product public page-এ দেখা যাবে না।</p>
+    </div>`;
+  }else{
+    html+='<div class="panel">Admin তোমার shop approve করলে product upload করতে পারবে।</div>';
+  }
+  html+=`<div class="panel"><h3>My Products</h3>`+
+    (products.map(p=>`<div class="item-row"><b>${safe(p.name)}</b> · ৳${p.price} · ${safe(p.status)}<br><small>${safe(p.category)} · Stock ${p.stock}</small></div>`).join("")||"<p>এখনো কোনো product নেই।</p>")+
+    `</div><div class="panel"><h3>Orders for My Shop</h3>`+
+    (orders.map(o=>sellerOrderMarkup(o)).join("")||"<p>এখনো কোনো order নেই।</p>")+"</div>";
+  box.innerHTML=html;
+}
+function addProduct(){
+  const u=currentUser();
+  const shop=db.shops.find(s=>s.ownerId===u?.id);
+  if(!shop||shop.status!=="approved"){alert("Shop approve হওয়ার পর product add করতে পারবে।");return;}
+  const name=document.getElementById("newProductName").value.trim();
+  const category=document.getElementById("newProductCategory").value;
+  const price=Number(document.getElementById("newProductPrice").value);
+  const stock=Number(document.getElementById("newProductStock").value);
+  const image=document.getElementById("newProductImage").value.trim();
+  const description=document.getElementById("newProductDescription").value.trim();
+  if(!name||price<=0||stock<0){alert("Product name, valid price ও stock দাও।");return;}
+  if(image&&!/^https:\/\//i.test(image)){alert("Image URL অবশ্যই https:// দিয়ে শুরু হতে হবে।");return;}
+  db.products.push({id:uid("P"),shopId:shop.id,shopName:shop.name,name,category,price,stock,image,description,status:"pending",createdAt:new Date().toISOString()});
+  notify("admin","New product submitted: "+name+" from "+shop.name);
+  saveDB();renderSellerDashboard();
+  alert("Product submitted. Admin approve করলে website-এ দেখা যাবে।");
+}
+
+/* Customer checkout and locked order price */
+function orderNow(productId){
+  const p=visibleProducts().find(x=>x.id===productId);
+  if(!p)return;
+  if(!currentUser() || currentUser().role!=="customer"){
+    pendingProductId=productId;
+    openModal("authModal");
+    return;
+  }
+  openCheckout(p);
+}
+function openCheckout(p){
+  pendingProductId=p.id;
+  document.getElementById("checkoutDetails").innerHTML=
+    `<div class="panel"><b>${safe(p.name)}</b><br>Product price: ৳${p.price}<br>
+    <span class="muted">Order confirm করলে এই price snapshot save হবে।</span></div>`;
+  document.getElementById("checkoutName").value=currentUser()?.name||"";
+  document.getElementById("checkoutPhone").value=currentUser()?.phone||"";
+  openModal("checkoutModal");
+}
+function placeOrder(){
+  const p=visibleProducts().find(x=>x.id===pendingProductId);
+  const u=currentUser();
+  if(!p||!u){alert("Product অথবা customer account পাওয়া যায়নি।");return;}
+  const name=document.getElementById("checkoutName").value.trim();
+  const phone=document.getElementById("checkoutPhone").value.trim();
+  const address=document.getElementById("checkoutAddress").value.trim();
+  const village=document.getElementById("checkoutVillage").value.trim();
+  const upazila=document.getElementById("checkoutUpazila").value.trim();
+  const district=document.getElementById("checkoutDistrict").value.trim();
+  const payment=document.getElementById("paymentMethod").value;
+  if(!name||!phone||!address||!district||!payment){alert("Name, phone, address, district ও payment method পূরণ করো।");return;}
+  const delivery=district.toLowerCase().includes("dhaka")?70:140;
+  const total=Number(p.price)+delivery;
+  const shop=db.shops.find(s=>s.id===p.shopId);
+  const order={
+    id:uid("FS"),customerId:u.id,customerName:name,customerPhone:phone,
+    address,village,upazila,district,payment,
+    shopId:p.shopId,sellerId:shop.ownerId,
+    productId:p.id,productName:p.name,
+    quantity:1,unitPrice:Number(p.price),delivery,total,
+    status:"Pending",paymentStatus:"Not verified",
+    createdAt:new Date().toISOString(),reviewed:false
+  };
+  db.orders.unshift(order);
+  notify(shop.ownerId,"New order: "+order.productName+" · Order "+order.id+" · ৳"+order.total);
+  notify("admin","New order received: "+order.id);
+  saveDB();closeModal("checkoutModal");pendingProductId=null;
+  alert(`Order placed!\\nOrder ID: ${order.id}\\nProduct: ৳${order.unitPrice}\\nDelivery: ৳${delivery}\\nTotal: ৳${total}\\nStatus: Pending\\n\\nএটি demo notification; real SMS/email পাঠানো হচ্ছে না।`);
+}
+
+/* Customer profile, order history and reviews */
+function openAccount(){
+  document.getElementById("customerAccount").hidden=false;
+  showAccountTab("profile");
+  document.getElementById("customerAccount").scrollIntoView({behavior:"smooth"});
+}
+function showAccountTab(tab,button){
+  document.querySelectorAll("#customerAccount .tab").forEach(b=>b.classList.remove("active"));
+  if(button)button.classList.add("active");
+  else document.querySelectorAll("#customerAccount .tab")[0].classList.add("active");
+  const u=currentUser(),area=document.getElementById("accountContent");
+  if(!u)return;
+  if(tab==="profile"){
+    area.innerHTML=`<h3>My Profile</h3><p>Name: ${safe(u.name)}</p><p>Mobile: ${safe(u.phone)}</p><p>Account: Customer</p>`;
+  }else if(tab==="orders"){
+    const orders=db.orders.filter(o=>o.customerId===u.id);
+    area.innerHTML="<h3>📦 My Orders</h3>"+(orders.map(o=>`
+      <div class="item-row"><b>Order ${safe(o.id)}</b><br>${safe(o.productName)}<br>
+      Product: ৳${o.unitPrice} · Delivery: ৳${o.delivery} · Total: ৳${o.total}<br>
+      Status: <span class="status">${safe(o.status)}</span><br>
+      Payment: ${safe(o.paymentStatus)}<br>
+      ${o.status==="Delivered"&&!o.reviewed?`<button class="orange" onclick="openReview('${o.id}')">⭐ Rate & Review</button>`:""}
+      </div>`).join("")||'<div class="empty">এখনো কোনো order নেই।</div>');
+  }else{
+    const orders=db.orders.filter(o=>o.customerId===u.id&&o.status==="Delivered"&&!o.reviewed);
+    area.innerHTML="<h3>⭐ Rate & Review</h3>"+(orders.map(o=>`
+      <div class="item-row">${safe(o.productName)}<br>
+      <button class="orange" onclick="openReview('${o.id}')">Review this order</button></div>`).join("")||"<p>Review দেওয়ার জন্য কোনো নতুন delivered order নেই।</p>");
+  }
+}
+function openReview(orderId){
+  selectedReviewOrder=db.orders.find(o=>o.id===orderId);
+  if(!selectedReviewOrder||selectedReviewOrder.status!=="Delivered"){alert("Delivered order-এর পরেই review দেওয়া যাবে।");return;}
+  selectedStars=0;
+  document.getElementById("reviewModalContent").innerHTML=`<b>${safe(selectedReviewOrder.productName)}</b><br>Shop: ${safe(db.shops.find(s=>s.id===selectedReviewOrder.shopId)?.name||"Shop")}`;
+  document.querySelectorAll("#starChoices button").forEach(b=>b.classList.remove("selected"));
+  openModal("reviewModal");
+}
+function setStars(n){
+  selectedStars=n;
+  document.querySelectorAll("#starChoices button").forEach((b,i)=>b.style.color=i<n?"#f5a000":"#aaa");
+}
+function submitReview(){
+  if(!selectedReviewOrder||selectedStars<1){alert("একটি star rating নির্বাচন করো।");return;}
+  const text=document.getElementById("reviewText").value.trim();
+  db.reviews.push({id:uid("R"),orderId:selectedReviewOrder.id,customerId:currentUser().id,
+    shopId:selectedReviewOrder.shopId,productId:selectedReviewOrder.productId,
+    stars:selectedStars,text,createdAt:new Date().toISOString()});
+  selectedReviewOrder.reviewed=true;
+  saveDB();closeModal("reviewModal");openAccount();showAccountTab("reviews");
+  alert("Review saved in this browser demo.");
+}
+
+/* Seller orders */
+function sellerOrderMarkup(o){
+  return `<div class="item-row"><b>${safe(o.productName)}</b><br>
+  Order: ${safe(o.id)}<br>Customer: ${safe(o.customerName)} · ${safe(o.customerPhone)}<br>
+  Address: ${safe(o.address)}, ${safe(o.district)}<br>Total: ৳${o.total}<br>
+  Status: <span class="status">${safe(o.status)}</span><br>
+  ${o.status==="Pending"?`<button class="orange" onclick="changeOrderStatus('${o.id}','Confirmed')">Confirm Order</button> <button class="light" onclick="changeOrderStatus('${o.id}','Rejected')">Reject</button>`:""}
+  ${o.status==="Confirmed"?`<button class="orange" onclick="changeOrderStatus('${o.id}','Processing')">Processing</button>`:""}
+  ${o.status==="Processing"?`<button class="orange" onclick="changeOrderStatus('${o.id}','Shipped')">Mark Shipped</button>`:""}
+  ${o.status==="Shipped"?`<button class="orange" onclick="changeOrderStatus('${o.id}','Delivered')">Mark Delivered</button>`:""}
+  </div>`;
+}
+function changeOrderStatus(id,status){
+  const u=currentUser();
+  const o=db.orders.find(x=>x.id===id);
+  if(!o||!u||u.id!==o.sellerId){alert("এই order update করার permission নেই।");return;}
+  o.status=status;
+  notify(o.customerId,"Order "+o.id+" status changed to "+status);
+  saveDB();renderSellerDashboard();
+}
+
+/* Admin login and approvals */
+function adminLogin(){
+  const username=document.getElementById("adminUsername").value.trim();
+  const password=document.getElementById("adminPassword").value;
+  if(username!==DEMO_ADMIN_USER||password!==DEMO_ADMIN_PASSWORD){
+    alert("Demo credentials match করেনি।");return;
+  }
+  pendingOtpAction="admin";
+  closeModal("adminLoginModal");
+  alert("Demo OTP হলো 123456. কোনো real SMS পাঠানো হয়নি।");
+  openModal("otpModal");
+}
+function openAdmin(){
+  openModal("adminLoginModal");
+}
+function renderAdmin(){
+  if(!isAdmin())return;
+  document.getElementById("adminSection").hidden=false;
+  document.getElementById("adminSellerCount").textContent=db.shops.length;
+  document.getElementById("adminProductCount").textContent=db.products.length;
+  document.getElementById("adminOrderCount").textContent=db.orders.length;
+  const gross=db.orders.filter(o=>o.status!=="Rejected").reduce((sum,o)=>sum+o.total,0);
+  document.getElementById("adminCommission").textContent="৳"+Math.round(gross*0.10);
+  showAdminTab("sellers");
+}
+function showAdminTab(tab,button){
+  if(!isAdmin()){alert("Admin login required.");return;}
+  document.querySelectorAll("#adminSection .tab").forEach(b=>b.classList.remove("active"));
+  if(button)button.classList.add("active");
+  const area=document.getElementById("adminContent");
+  if(tab==="sellers"){
+    area.innerHTML="<h3>Seller Applications</h3>"+(db.shops.map(s=>`
+      <div class="item-row"><b>${safe(s.name)}</b><br>Owner: ${safe(db.users.find(u=>u.id===s.ownerId)?.name||"") }<br>
+      Phone: ${safe(db.users.find(u=>u.id===s.ownerId)?.phone||"")}<br>
+      Location: ${safe(s.address||"Not added")}<br>Status: ${safe(s.status)}<br>
+      ${s.status==="pending"?`<button class="orange" onclick="approveShop('${s.id}')">Approve Shop</button> <button class="light" onclick="rejectShop('${s.id}')">Reject</button>`:""}
+      </div>`).join("")||'<div class="empty">কোনো seller application নেই।</div>');
+  }else if(tab==="products"){
+    area.innerHTML="<h3>Product Approvals</h3>"+(db.products.map(p=>`
+      <div class="item-row"><b>${safe(p.name)}</b> · ৳${p.price}<br>Shop: ${safe(db.shops.find(s=>s.id===p.shopId)?.name||"")}<br>Category: ${safe(p.category)} · Stock: ${p.stock}<br>Status: ${safe(p.status)}<br>
+      ${p.status==="pending"?`<button class="orange" onclick="approveProduct('${p.id}')">Approve Product</button> <button class="light" onclick="rejectProduct('${p.id}')">Reject</button>`:""}
+      </div>`).join("")||'<div class="empty">কোনো product submitted হয়নি।</div>');
+  }else if(tab==="orders"){
+    area.innerHTML="<h3>All Orders</h3>"+(db.orders.map(o=>`
+      <div class="item-row"><b>${safe(o.id)}</b><br>${safe(o.productName)} · ৳${o.total}<br>
+      Customer: ${safe(o.customerName)} · Seller: ${safe(db.shops.find(s=>s.id===o.shopId)?.name||"")}<br>
+      Status: ${safe(o.status)} · Payment: ${safe(o.paymentStatus)}</div>`).join("")||'<div class="empty">কোনো order নেই।</div>');
+  }else{
+    area.innerHTML="<h3>Customer Reviews</h3>"+(db.reviews.map(r=>`
+      <div class="item-row">${"★".repeat(r.stars)}<br>${safe(r.text||"No written comment")}<br>
+      Shop: ${safe(db.shops.find(s=>s.id===r.shopId)?.name||"")} · Order: ${safe(r.orderId)}</div>`).join("")||'<div class="empty">কোনো review নেই।</div>');
+  }
+}
+function approveShop(id){
+  const s=db.shops.find(x=>x.id===id);if(!s||!isAdmin())return;
+  s.status="approved";notify(s.ownerId,"Your shop "+s.name+" has been approved.");
+  saveDB();renderAdmin();renderSellerDashboard();
+}
+function rejectShop(id){
+  if(!isAdmin())return;const s=db.shops.find(x=>x.id===id);if(s){s.status="rejected";notify(s.ownerId,"Your shop application was rejected.");saveDB();renderAdmin();}
+}
+function approveProduct(id){
+  const p=db.products.find(x=>x.id===id);if(!p||!isAdmin())return;
+  p.status="approved";notify(db.shops.find(s=>s.id===p.shopId)?.ownerId,"Product approved: "+p.name);
+  saveDB();renderAdmin();
+}
+function rejectProduct(id){
+  const p=db.products.find(x=>x.id===id);if(p&&isAdmin()){p.status="rejected";saveDB();renderAdmin();}
+}
+
+/* Admin page has no visible public link. Demo shortcut: visit URL#admin */
+function checkAdminRoute(){
+  if(location.hash.toLowerCase()==="#admin" && !isAdmin())openAdmin();
+  if(isAdmin())renderAdmin();
+}
+window.addEventListener("hashchange",checkAdminRoute);
+
+buildCategories();
+refreshCounts();
+updateHeader();
+
+if(session){
+  if(isAdmin())renderAdmin();
+  else if(currentUser()?.role==="seller")renderSellerDashboard();
+  else if(currentUser()?.role==="customer")showAccountTab("profile");
+}
+checkAdminRoute();
+</script>
+
+<!-- Review modal -->
+<div class="modal" id="reviewModal">
+  <div class="modal-box">
+    <button class="close" onclick="closeModal('reviewModal')">✕</button>
+    <h2>⭐ Rate & Review</h2>
+    <div id="reviewModalContent"></div>
+    <p>Seller-কে কত star দিতে চাও?</p>
+    <div id="starChoices">
+      <button onclick="setStars(1)" style="font-size:28px">★</button>
+      <button onclick="setStars(2)" style="font-size:28px">★</button>
+      <button onclick="setStars(3)" style="font-size:28px">★</button>
+      <button onclick="setStars(4)" style="font-size:28px">★</button>
+      <button onclick="setStars(5)" style="font-size:28px">★</button>
+    </div>
+    <textarea id="reviewText" placeholder="তোমার review লিখো"></textarea>
+    <br><br>
+    <button class="orange" onclick="submitReview()">Submit Review</button>
+  </div>
+</div>
+
+</body>
+</html>
